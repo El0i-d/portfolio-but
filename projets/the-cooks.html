@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>The Cooks — Eloi Dupasquier</title>
+<meta name="description" content="Étude de cas : The Cooks, plateforme web d'un festival culinaire, SAE S3-S4 du BUT Informatique." />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="theme-color" content="#0f1a2b" />
+<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="../index.html" class="monogram" aria-label="Retour à l'accueil du portfolio">
+      <span class="monogram-mark" aria-hidden="true">ED</span>
+      <span class="monogram-text">eloi_dupasquier</span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="../index.html#stage">Stage</a>
+      <a href="../index.html#sae">SAE</a>
+      <a href="../index.html#perso">Perso</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <section class="case-hero">
+    <a class="back" href="../index.html#sae">← Retour au portfolio</a>
+    <p class="label">SAE S3-S4 · étude de cas</p>
+    <h1>The Cooks, plateforme web d'un festival culinaire</h1>
+    <p class="lead">Application complète pour organiser une manifestation : billetterie, carte interactive du site, paiement cashless, réservation de camping et de parking, espace prestataires et messagerie avec l'organisation. Projet mené à 6 sur deux semestres. J'ai pris en charge l'espace prestataire.</p>
+    <dl class="facts">
+      <div><dt>Durée</dt><dd>2 semestres</dd></div>
+      <div><dt>Période</dt><dd>Sept. 2025 – avril 2026</dd></div>
+      <div><dt>Équipe</dt><dd>6 personnes</dd></div>
+      <div><dt>Mon rôle</dt><dd>Espace prestataire</dd></div>
+    </dl>
+    <ul class="tags" aria-label="Technologies">
+      <li>Vue 3</li><li>Pinia</li><li>Vue Router</li><li>Express</li><li>MariaDB</li><li>JWT</li><li>Vitest</li>
+    </ul>
+  </section>
+
+  <div class="case-body">
+    <section class="case-section">
+      <h2><span class="mono">01</span>Contexte</h2>
+      <p>SAE sur les semestres 3 et 4, en équipe de 6, avec des rôles utilisateurs distincts (public, inscrit, prestataire, organisateur, administrateur) qui n'ont pas accès aux mêmes pages.</p>
+    </section>
+
+    <section class="case-section">
+      <h2><span class="mono">02</span>Architecture</h2>
+      <ol class="archi" aria-label="Schéma d'architecture">
+        <li><strong>SPA Vue 3</strong><span>GitHub Pages</span></li>
+        <li><strong>API Express</strong><span>Railway</span></li>
+        <li><strong>MariaDB</strong><span>données du festival</span></li>
+      </ol>
+      <p class="archi-note">Authentification JWT + Google OAuth, déploiement continu par GitHub Actions.</p>
+    </section>
+
+    <section class="case-section">
+      <h2><span class="mono">03</span>Ma partie : l'espace prestataire</h2>
+      <p>37 commits, principalement sur <code>PagePrestataire.vue</code>, <code>servicespresta.vue</code>, <code>configpresta.vue</code>, <code>profilpresta.vue</code> et le store <code>prestataire.js</code> :</p>
+      <ul>
+        <li>le tableau de bord du prestataire connecté et sa navigation ;</li>
+        <li>le formulaire d'ajout et de gestion de ses services ;</li>
+        <li>la page publique de chaque prestataire et la liste des prestataires ;</li>
+        <li>le contrôle d'accès par rôle : seul le prestataire accède à sa page, et l'organisateur peut ouvrir l'espace d'un prestataire pour modifier ses informations ;</li>
+        <li>la traduction français / anglais (i18n) de ces pages.</li>
+      </ul>
+    </section>
+
+    <section class="case-section">
+      <h2><span class="mono">04</span>Travail d'équipe</h2>
+      <p>Git avec branches et fusions sur un dépôt commun d'environ 270 commits, répartition par fonctionnalité, tests unitaires Vitest sur les routes et les rôles.</p>
+    </section>
+
+    <section class="case-section">
+      <h2><span class="mono">05</span>Bilan</h2>
+      <p>J'ai appris à m'insérer dans une base de code partagée et en évolution, à concevoir une fonctionnalité de bout en bout (interface, état, appel API) et à raisonner en permissions par rôle.</p>
+    </section>
+  </div>
+
+  <nav class="case-nav" aria-label="Projets">
+    <a href="frequence-amitie-vesoul.html">← Fréquence Amitié Vesoul</a>
+    <a href="vocodeur.html">Vocodeur →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">Eloi Dupasquier · Portfolio BUT Informatique · 2026</div>
+</footer>
+</body>
+</html>

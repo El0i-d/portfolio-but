@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Pronos Mondial 26 — Eloi Dupasquier</title>
+<meta name="description" content="Étude de cas : Pronos Mondial 26, application de pronostics de la Coupe du monde entre proches." />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="theme-color" content="#0f1a2b" />
+<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="../index.html" class="monogram" aria-label="Retour à l'accueil du portfolio">
+      <span class="monogram-mark" aria-hidden="true">ED</span>
+      <span class="monogram-text">eloi_dupasquier</span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="../index.html#stage">Stage</a>
+      <a href="../index.html#sae">SAE</a>
+      <a href="../index.html#perso">Perso</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <section class="case-hero">
+    <a class="back" href="../index.html#perso">← Retour au portfolio</a>
+    <p class="label">Projet personnel · étude de cas</p>
+    <h1>Pronos Mondial 26 : les pronostics de la Coupe du monde entre proches</h1>
+    <p class="lead">Chacun pronostique les scores avant le coup d'envoi, les points tombent automatiquement et le classement se met à jour en temps réel.</p>
+    <dl class="facts">
+      <div><dt>Type</dt><dd>Application web privée</dd></div>
+      <div><dt>Année</dt><dd>2026</dd></div>
+      <div><dt>Équipe</dt><dd>Seul</dd></div>
+      <div><dt>Matchs</dt><dd>72 en phase de groupes</dd></div>
+    </dl>
+    <ul class="tags" aria-label="Technologies">
+      <li>Next.js 15</li><li>React</li><li>Supabase</li><li>PostgreSQL</li><li>Tailwind</li>
+    </ul>
+  </section>
+
+  <div class="case-body">
+    <section class="case-section">
+      <h2><span class="mono">01</span>Architecture</h2>
+      <ol class="archi" aria-label="Schéma d'architecture">
+        <li><strong>Next.js 15</strong><span>App Router · React</span></li>
+        <li><strong>Supabase</strong><span>Auth · API</span></li>
+        <li><strong>PostgreSQL</strong><span>Row Level Security</span></li>
+      </ol>
+    </section>
+
+    <section class="case-section">
+      <h2><span class="mono">02</span>La sécurité portée par la base de données</h2>
+      <p>Les règles ne reposent pas seulement sur l'interface : elles sont appliquées par PostgreSQL (Row Level Security), donc impossibles à contourner.</p>
+      <ul>
+        <li>Inscription uniquement avec un code d'invitation, vérifié côté serveur.</li>
+        <li>Pronostics verrouillés au coup d'envoi.</li>
+        <li>Pronostics des autres cachés jusqu'au début du match : impossible de copier.</li>
+      </ul>
+    </section>
+
+    <section class="case-section">
+      <h2><span class="mono">03</span>Fonctionnalités</h2>
+      <ul>
+        <li>Barème automatique : 3 points pour un score exact, 1 point pour le bon résultat.</li>
+        <li>Classement en temps réel avec podium.</li>
+        <li>Page d'administration : saisie des résultats (points recalculés automatiquement) et ajout des matchs à élimination directe.</li>
+      </ul>
+    </section>
+  </div>
+
+  <nav class="case-nav" aria-label="Projets">
+    <a href="lettrable.html">← Lettrable</a>
+    <a href="gestion.html">Gestion →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">Eloi Dupasquier · Portfolio BUT Informatique · 2026</div>
+</footer>
+</body>
+</html>

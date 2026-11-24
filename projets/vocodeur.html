@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Vocodeur — Eloi Dupasquier</title>
+<meta name="description" content="Étude de cas : Pauvocoder, un vocodeur en Java réalisé pour la SAE S1 du BUT Informatique." />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="theme-color" content="#0f1a2b" />
+<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="../index.html" class="monogram" aria-label="Retour à l'accueil du portfolio">
+      <span class="monogram-mark" aria-hidden="true">ED</span>
+      <span class="monogram-text">eloi_dupasquier</span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="../index.html#stage">Stage</a>
+      <a href="../index.html#sae">SAE</a>
+      <a href="../index.html#perso">Perso</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <section class="case-hero">
+    <a class="back" href="../index.html#sae">← Retour au portfolio</a>
+    <p class="label">SAE S1 · étude de cas</p>
+    <h1>Pauvocoder : modifier la hauteur d'une voix sans changer sa durée</h1>
+    <p class="lead">Programme Java qui lit un fichier .wav, change sa fréquence par rééchantillonnage, puis lui redonne sa durée d'origine par dilatation temporelle.</p>
+    <dl class="facts">
+      <div><dt>Semestre</dt><dd>S1</dd></div>
+      <div><dt>Année</dt><dd>2024</dd></div>
+      <div><dt>Équipe</dt><dd>Projet de groupe</dd></div>
+      <div><dt>Langage</dt><dd>Java</dd></div>
+    </dl>
+    <ul class="tags" aria-label="Technologies">
+      <li>Java</li><li>Traitement du signal</li><li>Algorithmique</li>
+    </ul>
+  </section>
+
+  <div class="case-body">
+    <section class="case-section">
+      <h2><span class="mono">01</span>Le principe</h2>
+      <p>Changer la vitesse de lecture d'un son change aussi sa hauteur. Pour modifier l'une sans l'autre, le programme rééchantillonne d'abord le signal (la hauteur change, la durée aussi), puis le redécoupe en séquences de 100 ms qu'il réassemble pour retrouver la durée d'origine.</p>
+    </section>
+
+    <section class="case-section">
+      <h2><span class="mono">02</span>Chaîne de traitement</h2>
+      <ol class="archi" aria-label="Schéma d'architecture">
+        <li><strong>Lecture .wav</strong><span>StdAudio, 44,1 kHz</span></li>
+        <li><strong>Rééchantillonnage</strong><span>changement de hauteur</span></li>
+        <li><strong>Dilatation</strong><span>durée d'origine</span></li>
+        <li><strong>Export .wav</strong><span>+ écho</span></li>
+      </ol>
+    </section>
+
+    <section class="case-section">
+      <h2><span class="mono">03</span>Trois versions comparées</h2>
+      <ul>
+        <li><strong>Découpage simple</strong> : les séquences sont recollées bout à bout, ce qui crée des clics aux jointures.</li>
+        <li><strong>Avec recouvrement</strong> : les séquences se chevauchent sur 20 ms avec un fondu, ce qui adoucit les raccords.</li>
+        <li><strong>Avec corrélation croisée</strong> : dans une fenêtre de 15 ms, le programme cherche le décalage où les deux séquences se ressemblent le plus, pour un raccord quasi inaudible.</li>
+      </ul>
+      <p>S'y ajoutent un effet d'écho et un affichage de la forme d'onde.</p>
+    </section>
+  </div>
+
+  <nav class="case-nav" aria-label="Projets">
+    <a href="the-cooks.html">← The Cooks</a>
+    <a href="quixo.html">Quixo →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">Eloi Dupasquier · Portfolio BUT Informatique · 2026</div>
+</footer>
+</body>
+</html>

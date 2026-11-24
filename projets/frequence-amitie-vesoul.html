@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Fréquence Amitié Vesoul — Eloi Dupasquier</title>
+<meta name="description" content="Étude de cas : l'application Android de la radio Fréquence Amitié Vesoul, créée pendant mon stage de BUT2." />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="theme-color" content="#0f1a2b" />
+<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="../index.html" class="monogram" aria-label="Retour à l'accueil du portfolio">
+      <span class="monogram-mark" aria-hidden="true">ED</span>
+      <span class="monogram-text">eloi_dupasquier</span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="../index.html#stage">Stage</a>
+      <a href="../index.html#sae">SAE</a>
+      <a href="../index.html#perso">Perso</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <section class="case-hero">
+    <a class="back" href="../index.html#stage">← Retour au portfolio</a>
+    <p class="label">Stage BUT2 · étude de cas</p>
+    <h1>Application mobile Fréquence Amitié Vesoul</h1>
+    <p class="lead">Création de zéro de l'application Android de la radio : direct, podcasts, recherche, compte et notifications, reliée à une API PHP que j'ai déployée sur OVH.</p>
+    <dl class="facts">
+      <div><dt>Durée</dt><dd>8 semaines</dd></div>
+      <div><dt>Période</dt><dd>Avril – juin 2026</dd></div>
+      <div><dt>Rôle</dt><dd>Développeur de l'application mobile</dd></div>
+      <div><dt>Plateforme</dt><dd>Android + API PHP</dd></div>
+    </dl>
+    <ul class="tags" aria-label="Technologies">
+      <li>Kotlin</li><li>Jetpack Compose</li><li>Media3</li><li>Retrofit</li><li>PHP</li><li>MySQL</li><li>Firebase</li>
+    </ul>
+  </section>
+
+  <div class="case-body">
+    <section class="case-section">
+      <h2><span class="mono">01</span>Contexte</h2>
+      <p>Fréquence Amitié Vesoul est une radio associative. Elle voulait un point d'accès mobile simple vers son direct et ses émissions. J'ai travaillé en binôme avec un autre stagiaire, chargé du nouveau site web : nos deux supports partagent le même backend.</p>
+    </section>
+
+    <section class="case-section">
+      <h2><span class="mono">02</span>Le besoin</h2>
+      <p>Écouter le direct en un geste, retrouver les podcasts et les replays, chercher un contenu, gérer son compte et recevoir les actualités de la radio.</p>
+    </section>
+
+    <section class="case-section">
+      <h2><span class="mono">03</span>Architecture</h2>
+      <ol class="archi" aria-label="Schéma d'architecture">
+        <li><strong>App Android</strong><span>Kotlin · Jetpack Compose</span></li>
+        <li><strong>API PHP</strong><span>OVH · api-app.frequenceamitievesoul.fr</span></li>
+        <li><strong>MySQL</strong><span>contenus, comptes, écoutes</span></li>
+      </ol>
+      <p class="archi-note">S'y ajoutent Firebase Cloud Messaging pour les notifications et le flux audio du direct.</p>
+    </section>
+
+    <section class="case-section">
+      <h2><span class="mono">04</span>Ce que j'ai construit</h2>
+      <ul>
+        <li>Navigation à 5 onglets (Accueil, Podcasts, Direct, Recherche, Compte), avec des écrans de détail (programme, émission, épisode, article) et des liens profonds.</li>
+        <li>Lecture audio en arrière-plan (service Media3/ExoPlayer) avec un lecteur persistant, la pochette du titre en cours, les paroles et un égaliseur.</li>
+        <li>Podcasts : catalogue, téléchargement, historique, commentaires et likes.</li>
+        <li>Authentification hybride (compte local + serveur, connexion Google), avec le jeton stocké chiffré.</li>
+        <li>Notifications push Firebase, qui ouvrent l'application ou une page précise.</li>
+        <li>API REST PHP + MySQL (articles, bannières, podcasts, grille des programmes, suivi d'écoute), avec un endpoint <code>/health</code> pour la mise en production.</li>
+      </ul>
+
+      <div class="shots shots--phone">
+        <figure>
+          <img src="../assets/img/fav-accueil.png" alt="Écran Accueil de l'application : lecteur du direct, recommandations et barre de navigation à 5 onglets." width="502" height="1004" loading="lazy" />
+          <figcaption>Accueil : direct, recommandations, lecteur persistant.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/img/fav-recherche.png" alt="Écran Recherche : champ de recherche, filtres par type, tri et derniers contenus." width="498" height="1004" loading="lazy" />
+          <figcaption>Recherche : filtres par type et tri.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/img/fav-compte.png" alt="Écran Compte : formulaire de connexion par email et bouton Continuer avec Google." width="488" height="786" loading="lazy" />
+          <figcaption>Compte : connexion par email ou Google.</figcaption>
+        </figure>
+      </div>
+      <div class="shots">
+        <figure>
+          <img src="../assets/img/fav-health.png" alt="Terminal : l'appel à l'endpoint /health de l'API renvoie le statut ok." width="2242" height="414" loading="lazy" />
+          <figcaption>L'endpoint /health de l'API en production répond « ok ».</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="case-section">
+      <h2><span class="mono">05</span>Démarche</h2>
+      <p>Cadrage la semaine 1 (recueil des besoins auprès de l'équipe), maquettes, puis développement par blocs fonctionnels et validation sur mobile à chaque étape. J'ai aussi rédigé un guide de transition pour une future version iOS (SwiftUI).</p>
+    </section>
+
+    <section class="case-section">
+      <h2><span class="mono">06</span>Bilan</h2>
+      <p>Ma plus grosse progression porte sur l'architecture d'une vraie application (environ 85 fichiers Kotlin organisés par domaine) et sur la mise en production d'un backend. Ce qui m'a le plus appris : relier le mobile à un système complet (contenus, API, hébergement) au lieu de le penser isolé.</p>
+    </section>
+  </div>
+
+  <nav class="case-nav" aria-label="Projets">
+    <a href="../index.html">← Accueil</a>
+    <a href="the-cooks.html">The Cooks →</a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">Eloi Dupasquier · Portfolio BUT Informatique · 2026</div>
+</footer>
+</body>
+</html>
