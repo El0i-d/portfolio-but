@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Eloi Dupasquier — Portfolio BUT Informatique</title>
+<meta name="description" content="Portfolio d'Eloi Dupasquier, étudiant en 3e année de BUT Informatique : stage, SAE et projets personnels." />
+<!-- Portfolio accessible uniquement par lien : pas d'indexation. -->
+<meta name="robots" content="noindex, nofollow" />
+<meta name="theme-color" content="#0f1a2b" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="#main" class="monogram" aria-label="Eloi Dupasquier — haut de page">
+      <span class="monogram-mark" aria-hidden="true">ED</span>
+      <span class="monogram-text">eloi_dupasquier</span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#stage">Stage</a>
+      <a href="#sae">SAE</a>
+      <a href="#perso">Perso</a>
+      <a href="#competences">Compétences</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ PRÉSENTATION ============ -->
+  <section class="hero">
+    <div class="wrap">
+      <h1 class="hero-id"><span class="bracket">[</span> ELOI_DUPASQUIER <span class="bracket">]</span></h1>
+      <p class="hero-sub">BUT Informatique · 3e année · IUT Nord Franche-Comté</p>
+      <p class="hero-lead">Je conçois des applications de bout en bout : de l'écran mobile à l'API, jusqu'à la base de données et la mise en production.</p>
+      <p class="hero-text">Étudiant en troisième année de BUT Informatique, j'aime les projets qui servent à de vrais utilisateurs. Pendant mon stage, j'ai créé de zéro l'application Android d'une radio associative. Sur mon temps libre, je développe et déploie mes propres applications web.</p>
+    </div>
+  </section>
+
+  <!-- ============ STAGE ============ -->
+  <section class="section" id="stage" aria-labelledby="stage-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label">01 · Stage</span>
+        <h2 id="stage-title">Expérience en entreprise</h2>
+      </div>
+
+      <article class="feature">
+        <div>
+          <p class="label card-meta">Stage BUT2 · 8 semaines · avril – juin 2026</p>
+          <h3>Application mobile Fréquence Amitié Vesoul</h3>
+          <p>Création de zéro de l'application Android de la radio : direct, podcasts, recherche, compte et notifications, reliée à une API PHP que j'ai déployée sur OVH.</p>
+          <ul class="tags" aria-label="Technologies">
+            <li>Kotlin</li><li>Jetpack Compose</li><li>Media3</li><li>Retrofit</li><li>PHP</li><li>MySQL</li><li>Firebase</li>
+          </ul>
+          <p style="margin-top:1.5rem"><a class="button" href="projets/frequence-amitie-vesoul.html">Lire l'étude de cas →</a></p>
+        </div>
+        <div class="feature-shots" aria-hidden="true">
+          <img src="assets/img/fav-accueil.png" alt="" width="502" height="1004" loading="lazy" />
+          <img src="assets/img/fav-recherche.png" alt="" width="498" height="1004" loading="lazy" />
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ SAE ============ -->
+  <section class="section" id="sae" aria-labelledby="sae-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label">02 · SAE</span>
+        <h2 id="sae-title">Projets universitaires</h2>
+        <p>Les situations d'apprentissage et d'évaluation (SAE) du BUT : des projets complets, souvent en équipe, menés sur un ou plusieurs semestres.</p>
+      </div>
+
+      <div class="cards cards--3">
+        <article class="card">
+          <p class="label card-meta">SAE S3-S4 · 2025 – 2026 · équipe de 6</p>
+          <h3>The Cooks</h3>
+          <p>Plateforme web d'un festival culinaire : billetterie, carte interactive, cashless, camping, parking, espace prestataires et messagerie. J'ai pris en charge l'espace prestataire.</p>
+          <ul class="tags" aria-label="Technologies">
+            <li>Vue 3</li><li>Pinia</li><li>Express</li><li>MariaDB</li><li>JWT</li><li>Vitest</li>
+          </ul>
+          <a class="card-link" href="projets/the-cooks.html">Étude de cas →</a>
+        </article>
+
+        <article class="card">
+          <p class="label card-meta">SAE S1 · 2024 · en groupe</p>
+          <h3>Vocodeur</h3>
+          <p>Modifier la hauteur d'une voix sans changer sa durée : rééchantillonnage, dilatation temporelle et recherche du meilleur raccord par corrélation croisée.</p>
+          <ul class="tags" aria-label="Technologies">
+            <li>Java</li><li>Traitement du signal</li><li>Algorithmique</li>
+          </ul>
+          <a class="card-link" href="projets/vocodeur.html">Étude de cas →</a>
+        </article>
+
+        <article class="card">
+          <p class="label card-meta">SAE S2 · 2025 · individuel</p>
+          <h3>Quixo</h3>
+          <p>Jeu de plateau complet en console, en architecture MVC, construit sur la bibliothèque imposée Boardifier.</p>
+          <ul class="tags" aria-label="Technologies">
+            <li>Java</li><li>POO</li><li>MVC</li>
+          </ul>
+          <a class="card-link" href="projets/quixo.html">Étude de cas →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJETS PERSO ============ -->
+  <section class="section" id="perso" aria-labelledby="perso-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label">03 · Projets personnels</span>
+        <h2 id="perso-title">Sur mon temps libre</h2>
+        <p>Des applications conçues, développées et déployées de A à Z.</p>
+      </div>
+
+      <div class="cards cards--3">
+        <article class="card">
+          <p class="label card-meta">Projet personnel · 2026</p>
+          <h3>Lettrable</h3>
+          <p>Lettres de motivation personnalisées par IA pour candidater en alternance, en stage ou en école. Comptes utilisateurs, abonnement mensuel, déploiement en conteneur.</p>
+          <ul class="tags" aria-label="Technologies">
+            <li>Svelte</li><li>Express</li><li>Supabase</li><li>Mistral AI</li><li>Stripe</li><li>Docker</li>
+          </ul>
+          <a class="card-link" href="projets/lettrable.html">Étude de cas →</a>
+        </article>
+
+        <article class="card">
+          <p class="label card-meta">Projet personnel · 2026</p>
+          <h3>Pronos Mondial 26</h3>
+          <p>Pronostics de la Coupe du monde entre proches, avec un classement en temps réel et des règles garanties par la base de données.</p>
+          <ul class="tags" aria-label="Technologies">
+            <li>Next.js 15</li><li>React</li><li>Supabase</li><li>PostgreSQL</li><li>Tailwind</li>
+          </ul>
+          <a class="card-link" href="projets/pronos-mondial-26.html">Étude de cas →</a>
+        </article>
+
+        <article class="card">
+          <p class="label card-meta">Projet personnel · 2026</p>
+          <h3>Gestion</h3>
+          <p>Application de gestion pour indépendants : prospects, clients, devis, factures et encaissements. Installable sur iPhone, hébergée sur un VPS.</p>
+          <ul class="tags" aria-label="Technologies">
+            <li>Nuxt 4</li><li>Vue 3</li><li>TypeScript</li><li>SQLite</li><li>Drizzle</li><li>Docker</li>
+          </ul>
+          <a class="card-link" href="projets/gestion.html">Étude de cas →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMPÉTENCES BUT ============ -->
+  <section class="section" id="competences" aria-labelledby="competences-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label">04 · Compétences</span>
+        <h2 id="competences-title">Les 6 compétences du BUT</h2>
+        <p>Pour chaque compétence du référentiel : le niveau que j'estime avoir atteint et les projets qui le prouvent.</p>
+      </div>
+
+      <div class="skills">
+        <article class="skill">
+          <span class="mono skill-num">C1</span>
+          <h3>Réaliser un développement d'application</h3>
+          <div class="level"><span class="level-bar" aria-hidden="true"><span class="on"></span><span class="on"></span><span class="on"></span></span> Avancé</div>
+          <p class="proofs"><strong>Prouvé par :</strong> stage, The Cooks, Quixo, Vocodeur, Lettrable</p>
+          <p>Applications complètes sur mobile, web et en console, de l'interface jusqu'à l'API.</p>
+        </article>
+
+        <article class="skill">
+          <span class="mono skill-num">C2</span>
+          <h3>Optimiser des applications</h3>
+          <div class="level"><span class="level-bar" aria-hidden="true"><span class="on"></span><span class="on"></span><span></span></span> Intermédiaire</div>
+          <p class="proofs"><strong>Prouvé par :</strong> Vocodeur, stage</p>
+          <p>Choix d'algorithme mesuré (corrélation croisée), caches HTTP et lecture audio en arrière-plan.</p>
+        </article>
+
+        <article class="skill">
+          <span class="mono skill-num">C3</span>
+          <h3>Administrer des systèmes communicants</h3>
+          <div class="level"><span class="level-bar" aria-hidden="true"><span class="on"></span><span class="on"></span><span></span></span> Intermédiaire</div>
+          <p class="proofs"><strong>Prouvé par :</strong> stage, Gestion</p>
+          <p>Mise en production d'une API sur un hébergement OVH, conteneurs Docker sur un VPS derrière un reverse proxy.</p>
+        </article>
+
+        <article class="skill">
+          <span class="mono skill-num">C4</span>
+          <h3>Gérer des données de l'information</h3>
+          <div class="level"><span class="level-bar" aria-hidden="true"><span class="on"></span><span class="on"></span><span></span></span> Intermédiaire</div>
+          <p class="proofs"><strong>Prouvé par :</strong> stage, Pronos Mondial 26, Gestion</p>
+          <p>Modélisation et exploitation de bases MySQL, PostgreSQL et SQLite, règles d'accès portées par la base.</p>
+        </article>
+
+        <article class="skill">
+          <span class="mono skill-num">C5</span>
+          <h3>Conduire un projet</h3>
+          <div class="level"><span class="level-bar" aria-hidden="true"><span class="on"></span><span class="on"></span><span></span></span> Intermédiaire</div>
+          <p class="proofs"><strong>Prouvé par :</strong> stage, The Cooks</p>
+          <p>Cadrage et recueil des besoins, découpage en phases, livraison par blocs fonctionnels validés.</p>
+        </article>
+
+        <article class="skill">
+          <span class="mono skill-num">C6</span>
+          <h3>Travailler dans une équipe informatique</h3>
+          <div class="level"><span class="level-bar" aria-hidden="true"><span class="on"></span><span class="on"></span><span></span></span> Intermédiaire</div>
+          <p class="proofs"><strong>Prouvé par :</strong> stage, The Cooks, Vocodeur</p>
+          <p>Binôme application/site sur un backend partagé, dépôt Git commun à six, répartition par fonctionnalité.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label">05 · Contact</span>
+        <h2 id="contact-title">Me contacter</h2>
+      </div>
+      <ul class="contact-list">
+        <li><a href="mailto:eloi.dupasquier@edu.univ-fcomte.fr"><span class="label">Université</span>eloi.dupasquier@edu.univ-fcomte.fr</a></li>
+        <li><a href="mailto:eloi.dupasquier@proton.me"><span class="label">Mail</span>eloi.dupasquier@proton.me</a></li>
+        <li><a href="https://github.com/el0i-d" rel="noopener"><span class="label">GitHub</span>github.com/el0i-d</a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">Eloi Dupasquier · Portfolio BUT Informatique · 2026</div>
+</footer>
+</body>
+</html>
