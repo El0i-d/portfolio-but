@@ -435,3 +435,75 @@ pre.code { overflow-x: auto; padding: 1.25rem; background: rgba(0, 0, 0, 0.25); 
 .tags li { margin: 0; }
 .tags li + li::before { content: " · "; color: var(--accent); white-space: pre; }
 .case-hero .back { display: block; width: fit-content; }
+
+/* =========================================================
+   Animations et interactions (assets/anim.js)
+   Discrètes, une seule fois quand c'est possible, et coupées
+   si le visiteur a demandé à réduire les animations.
+   ========================================================= */
+
+/* Le contenu passe au-dessus de la lueur de la grille. */
+main, .site-footer { position: relative; z-index: 1; }
+
+/* ---------- Terminal animé en tête ---------- */
+.hero-cmd-line { font-family: var(--font-mono); font-size: 0.9rem; color: var(--muted); margin: 0 0 1rem; }
+.hero-cmd-line .prompt { color: var(--accent); }
+.caret { display: inline-block; width: 0.55em; height: 1.05em; margin-left: 2px; vertical-align: -0.15em; background: var(--accent); animation: clignote 1.1s steps(1) infinite; }
+@keyframes clignote { 50% { opacity: 0; } }
+.cache { visibility: hidden; }
+.apparait { animation: apparait 0.55s ease-out both; }
+@keyframes apparait { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* ---------- Grille qui réagit à la souris ---------- */
+.grid-glow {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(90, 209, 232, 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(90, 209, 232, 0.35) 1px, transparent 1px);
+  background-size: 56px 56px;
+  /* Seule une zone ronde autour du curseur est visible. */
+  -webkit-mask-image: radial-gradient(220px circle at var(--x, -999px) var(--y, -999px), #000, transparent 70%);
+  mask-image: radial-gradient(220px circle at var(--x, -999px) var(--y, -999px), #000, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.grid-glow.actif { opacity: 1; }
+
+/* ---------- Progression de lecture ---------- */
+.progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; pointer-events: none; }
+.nav a.actif { color: var(--text); }
+.nav a.actif:not(.nav-cv) { box-shadow: inset 0 -2px 0 var(--accent); }
+
+/* ---------- Filtres de projets ---------- */
+.filters { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: -1rem 0 clamp(2.5rem, 6vw, 3.5rem); }
+.filters[hidden] { display: none; }
+.filters button {
+  min-height: 36px; padding: 0.35rem 0.9rem; border: 1px solid var(--line); border-radius: 999px;
+  background: transparent; color: var(--muted); font-family: var(--font-mono); font-size: 0.75rem; cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+.filters button:hover { color: var(--text); border-color: var(--muted); }
+.filters button[aria-pressed="true"] { color: var(--bg); background: var(--accent); border-color: var(--accent); }
+.filters-status { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); margin-left: 0.5rem; }
+[data-tech] { transition: opacity 0.35s ease, filter 0.35s ease; }
+.estompe { opacity: 0.22; filter: grayscale(1); }
+
+/* ---------- Schémas animés : un point de données circule ---------- */
+.archi li + li::after {
+  content: ""; position: absolute; left: 50%; top: -2rem;
+  width: 7px; height: 7px; margin-left: -3.5px; border-radius: 50%;
+  background: var(--accent); box-shadow: 0 0 10px var(--accent);
+  animation: flux-v 2.4s ease-in-out infinite;
+  opacity: 0;
+}
+.archi li:nth-child(3)::after { animation-delay: 1.2s; }
+@keyframes flux-v { 0% { transform: translateY(0); opacity: 0; } 15% { opacity: 1; } 60% { transform: translateY(1.6rem); opacity: 1; } 75%, 100% { transform: translateY(1.6rem); opacity: 0; } }
+@media (min-width: 48rem) {
+  .archi li + li::after { left: -2.4rem; top: 50%; margin: -3.5px 0 0; animation-name: flux-h; }
+  @keyframes flux-h { 0% { transform: translateX(0); opacity: 0; } 15% { opacity: 1; } 60% { transform: translateX(2rem); opacity: 1; } 75%, 100% { transform: translateX(2rem); opacity: 0; } }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caret { animation: none; }
+  .archi li + li::after, .grid-glow { display: none; }
+}

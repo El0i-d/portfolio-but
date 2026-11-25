@@ -19,7 +19,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <!-- « ?v= » : à augmenter à chaque modification du CSS, pour que les
      navigateurs ne gardent pas l'ancienne version en cache. -->
-<link rel="stylesheet" href="assets/style.css?v=3" />
+<link rel="stylesheet" href="assets/style.css?v=4" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -59,6 +59,7 @@
   <!-- ============ À PROPOS ============ -->
   <section class="hero" id="a-propos" aria-labelledby="a-propos-titre">
     <div class="wrap">
+      <p class="hero-cmd-line" aria-hidden="true"><span class="prompt">&gt;</span> <span class="hero-cmd">whoami</span><span class="caret"></span></p>
       <h1 class="hero-id" id="a-propos-titre"><span class="bracket">[</span> ELOI_DUPASQUIER <span class="bracket">]</span></h1>
       <p class="hero-sub">BUT Informatique · 3e année · IUT Nord Franche-Comté</p>
       <p class="hero-lead">Je conçois des applications de bout en bout : de l'écran mobile à l'API, jusqu'à la base de données et la mise en production.</p>
@@ -98,7 +99,20 @@
         <p>Mon stage, trois projets phares présentés en détail, puis d'autres réalisations en bref.</p>
       </div>
 
-      <article class="row" id="stage">
+      <!-- Filtres : masqués sans JavaScript (anim.js les affiche). -->
+      <div class="filters" role="group" aria-label="Filtrer les projets par technologie" hidden>
+        <button type="button" data-filtre="tout" aria-pressed="true">Tout</button>
+        <button type="button" data-filtre="kotlin" aria-pressed="false">Kotlin</button>
+        <button type="button" data-filtre="vue" aria-pressed="false">Vue.js</button>
+        <button type="button" data-filtre="js" aria-pressed="false">JavaScript</button>
+        <button type="button" data-filtre="php" aria-pressed="false">PHP</button>
+        <button type="button" data-filtre="java" aria-pressed="false">Java</button>
+        <button type="button" data-filtre="sql" aria-pressed="false">SQL</button>
+        <button type="button" data-filtre="docker" aria-pressed="false">Docker</button>
+        <span class="filters-status" role="status" aria-live="polite"></span>
+      </div>
+
+      <article class="row" id="stage" data-tech="kotlin php sql">
         <div class="row-media row-media--phones" aria-hidden="true">
           <img src="assets/img/fav-accueil.webp" alt="" width="502" height="1004" loading="lazy" />
           <img src="assets/img/fav-recherche.webp" alt="" width="498" height="1004" loading="lazy" />
@@ -112,7 +126,7 @@
         </div>
       </article>
 
-      <article class="row row--inverse">
+      <article class="row row--inverse" data-tech="vue js sql">
         <div class="row-media">
           <img src="assets/img/cooks-dashboard.webp" alt="Tableau de bord de l'espace prestataire de The Cooks" width="1200" height="720" loading="lazy" />
         </div>
@@ -125,7 +139,7 @@
         </div>
       </article>
 
-      <article class="row">
+      <article class="row" data-tech="vue js sql docker">
         <div class="row-media row-media--phone">
           <img src="assets/img/gestion-accueil.webp" alt="Accueil de l'application Gestion sur iPhone : chiffre d'affaires encaissé et montant à déclarer" width="720" height="1226" loading="lazy" />
         </div>
@@ -138,7 +152,7 @@
         </div>
       </article>
 
-      <article class="row row--inverse">
+      <article class="row row--inverse" data-tech="js sql docker">
         <div class="row-media">
           <img src="assets/img/lettrable-accueil.webp" alt="Page d'accueil de Lettrable" width="1200" height="720" loading="lazy" />
         </div>
@@ -153,21 +167,21 @@
 
       <h3 class="label sub-head">Autres projets</h3>
       <ul class="list">
-        <li>
+        <li data-tech="js sql">
           <a href="projets/pronos-mondial-26.html">
             <span class="list-title">Pronos Mondial 26</span>
             <span class="list-desc">Pronostics de la Coupe du monde entre proches, règles garanties par la base de données.</span>
             <span class="list-meta">Next.js · 2026 →</span>
           </a>
         </li>
-        <li>
+        <li data-tech="java">
           <a href="projets/vocodeur.html">
             <span class="list-title">Vocodeur</span>
             <span class="list-desc">Modifier la hauteur d'une voix sans changer sa durée, par corrélation croisée.</span>
             <span class="list-meta">Java · SAE S1 →</span>
           </a>
         </li>
-        <li>
+        <li data-tech="java">
           <a href="projets/quixo.html">
             <span class="list-title">Quixo</span>
             <span class="list-desc">Jeu de plateau en console, architecture MVC sur la bibliothèque Boardifier.</span>
@@ -378,6 +392,7 @@
 <footer class="site-footer">
   <div class="wrap">Eloi Dupasquier · Portfolio BUT Informatique · 2026</div>
 </footer>
-<script src="assets/contact.js?v=3" defer></script>
+<script src="assets/contact.js?v=4" defer></script>
+<script src="assets/anim.js?v=4" defer></script>
 </body>
 </html>
