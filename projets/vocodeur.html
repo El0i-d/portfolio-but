@@ -50,28 +50,8 @@
 
   <div class="case-body">
     <section class="case-section">
-      <h2><span class="mono">01</span>Le principe</h2>
-      <p>Changer la vitesse de lecture d'un son change aussi sa hauteur. Pour modifier l'une sans l'autre, le programme rééchantillonne d'abord le signal (la hauteur change, la durée aussi), puis le redécoupe en séquences de 100 ms qu'il réassemble pour retrouver la durée d'origine.</p>
-    </section>
-
-    <section class="case-section">
-      <h2><span class="mono">02</span>Chaîne de traitement</h2>
-      <ol class="archi" aria-label="Schéma d'architecture">
-        <li><strong>Lecture .wav</strong><span>StdAudio, 44,1 kHz</span></li>
-        <li><strong>Rééchantillonnage</strong><span>changement de hauteur</span></li>
-        <li><strong>Dilatation</strong><span>durée d'origine</span></li>
-        <li><strong>Export .wav</strong><span>+ écho</span></li>
-      </ol>
-    </section>
-
-    <section class="case-section">
-      <h2><span class="mono">03</span>Trois versions comparées</h2>
-      <ul>
-        <li><strong>Découpage simple</strong> : les séquences sont recollées bout à bout, ce qui crée des clics aux jointures.</li>
-        <li><strong>Avec recouvrement</strong> : les séquences se chevauchent sur 20 ms avec un fondu, ce qui adoucit les raccords.</li>
-        <li><strong>Avec corrélation croisée</strong> : dans une fenêtre de 15 ms, le programme cherche le décalage où les deux séquences se ressemblent le plus, pour un raccord quasi inaudible.</li>
-      </ul>
-      <p>S'y ajoutent un effet d'écho et un affichage de la forme d'onde.</p>
+      <h2><span class="mono">01</span>Le projet</h2>
+      <p>Trois versions de l'algorithme sont comparées : découpage simple, avec recouvrement, puis avec recherche du meilleur raccord par corrélation croisée. S'y ajoutent un effet d'écho et un affichage de la forme d'onde.</p>
     </section>
   </div>
 

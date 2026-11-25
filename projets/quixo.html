@@ -50,33 +50,14 @@
 
   <div class="case-body">
     <section class="case-section">
-      <h2><span class="mono">01</span>Architecture</h2>
-      <ol class="archi" aria-label="Schéma d'architecture">
-        <li><strong>Modèle</strong><span>règles du jeu</span></li>
-        <li><strong>Contrôleur</strong><span>saisie des coups</span></li>
-        <li><strong>Vue</strong><span>rendu du plateau</span></li>
-      </ol>
-      <p class="archi-note">Séparation imposée par Boardifier, bibliothèque dédiée aux jeux de plateau.</p>
-    </section>
-
-    <section class="case-section">
-      <h2><span class="mono">02</span>Ce que j'ai réalisé</h2>
-      <ul>
-        <li>Redéfinition des classes de rendu de Boardifier par héritage et polymorphisme, pour personnaliser l'affichage du plateau sans modifier le cœur de la bibliothèque.</li>
-        <li>Une saisie robuste : les commandes du type <code>A2D</code> (case de départ + direction) sont validées avant chaque coup, avec un message d'erreur clair en cas de saisie invalide.</li>
-        <li>Une boucle de jeu qui n'avance qu'avec une entrée conforme et applique les règles de Quixo à chaque tour.</li>
-      </ul>
+      <h2><span class="mono">01</span>Ce que j'ai réalisé</h2>
+      <p>J'ai redéfini les classes de rendu par héritage et polymorphisme pour personnaliser l'affichage du plateau, et écrit une saisie robuste (commandes du type <code>A2D</code>, validées avant chaque coup).</p>
       <div class="shots">
         <figure>
           <img src="../assets/img/quixo.png" alt="Plateau de Quixo en console : grille 5 × 5 avec des pions X et O, et la saisie A2D du joueur 1." width="1100" height="598" loading="lazy" />
           <figcaption>Le plateau en console et la saisie d'un coup.</figcaption>
         </figure>
       </div>
-    </section>
-
-    <section class="case-section">
-      <h2><span class="mono">03</span>Compétences mobilisées</h2>
-      <p>Programmation orientée objet (héritage, encapsulation, redéfinition de méthodes, polymorphisme), gestion des entrées utilisateur, et respect d'une architecture logicielle existante.</p>
     </section>
   </div>
 
