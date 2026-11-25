@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/style.css?v=3" />
+<link rel="stylesheet" href="../assets/style.css?v=5" />
 </head>
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
@@ -103,10 +103,15 @@
     <section class="case-section">
       <h2><span class="mono">04</span>Architecture</h2>
       <ol class="archi" aria-label="Schéma d'architecture">
-        <li><strong>Nuxt 4</strong><span>Vue 3 · TypeScript · PWA</span></li>
-        <li><strong>API Nuxt (Nitro)</strong><span>Zod · sessions · Web Push</span></li>
-        <li><strong>SQLite</strong><span>une base par entreprise</span></li>
+        <li><button type="button" class="archi-btn" aria-controls="archi-3-1" aria-expanded="false"><strong>Nuxt 4</strong><span>Vue 3 · TypeScript · PWA</span></button></li>
+        <li><button type="button" class="archi-btn" aria-controls="archi-3-2" aria-expanded="false"><strong>API Nuxt (Nitro)</strong><span>Zod · sessions · Web Push</span></button></li>
+        <li><button type="button" class="archi-btn" aria-controls="archi-3-3" aria-expanded="false"><strong>SQLite</strong><span>une base par entreprise</span></button></li>
       </ol>
+      <dl class="archi-details">
+        <div id="archi-3-1"><dt>Nuxt 4</dt><dd>Interface Vue 3 en TypeScript, installable sur iPhone (PWA), connexion par Face ID.</dd></div>
+        <div id="archi-3-2"><dt>API Nuxt (Nitro)</dt><dd>Une route par action, données validées par Zod, session revérifiée à chaque appel, notifications Web Push.</dd></div>
+        <div id="archi-3-3"><dt>SQLite</dt><dd>Une base par entreprise avec Drizzle ORM ; un trigger empêche de modifier une facture émise.</dd></div>
+      </dl>
       <p class="archi-note">Conteneurs Docker (application + Gotenberg pour les PDF) derrière un reverse proxy Nginx avec HTTPS, sur un VPS Debian.</p>
     </section>
 
@@ -136,5 +141,6 @@
 <footer class="site-footer">
   <div class="wrap">Eloi Dupasquier · Portfolio BUT Informatique · 2026</div>
 </footer>
+<script src="../assets/anim.js?v=5" defer></script>
 </body>
 </html>

@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/style.css?v=3" />
+<link rel="stylesheet" href="../assets/style.css?v=5" />
 </head>
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
@@ -116,10 +116,15 @@
     <section class="case-section">
       <h2><span class="mono">05</span>Architecture</h2>
       <ol class="archi" aria-label="Schéma d'architecture">
-        <li><strong>SPA Vue 3</strong><span>Pinia · Vue Router</span></li>
-        <li><strong>API Express</strong><span>JWT · Google OAuth</span></li>
-        <li><strong>MariaDB</strong><span>Sequelize</span></li>
+        <li><button type="button" class="archi-btn" aria-controls="archi-2-1" aria-expanded="false"><strong>SPA Vue 3</strong><span>Pinia · Vue Router</span></button></li>
+        <li><button type="button" class="archi-btn" aria-controls="archi-2-2" aria-expanded="false"><strong>API Express</strong><span>JWT · Google OAuth</span></button></li>
+        <li><button type="button" class="archi-btn" aria-controls="archi-2-3" aria-expanded="false"><strong>MariaDB</strong><span>Sequelize</span></button></li>
       </ol>
+      <dl class="archi-details">
+        <div id="archi-2-1"><dt>SPA Vue 3</dt><dd>Pages par rôle, état partagé dans des stores Pinia, routes protégées par rôle, traduction français / anglais.</dd></div>
+        <div id="archi-2-2"><dt>API Express</dt><dd>Routes REST (prestataires, services, billets, cashless, messagerie), authentification JWT et Google OAuth, rôle vérifié sur chaque route sensible.</dd></div>
+        <div id="archi-2-3"><dt>MariaDB</dt><dd>Modèles Sequelize : utilisateurs, services, scènes, transactions et messages.</dd></div>
+      </dl>
       <p class="archi-note">Déploiement continu par GitHub Actions.</p>
     </section>
 
@@ -147,5 +152,6 @@
 <footer class="site-footer">
   <div class="wrap">Eloi Dupasquier · Portfolio BUT Informatique · 2026</div>
 </footer>
+<script src="../assets/anim.js?v=5" defer></script>
 </body>
 </html>

@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/style.css?v=3" />
+<link rel="stylesheet" href="../assets/style.css?v=5" />
 </head>
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
@@ -81,10 +81,15 @@
     <section class="case-section">
       <h2><span class="mono">03</span>Architecture</h2>
       <ol class="archi" aria-label="Schéma d'architecture">
-        <li><strong>Next.js 15</strong><span>App Router · React</span></li>
-        <li><strong>Supabase</strong><span>Auth · API</span></li>
-        <li><strong>PostgreSQL</strong><span>Row Level Security</span></li>
+        <li><button type="button" class="archi-btn" aria-controls="archi-5-1" aria-expanded="false"><strong>Next.js 15</strong><span>App Router · React</span></button></li>
+        <li><button type="button" class="archi-btn" aria-controls="archi-5-2" aria-expanded="false"><strong>Supabase</strong><span>Auth · API</span></button></li>
+        <li><button type="button" class="archi-btn" aria-controls="archi-5-3" aria-expanded="false"><strong>PostgreSQL</strong><span>Row Level Security</span></button></li>
       </ol>
+      <dl class="archi-details">
+        <div id="archi-5-1"><dt>Next.js 15</dt><dd>Pages en React (App Router), classement mis à jour en temps réel.</dd></div>
+        <div id="archi-5-2"><dt>Supabase</dt><dd>Authentification par code d'invitation et accès aux données depuis l'application.</dd></div>
+        <div id="archi-5-3"><dt>PostgreSQL</dt><dd>Les règles (verrouillage au coup d'envoi, pronos cachés jusqu'au match) sont écrites en Row Level Security.</dd></div>
+      </dl>
     </section>
   </div>
 
@@ -97,5 +102,6 @@
 <footer class="site-footer">
   <div class="wrap">Eloi Dupasquier · Portfolio BUT Informatique · 2026</div>
 </footer>
+<script src="../assets/anim.js?v=5" defer></script>
 </body>
 </html>
