@@ -4,19 +4,19 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>The Cooks, plateforme web de festival — Eloi Dupasquier, portfolio</title>
-<meta name="description" content="Étude de cas de la SAE S3-S4 The Cooks : plateforme web d'un festival culinaire en Vue 3 et Express, réalisée à 6. Eloi Dupasquier a développé l'espace prestataire." />
+<meta name="description" content="Étude de cas de la SAE S3-S4 The Cooks : plateforme web d'un festival culinaire en Vue 3 et Express, réalisée à 5. Eloi Dupasquier a développé l'espace prestataire." />
 <meta name="author" content="Eloi Dupasquier" />
 <meta name="theme-color" content="#0f1a2b" />
 <link rel="canonical" href="https://portfolio.edupasquier.me/projets/the-cooks.html" />
 <meta property="og:type" content="article" />
 <meta property="og:locale" content="fr_FR" />
 <meta property="og:title" content="The Cooks, plateforme web de festival — Eloi Dupasquier" />
-<meta property="og:description" content="Étude de cas de la SAE S3-S4 The Cooks : plateforme web d'un festival culinaire en Vue 3 et Express, réalisée à 6. Eloi Dupasquier a développé l'espace prestataire." />
+<meta property="og:description" content="Étude de cas de la SAE S3-S4 The Cooks : plateforme web d'un festival culinaire en Vue 3 et Express, réalisée à 5. Eloi Dupasquier a développé l'espace prestataire." />
 <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/style.css" />
+<link rel="stylesheet" href="../assets/style.css?v=3" />
 </head>
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
@@ -46,7 +46,7 @@
     <dl class="facts">
       <div><dt>Période</dt><dd>Sept. 2025 – avril 2026</dd></div>
       <div><dt>Cadre</dt><dd>SAE S3-S4</dd></div>
-      <div><dt>Équipe</dt><dd>6 étudiants</dd></div>
+      <div><dt>Équipe</dt><dd>5 étudiants</dd></div>
       <div><dt>Mon rôle</dt><dd>Espace prestataire (front + API)</dd></div>
     </dl>
     <ul class="tags" aria-label="Technologies">
@@ -62,7 +62,7 @@
       <h2><span class="mono">01</span>Contexte</h2>
       <ul>
         <li><strong>Cadre</strong> : SAE des semestres 3 et 4, de septembre 2025 à avril 2026.</li>
-        <li><strong>Équipe</strong> : 6 étudiants, dépôt Git commun d'environ 270 commits.</li>
+        <li><strong>Équipe</strong> : 5 étudiants, dépôt Git commun d'environ 270 commits.</li>
         <li><strong>Mon rôle</strong> : responsable de l'<strong>espace prestataire</strong>, côté interface et côté API (37 commits).</li>
       </ul>
     </section>
@@ -75,10 +75,10 @@
     <section class="case-section">
       <h2><span class="mono">03</span>Fonctionnalités du projet</h2>
       <p>Billetterie et billets, carte interactive du site, paiement cashless, réservation de camping et de parking, réservation de scènes, liste et pages publiques des prestataires, messagerie avec l'organisation, statistiques, site bilingue français / anglais.</p>
-      <div class="shots shots--desk">
-        <figure>
+      <div class="figures">
+        <figure class="figure">
           <img src="../assets/img/cooks-accueil.webp" alt="Page d'accueil du site The Cooks." width="1200" height="720" loading="lazy" />
-          <figcaption>Accueil du site.</figcaption>
+          <figcaption><span class="fig-num">Figure 1</span><strong>Page d'accueil publique</strong><p>Première page vue par le public : présentation du festival et accès aux rubriques (billetterie, carte, prestataires). Le sélecteur FR en haut à droite change la langue du site ; le bouton « Contacter un admin » ouvre la messagerie avec l'organisation.</p></figcaption>
         </figure>
       </div>
     </section>
@@ -92,22 +92,22 @@
         <li>Accès de l'organisateur à l'espace d'un prestataire pour corriger ses informations.</li>
         <li>Traduction de ces pages en anglais.</li>
       </ul>
-      <div class="shots shots--desk">
-        <figure>
+      <div class="figures">
+        <figure class="figure">
           <img src="../assets/img/cooks-dashboard.webp" alt="Tableau de bord du prestataire : boutons Mon profil, Mes services, Réserver une scène, Configuration." width="1200" height="720" loading="lazy" />
-          <figcaption>Tableau de bord du prestataire.</figcaption>
+          <figcaption><span class="fig-num">Figure 2</span><strong>Tableau de bord du prestataire (ma partie)</strong><p>Après connexion, le prestataire arrive sur son tableau de bord. Les quatre boutons mènent à son profil, à ses services, à la réservation d'une scène et à la configuration. Cette page n'est accessible qu'aux comptes prestataire, organisateur et administrateur (défi 1).</p></figcaption>
         </figure>
-        <figure>
+        <figure class="figure">
           <img src="../assets/img/cooks-services.webp" alt="Gestion des services du prestataire : cartes de services avec prix." width="1200" height="720" loading="lazy" />
-          <figcaption>Gestion des services.</figcaption>
+          <figcaption><span class="fig-num">Figure 3</span><strong>Gestion des services (ma partie)</strong><p>Chaque service a son image, son prix et sa description. Le prestataire demande la création d'un nouveau service, et la liste se met à jour sans recharger la page grâce au store Pinia (défi 3).</p></figcaption>
         </figure>
-        <figure>
+        <figure class="figure">
           <img src="../assets/img/cooks-profil.webp" alt="Profil du prestataire : spécialité, e-mail et emplacement sur le festival." width="1200" height="720" loading="lazy" />
-          <figcaption>Profil et emplacement.</figcaption>
+          <figcaption><span class="fig-num">Figure 4</span><strong>Profil et emplacement (ma partie)</strong><p>Le profil réunit les informations publiques (spécialité, e-mail) et l'emplacement sur le festival : stand, zone et secteur. « Modifier le profil » ouvre la configuration, que l'organisateur peut aussi ouvrir pour corriger les informations (défi 2).</p></figcaption>
         </figure>
-        <figure>
+        <figure class="figure">
           <img src="../assets/img/cooks-prestataires.webp" alt="Liste publique des prestataires avec filtres par prénom, nom, e-mail et spécialité." width="1200" height="720" loading="lazy" />
-          <figcaption>Liste filtrable des prestataires.</figcaption>
+          <figcaption><span class="fig-num">Figure 5</span><strong>Liste publique des prestataires (ma partie)</strong><p>Le public retrouve les prestataires présents sur le festival et peut filtrer par prénom, nom, e-mail ou spécialité. Chaque prestataire mène à sa page publique.</p></figcaption>
         </figure>
       </div>
       <p><span class="note">Captures réalisées sur une instance locale, avec des données fictives.</span></p>

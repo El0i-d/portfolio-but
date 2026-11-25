@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/style.css" />
+<link rel="stylesheet" href="../assets/style.css?v=3" />
 </head>
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
@@ -65,7 +65,8 @@
 
     <section class="case-section">
       <h2><span class="mono">02</span>Extrait de code</h2>
-      <pre class="code"><code>// Cherche, dans une fenêtre de 15 ms, le décalage où la fin
+      <figure class="figure">
+        <pre class="code"><code>// Cherche, dans une fenêtre de 15 ms, le décalage où la fin
 // d&#x27;une séquence et le début de la suivante se ressemblent le plus.
 public static int calculOffset(double[] inputWav, int decStart, int incStop) {
     double similarity = correlation(inputWav, decStart, incStop);
@@ -79,6 +80,8 @@ public static int calculOffset(double[] inputWav, int decStart, int incStop) {
     }
     return offset;
 }</code></pre>
+        <figcaption><span class="fig-num">Figure 1</span><strong>Recherche du meilleur raccord</strong><p>Cette fonction teste chaque décalage dans une fenêtre de 15 ms et garde celui où la fin d'une séquence et le début de la suivante se ressemblent le plus (corrélation la plus forte). C'est ce qui rend les raccords presque inaudibles dans la troisième version de l'algorithme.</p></figcaption>
+      </figure>
     </section>
   </div>
 

@@ -17,7 +17,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/style.css" />
+<!-- « ?v= » : à augmenter à chaque modification du CSS, pour que les
+     navigateurs ne gardent pas l'ancienne version en cache. -->
+<link rel="stylesheet" href="assets/style.css?v=3" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -70,19 +72,19 @@
         <a class="button" href="cv/eloi-dupasquier-cv.pdf" download>Télécharger mon CV (PDF)</a>
       </div>
 
-      <div class="traits" aria-label="Savoir-être">
-        <article class="trait">
-          <h3>Autonomie</h3>
-          <p>Application Android menée de bout en bout pendant mon stage ; projets personnels conçus, développés et déployés seul.</p>
-        </article>
-        <article class="trait">
-          <h3>Travail en équipe</h3>
-          <p>Binôme application/site web sur un backend partagé pendant le stage ; équipe de 6 sur la SAE The Cooks, avec Git, branches et fusions.</p>
-        </article>
-        <article class="trait">
-          <h3>Curiosité</h3>
-          <p>Technologies apprises par moi-même au-delà des cours, comme Svelte, Next.js, Nuxt, Docker ou l'intégration d'une IA (Mistral).</p>
-        </article>
+      <div class="traits" aria-label="Qualités">
+        <div class="trait">
+          <h3>Calme</h3>
+          <p>Face à un bug ou à un imprévu, je cherche la cause avant de corriger. C'est ce qui m'a permis de résoudre le problème de Face ID derrière le reverse proxy dans Gestion.</p>
+        </div>
+        <div class="trait">
+          <h3>Polyvalent</h3>
+          <p>Du mobile (Kotlin) au web (Vue, Svelte, Next.js), de l'interface au serveur et à la base de données : je m'adapte à la technologie dont le projet a besoin.</p>
+        </div>
+        <div class="trait">
+          <h3>Persévérant</h3>
+          <p>Je mène mes projets jusqu'au bout et sur la durée : Gestion est en production et continue d'évoluer, Lettrable est en ligne.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -96,91 +98,83 @@
         <p>Mon stage, trois projets phares présentés en détail, puis d'autres réalisations en bref.</p>
       </div>
 
-      <p class="sub-head" id="stage">// stage</p>
-      <article class="feature">
-        <div>
-          <p class="label card-meta">Stage BUT2 · 8 semaines · avril – juin 2026</p>
-          <h3>Application mobile Fréquence Amitié Vesoul</h3>
-          <p>Création de zéro de l'application Android de la radio : direct, podcasts, recherche, compte et notifications, reliée à une API PHP que j'ai déployée sur OVH.</p>
-          <ul class="tags" aria-label="Technologies">
-            <li>Kotlin</li><li>Jetpack Compose</li><li>Media3</li><li>Retrofit</li><li>PHP</li><li>MySQL</li><li>Firebase</li>
-          </ul>
-          <p style="margin-top:1.5rem"><a class="button" href="projets/frequence-amitie-vesoul.html">Lire l'étude de cas →</a></p>
-        </div>
-        <div class="feature-shots" aria-hidden="true">
+      <article class="row" id="stage">
+        <div class="row-media row-media--phones" aria-hidden="true">
           <img src="assets/img/fav-accueil.webp" alt="" width="502" height="1004" loading="lazy" />
           <img src="assets/img/fav-recherche.webp" alt="" width="498" height="1004" loading="lazy" />
         </div>
+        <div class="row-body">
+          <span class="label">Stage BUT2 · avril – juin 2026</span>
+          <h3>Application mobile Fréquence Amitié Vesoul</h3>
+          <p>Création de zéro de l'application Android de la radio : direct, podcasts, recherche, compte et notifications, reliée à une API PHP que j'ai déployée sur OVH.</p>
+          <p class="stack"><span>Kotlin</span><span>Jetpack Compose</span><span>PHP</span><span>MySQL</span><span>Firebase</span></p>
+          <a class="link-arrow" href="projets/frequence-amitie-vesoul.html">Lire l'étude de cas →</a>
+        </div>
       </article>
 
-      <p class="sub-head">// projets phares</p>
-      <div class="cards cards--3">
-        <article class="card">
-          <div class="card-thumb"><img src="assets/img/cooks-dashboard.webp" alt="Tableau de bord de l'espace prestataire de The Cooks" width="1200" height="720" loading="lazy" /></div>
-          <p class="label card-meta">SAE S3-S4 · 2025 – 2026 · équipe de 6</p>
+      <article class="row row--inverse">
+        <div class="row-media">
+          <img src="assets/img/cooks-dashboard.webp" alt="Tableau de bord de l'espace prestataire de The Cooks" width="1200" height="720" loading="lazy" />
+        </div>
+        <div class="row-body">
+          <span class="label">SAE S3-S4 · équipe de 5</span>
           <h3>The Cooks</h3>
           <p>Plateforme web d'un festival culinaire : billetterie, carte interactive, cashless, camping, parking, espace prestataires et messagerie. J'ai pris en charge l'espace prestataire.</p>
-          <ul class="tags" aria-label="Technologies">
-            <li>Vue 3</li><li>Pinia</li><li>Express</li><li>MariaDB</li><li>JWT</li><li>Vitest</li>
-          </ul>
-          <a class="card-link" href="projets/the-cooks.html">Étude de cas →</a>
-        </article>
+          <p class="stack"><span>Vue 3</span><span>Pinia</span><span>Express</span><span>MariaDB</span></p>
+          <a class="link-arrow" href="projets/the-cooks.html">Lire l'étude de cas →</a>
+        </div>
+      </article>
 
-        <article class="card">
-          <div class="card-thumb"><img src="assets/img/gestion-accueil.webp" alt="Accueil de l'application Gestion sur iPhone : chiffre d'affaires encaissé et montant à déclarer" width="720" height="1226" loading="lazy" /></div>
-          <p class="label card-meta">Projet personnel · 2026 · en production</p>
+      <article class="row">
+        <div class="row-media row-media--phone">
+          <img src="assets/img/gestion-accueil.webp" alt="Accueil de l'application Gestion sur iPhone : chiffre d'affaires encaissé et montant à déclarer" width="720" height="1226" loading="lazy" />
+        </div>
+        <div class="row-body">
+          <span class="label">Projet personnel · en production</span>
           <h3>Gestion</h3>
           <p>Application de gestion pour indépendants : prospects, clients, devis, factures et encaissements. Installable sur iPhone, hébergée sur un VPS.</p>
-          <ul class="tags" aria-label="Technologies">
-            <li>Nuxt 4</li><li>Vue 3</li><li>TypeScript</li><li>SQLite</li><li>Drizzle</li><li>Docker</li>
-          </ul>
-          <a class="card-link" href="projets/gestion.html">Étude de cas →</a>
-        </article>
+          <p class="stack"><span>Nuxt 4</span><span>TypeScript</span><span>SQLite</span><span>Docker</span></p>
+          <a class="link-arrow" href="projets/gestion.html">Lire l'étude de cas →</a>
+        </div>
+      </article>
 
-        <article class="card">
-          <div class="card-thumb"><img src="assets/img/lettrable-accueil.webp" alt="Page d'accueil de Lettrable" width="1200" height="720" loading="lazy" /></div>
-          <p class="label card-meta">Projet personnel · 2026 · en ligne</p>
+      <article class="row row--inverse">
+        <div class="row-media">
+          <img src="assets/img/lettrable-accueil.webp" alt="Page d'accueil de Lettrable" width="1200" height="720" loading="lazy" />
+        </div>
+        <div class="row-body">
+          <span class="label">Projet personnel · en ligne</span>
           <h3>Lettrable</h3>
           <p>Lettres de motivation personnalisées par IA pour candidater en alternance, en stage ou en école, à partir de faits réels.</p>
-          <ul class="tags" aria-label="Technologies">
-            <li>Svelte</li><li>Express</li><li>Supabase</li><li>Mistral AI</li><li>Stripe</li><li>Docker</li>
-          </ul>
-          <a class="card-link" href="projets/lettrable.html">Étude de cas →</a>
-        </article>
-      </div>
+          <p class="stack"><span>Svelte</span><span>Express</span><span>Supabase</span><span>Mistral AI</span></p>
+          <a class="link-arrow" href="projets/lettrable.html">Lire l'étude de cas →</a>
+        </div>
+      </article>
 
-      <p class="sub-head">// autres projets</p>
-      <div class="cards cards--3">
-        <article class="card">
-          <p class="label card-meta">Projet personnel · 2026</p>
-          <h3>Pronos Mondial 26</h3>
-          <p>Pronostics de la Coupe du monde entre proches, avec un classement en temps réel et des règles garanties par la base de données.</p>
-          <ul class="tags" aria-label="Technologies">
-            <li>Next.js 15</li><li>React</li><li>Supabase</li><li>PostgreSQL</li>
-          </ul>
-          <a class="card-link" href="projets/pronos-mondial-26.html">En savoir plus →</a>
-        </article>
-
-        <article class="card">
-          <p class="label card-meta">SAE S1 · 2024 · en groupe</p>
-          <h3>Vocodeur</h3>
-          <p>Modifier la hauteur d'une voix sans changer sa durée : rééchantillonnage, dilatation temporelle et corrélation croisée.</p>
-          <ul class="tags" aria-label="Technologies">
-            <li>Java</li><li>Traitement du signal</li><li>Algorithmique</li>
-          </ul>
-          <a class="card-link" href="projets/vocodeur.html">En savoir plus →</a>
-        </article>
-
-        <article class="card">
-          <p class="label card-meta">SAE S2 · 2025 · individuel</p>
-          <h3>Quixo</h3>
-          <p>Jeu de plateau complet en console, en architecture MVC, construit sur la bibliothèque imposée Boardifier.</p>
-          <ul class="tags" aria-label="Technologies">
-            <li>Java</li><li>POO</li><li>MVC</li>
-          </ul>
-          <a class="card-link" href="projets/quixo.html">En savoir plus →</a>
-        </article>
-      </div>
+      <h3 class="label sub-head">Autres projets</h3>
+      <ul class="list">
+        <li>
+          <a href="projets/pronos-mondial-26.html">
+            <span class="list-title">Pronos Mondial 26</span>
+            <span class="list-desc">Pronostics de la Coupe du monde entre proches, règles garanties par la base de données.</span>
+            <span class="list-meta">Next.js · 2026 →</span>
+          </a>
+        </li>
+        <li>
+          <a href="projets/vocodeur.html">
+            <span class="list-title">Vocodeur</span>
+            <span class="list-desc">Modifier la hauteur d'une voix sans changer sa durée, par corrélation croisée.</span>
+            <span class="list-meta">Java · SAE S1 →</span>
+          </a>
+        </li>
+        <li>
+          <a href="projets/quixo.html">
+            <span class="list-title">Quixo</span>
+            <span class="list-desc">Jeu de plateau en console, architecture MVC sur la bibliothèque Boardifier.</span>
+            <span class="list-meta">Java · SAE S2 →</span>
+          </a>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -190,72 +184,71 @@
       <div class="section-head">
         <span class="label">02 · Compétences</span>
         <h2 id="competences-titre">Compétences</h2>
-        <p>Les technologies que j'utilise, puis les 6 compétences du BUT avec le niveau que j'estime avoir atteint et les projets qui le prouvent.</p>
+        <p>Les technologies que j'utilise, puis les 6 compétences du BUT, avec le niveau que j'estime avoir atteint et les projets qui le prouvent.</p>
       </div>
 
-      <div class="table-wrap">
-        <table class="skills-table">
-          <caption class="label" style="caption-side:top;text-align:left;padding-bottom:0.75rem">Compétences techniques</caption>
-          <tbody>
-            <tr><th scope="row">Langages</th><td>JavaScript, TypeScript, Kotlin, Java, PHP, Python, SQL</td></tr>
-            <tr><th scope="row">Front-end</th><td>Vue 3 (Nuxt, Pinia), Svelte, React (Next.js), HTML / CSS, Jetpack Compose</td></tr>
-            <tr><th scope="row">Back-end</th><td>Node.js (Express), PHP, API REST, authentification (JWT, OAuth, passkeys)</td></tr>
-            <tr><th scope="row">Données</th><td>MySQL / MariaDB, PostgreSQL (Supabase), SQLite (Drizzle)</td></tr>
-            <tr><th scope="row">Déploiement</th><td>Docker, Nginx, VPS Linux, OVH, GitHub Actions</td></tr>
-            <tr><th scope="row">Outils</th><td>Git / GitHub, Vitest, Playwright, Android Studio</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <dl class="skill-table">
+        <div><dt>Langages</dt><dd>JavaScript, TypeScript, Kotlin, Java, PHP, Python, SQL, HTML / CSS</dd></div>
+        <div><dt>Notions</dt><dd class="faible">C, C#, C++, Swift</dd></div>
+        <div><dt>Front-end</dt><dd>Vue 3 (Nuxt, Pinia), Svelte, React (Next.js), Jetpack Compose</dd></div>
+        <div><dt>Back-end</dt><dd>Node.js (Express), PHP, Flask, API REST, authentification (JWT, OAuth, passkeys)</dd></div>
+        <div><dt>Données</dt><dd>MySQL / MariaDB, PostgreSQL (Supabase), SQLite (Drizzle)</dd></div>
+        <div><dt>Déploiement</dt><dd>Docker, Nginx, VPS Debian, OVH, GitHub Actions, Jenkins</dd></div>
+        <div><dt>Outils</dt><dd>Git / GitHub, Vitest, Playwright, Android Studio, Windows 10/11</dd></div>
+        <div><dt>Méthodes</dt><dd>Rédaction de cahiers des charges, travail en équipe</dd></div>
+        <div><dt>Langue</dt><dd>Anglais B2</dd></div>
+      </dl>
 
-      <div class="skills">
-        <article class="skill">
-          <span class="mono skill-num">C1</span>
-          <h3>Réaliser un développement d'application</h3>
-          <div class="level"><span class="level-bar" aria-hidden="true"><span class="on"></span><span class="on"></span><span class="on"></span></span> Avancé</div>
-          <p class="proofs"><strong>Prouvé par :</strong> stage, The Cooks, Gestion, Lettrable, Quixo</p>
+      <ul class="but">
+        <li>
+          <div class="but-head">
+            <h3><span class="mono">C1</span>Réaliser un développement d'application</h3>
+            <span class="level"><span class="level-bar" aria-hidden="true"><span class="on"></span><span class="on"></span><span class="on"></span></span>Avancé</span>
+          </div>
           <p>Applications complètes sur mobile, web et en console, de l'interface jusqu'à l'API.</p>
-        </article>
-
-        <article class="skill">
-          <span class="mono skill-num">C2</span>
-          <h3>Optimiser des applications</h3>
-          <div class="level"><span class="level-bar" aria-hidden="true"><span class="on"></span><span class="on"></span><span></span></span> Intermédiaire</div>
-          <p class="proofs"><strong>Prouvé par :</strong> Vocodeur, stage</p>
+          <p class="proofs">Prouvé par : stage, The Cooks, Gestion, Lettrable, Quixo</p>
+        </li>
+        <li>
+          <div class="but-head">
+            <h3><span class="mono">C2</span>Optimiser des applications</h3>
+            <span class="level"><span class="level-bar" aria-hidden="true"><span class="on"></span><span class="on"></span><span></span></span>Intermédiaire</span>
+          </div>
           <p>Choix d'algorithme mesuré (corrélation croisée), caches HTTP et lecture audio en arrière-plan.</p>
-        </article>
-
-        <article class="skill">
-          <span class="mono skill-num">C3</span>
-          <h3>Administrer des systèmes communicants</h3>
-          <div class="level"><span class="level-bar" aria-hidden="true"><span class="on"></span><span class="on"></span><span></span></span> Intermédiaire</div>
-          <p class="proofs"><strong>Prouvé par :</strong> stage, Gestion, Lettrable</p>
+          <p class="proofs">Prouvé par : Vocodeur, stage</p>
+        </li>
+        <li>
+          <div class="but-head">
+            <h3><span class="mono">C3</span>Administrer des systèmes communicants</h3>
+            <span class="level"><span class="level-bar" aria-hidden="true"><span class="on"></span><span class="on"></span><span></span></span>Intermédiaire</span>
+          </div>
           <p>Mise en production d'une API sur un hébergement OVH, conteneurs Docker sur un VPS derrière un reverse proxy.</p>
-        </article>
-
-        <article class="skill">
-          <span class="mono skill-num">C4</span>
-          <h3>Gérer des données de l'information</h3>
-          <div class="level"><span class="level-bar" aria-hidden="true"><span class="on"></span><span class="on"></span><span></span></span> Intermédiaire</div>
-          <p class="proofs"><strong>Prouvé par :</strong> stage, Gestion, Pronos Mondial 26</p>
+          <p class="proofs">Prouvé par : stage, Gestion, Lettrable</p>
+        </li>
+        <li>
+          <div class="but-head">
+            <h3><span class="mono">C4</span>Gérer des données de l'information</h3>
+            <span class="level"><span class="level-bar" aria-hidden="true"><span class="on"></span><span class="on"></span><span></span></span>Intermédiaire</span>
+          </div>
           <p>Modélisation et exploitation de bases MySQL, PostgreSQL et SQLite, règles d'accès portées par la base.</p>
-        </article>
-
-        <article class="skill">
-          <span class="mono skill-num">C5</span>
-          <h3>Conduire un projet</h3>
-          <div class="level"><span class="level-bar" aria-hidden="true"><span class="on"></span><span class="on"></span><span></span></span> Intermédiaire</div>
-          <p class="proofs"><strong>Prouvé par :</strong> stage, The Cooks</p>
+          <p class="proofs">Prouvé par : stage, Gestion, Pronos Mondial 26</p>
+        </li>
+        <li>
+          <div class="but-head">
+            <h3><span class="mono">C5</span>Conduire un projet</h3>
+            <span class="level"><span class="level-bar" aria-hidden="true"><span class="on"></span><span class="on"></span><span></span></span>Intermédiaire</span>
+          </div>
           <p>Cadrage et recueil des besoins, découpage en phases, livraison par blocs fonctionnels validés.</p>
-        </article>
-
-        <article class="skill">
-          <span class="mono skill-num">C6</span>
-          <h3>Travailler dans une équipe informatique</h3>
-          <div class="level"><span class="level-bar" aria-hidden="true"><span class="on"></span><span class="on"></span><span></span></span> Intermédiaire</div>
-          <p class="proofs"><strong>Prouvé par :</strong> stage, The Cooks, Vocodeur</p>
-          <p>Binôme application/site sur un backend partagé, dépôt Git commun à six, répartition par fonctionnalité.</p>
-        </article>
-      </div>
+          <p class="proofs">Prouvé par : stage, The Cooks</p>
+        </li>
+        <li>
+          <div class="but-head">
+            <h3><span class="mono">C6</span>Travailler dans une équipe informatique</h3>
+            <span class="level"><span class="level-bar" aria-hidden="true"><span class="on"></span><span class="on"></span><span></span></span>Intermédiaire</span>
+          </div>
+          <p>Binôme application/site sur un backend partagé, dépôt Git commun à cinq, répartition par fonctionnalité.</p>
+          <p class="proofs">Prouvé par : stage, The Cooks, Vocodeur</p>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -270,7 +263,7 @@
         <li>
           <span class="when">2024 – 2027</span>
           <h3>BUT Informatique — IUT Nord Franche-Comté</h3>
-          <p>Parcours A « Réalisation d'applications : conception, développement, validation », en formation initiale.</p>
+          <p>Parcours A « Réalisation d'applications : conception, développement, validation », en formation initiale. 3e année en cours, 2e année validée.</p>
         </li>
         <li>
           <span class="when">Avril – juin 2026</span>
@@ -294,16 +287,16 @@
         <h2 id="veille-titre">Veille informatique</h2>
         <p>Les sources que je suis et les sujets qui m'occupent en ce moment.</p>
       </div>
-      <div class="veille">
-        <article class="skill">
+      <div class="cols">
+        <div>
           <h3>Vidéos</h3>
           <ul>
             <li><strong>Grafikart</strong> (FR) : développement web, Vue, PHP</li>
             <li><strong>Fireship</strong> (EN) : l'actualité du développement en format court</li>
             <li><strong>Underscore_</strong> (FR) : actualité tech et IA</li>
           </ul>
-        </article>
-        <article class="skill">
+        </div>
+        <div>
           <h3>Sites et newsletters</h3>
           <ul>
             <li><strong>Le Journal du Hacker</strong> et <strong>Hacker News</strong> : articles du moment</li>
@@ -311,15 +304,15 @@
             <li><strong>Android Developers Blog</strong> et <strong>blog de Vue.js</strong> : nouveautés de Kotlin, Compose, Vue et Nuxt</li>
             <li><strong>CERT-FR</strong> : alertes de sécurité de l'ANSSI</li>
           </ul>
-        </article>
-        <article class="skill">
+        </div>
+        <div>
           <h3>Sujets suivis</h3>
           <ul>
             <li><strong>L'IA générative</strong> dans les outils de développement</li>
             <li><strong>La facturation électronique obligatoire</strong> (réforme 2026-2027), suivie pour le projet Gestion</li>
             <li><strong>Les nouveautés</strong> de Vue / Nuxt et de Kotlin</li>
           </ul>
-        </article>
+        </div>
       </div>
     </div>
   </section>
@@ -371,10 +364,10 @@
         </form>
 
         <ul class="contact-list">
-          <li><a href="mailto:eloi.dupasquier@edu.univ-fcomte.fr"><span class="label">Université</span>eloi.dupasquier@edu.univ-fcomte.fr</a></li>
-          <li><a href="mailto:eloi.dupasquier@proton.me"><span class="label">Mail</span>eloi.dupasquier@proton.me</a></li>
-          <li><a href="https://github.com/el0i-d" rel="noopener"><span class="label">GitHub</span>github.com/el0i-d</a></li>
-          <li><a href="cv/eloi-dupasquier-cv.pdf" download><span class="label">CV</span>Télécharger (PDF)</a></li>
+          <li><a href="mailto:eloi.dupasquier@edu.univ-fcomte.fr"><span class="label">Université</span><span class="contact-val">eloi.dupasquier@edu.univ-fcomte.fr</span></a></li>
+          <li><a href="mailto:eloi.dupasquier@proton.me"><span class="label">Mail</span><span class="contact-val">eloi.dupasquier@proton.me</span></a></li>
+          <li><a href="https://github.com/el0i-d" rel="noopener"><span class="label">GitHub</span><span class="contact-val">github.com/el0i-d</span></a></li>
+          <li><a href="cv/eloi-dupasquier-cv.pdf" download><span class="label">CV</span><span class="contact-val">Télécharger (PDF)</span></a></li>
         </ul>
       </div>
     </div>
@@ -385,6 +378,6 @@
 <footer class="site-footer">
   <div class="wrap">Eloi Dupasquier · Portfolio BUT Informatique · 2026</div>
 </footer>
-<script src="assets/contact.js" defer></script>
+<script src="assets/contact.js?v=3" defer></script>
 </body>
 </html>
