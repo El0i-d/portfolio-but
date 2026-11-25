@@ -507,3 +507,77 @@ main, .site-footer { position: relative; z-index: 1; }
   .caret { animation: none; }
   .archi li + li::after, .grid-glow { display: none; }
 }
+
+/* ---------- Compétences reliées aux projets ---------- */
+.proofs { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; margin-top: 0.85rem !important; }
+.proofs-label { font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-right: 0.25rem; }
+.proof {
+  font-size: 0.8rem; padding: 0.15rem 0.6rem; border: 1px solid var(--line); border-radius: 999px;
+  color: var(--muted); text-decoration: none; transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+.proof:hover { color: var(--text); border-color: var(--accent); }
+/* Au survol (ou au focus clavier) d'une compétence, ses projets s'allument. */
+.but li:hover .proof, .but li:focus-within .proof { color: var(--accent); border-color: rgba(90, 209, 232, 0.5); background: var(--accent-soft); }
+.but li { transition: background 0.2s ease; }
+
+/* Barres de niveau qui se remplissent à l'arrivée sur la section. */
+.js .level-bar span.on { transform: scaleX(0); transform-origin: left; transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.js .level-bar span.on:nth-child(2) { transition-delay: 0.12s; }
+.js .level-bar span.on:nth-child(3) { transition-delay: 0.24s; }
+.js .rempli .level-bar span.on { transform: scaleX(1); }
+
+/* ---------- Frise du parcours qui se dessine ---------- */
+.js .timeline { position: relative; }
+.js .timeline li { border-left-color: transparent; }
+.js .timeline::before, .js .timeline::after { content: ""; position: absolute; left: 0; top: 0.5rem; bottom: 0.5rem; width: 1px; }
+.js .timeline::before { background: var(--line); }
+.js .timeline::after { background: var(--accent); transform-origin: top; transform: scaleY(var(--trace, 0)); }
+.js .timeline li::before { transition: background 0.3s ease, box-shadow 0.3s ease; }
+.js .timeline li.atteint::before { background: var(--accent); box-shadow: 0 0 10px rgba(90, 209, 232, 0.6); }
+.js .timeline li h3, .js .timeline li p { transition: opacity 0.4s ease; }
+.js .timeline li:not(.atteint) h3, .js .timeline li:not(.atteint) p { opacity: 0.45; }
+
+/* ---------- Schémas explorables ---------- */
+.archi-btn {
+  display: block; width: 100%; padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; text-align: center;
+}
+.archi li:has(.archi-btn) { padding: 0; transition: border-color 0.2s ease, background 0.2s ease; }
+.archi-btn { padding: 1rem; border-radius: var(--radius); }
+.archi li:has(.archi-btn):hover, .archi li:has(.archi-btn[aria-expanded="true"]) { border-color: var(--accent); background: var(--accent-soft); }
+.archi-btn::after { content: "+ détail"; display: block; margin-top: 0.35rem; font-family: var(--font-mono); font-size: 0.68rem; color: var(--muted); }
+.archi-btn[aria-expanded="true"]::after { content: "– détail"; color: var(--accent); }
+/* Sans JavaScript, tous les détails restent lisibles sous le schéma. */
+.archi-details { margin: 1.25rem 0 0; display: grid; gap: 0.75rem; }
+.archi-details dt { font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent); }
+.archi-details dd { margin: 0.15rem 0 0; color: var(--muted); font-size: 0.95rem; }
+.js .archi-details > div { display: none; }
+.js .archi-details > div.ouvert { display: block; animation: apparait 0.35s ease-out both; padding: 1rem 1.25rem; border-left: 2px solid var(--accent); background: var(--bg-soft); border-radius: 0 var(--radius) var(--radius) 0; }
+.js .archi-btn::after { display: block; }
+.archi-btn::after { display: none; }
+
+/* ---------- Captures agrandissables ---------- */
+.js .figure img { cursor: zoom-in; transition: transform 0.25s ease; }
+.js .figure img:hover { transform: scale(1.01); }
+.lightbox {
+  width: min(92vw, 70rem); max-height: 92vh; padding: 0; border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--bg); color: var(--text); overflow: auto;
+}
+.lightbox::backdrop { background: rgba(5, 10, 20, 0.82); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+.lightbox[open] { animation: apparait 0.25s ease-out both; }
+.lightbox-inner { display: grid; gap: 1.25rem; padding: 1.25rem; }
+.lightbox img { width: 100%; max-height: 72vh; object-fit: contain; border-radius: 8px; background: #fff; }
+.lightbox--phone img { width: auto; max-width: 100%; margin: 0 auto; border-radius: 18px; }
+.lightbox figcaption { color: var(--muted); font-size: 0.95rem; max-width: var(--narrow); }
+.lightbox figcaption strong { display: block; color: var(--text); margin-bottom: 0.3rem; }
+.lightbox-close {
+  position: sticky; top: 0.75rem; justify-self: end; margin: 0.75rem 0.75rem -3.25rem auto; z-index: 1;
+  width: 2.5rem; height: 2.5rem; border-radius: 50%; border: 1px solid var(--line); background: rgba(15, 26, 43, 0.9);
+  color: var(--text); font-size: 1.2rem; cursor: pointer; display: grid; place-items: center;
+}
+.lightbox-close:hover { border-color: var(--accent); color: var(--accent); }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .level-bar span.on { transform: none; transition: none; }
+  .js .timeline::after { transform: none; }
+  .js .timeline li:not(.atteint) h3, .js .timeline li:not(.atteint) p { opacity: 1; }
+}

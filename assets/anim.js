@@ -105,3 +105,93 @@
     });
   }
 })();
+
+// ---------- Deuxième série : compétences, frise, schémas, captures ----------
+(function () {
+  const reduit = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- 5. Barres de niveau qui se remplissent ---------- */
+  const listeBut = document.querySelector('.but');
+  if (listeBut) {
+    if (reduit || !('IntersectionObserver' in window)) {
+      listeBut.classList.add('rempli');
+    } else {
+      const obs = new IntersectionObserver((entrees) => {
+        if (entrees.some((e) => e.isIntersecting)) { listeBut.classList.add('rempli'); obs.disconnect(); }
+      }, { threshold: 0.2 });
+      obs.observe(listeBut);
+    }
+  }
+
+  /* ---------- 6. Frise du parcours qui se dessine ---------- */
+  const frise = document.querySelector('.timeline');
+  if (frise) {
+    const etapes = [...frise.querySelectorAll('li')];
+    let prevu = false;
+    const majFrise = () => {
+      const r = frise.getBoundingClientRect();
+      // Le trait avance avec le milieu de l'écran.
+      const avance = reduit ? 1 : Math.max(0, Math.min(1, (window.innerHeight * 0.6 - r.top) / r.height));
+      frise.style.setProperty('--trace', avance.toFixed(3));
+      etapes.forEach((li) => {
+        li.classList.toggle('atteint', reduit || li.getBoundingClientRect().top < window.innerHeight * 0.6);
+      });
+      prevu = false;
+    };
+    window.addEventListener('scroll', () => { if (!prevu) { prevu = true; requestAnimationFrame(majFrise); } }, { passive: true });
+    window.addEventListener('resize', majFrise);
+    majFrise();
+  }
+
+  /* ---------- 7. Schémas explorables ---------- */
+  document.querySelectorAll('.archi').forEach((schema) => {
+    const boutons = [...schema.querySelectorAll('.archi-btn')];
+    boutons.forEach((b) => b.addEventListener('click', () => {
+      const ouvrir = b.getAttribute('aria-expanded') !== 'true';
+      boutons.forEach((x) => {
+        x.setAttribute('aria-expanded', 'false');
+        const d = document.getElementById(x.getAttribute('aria-controls'));
+        if (d) d.classList.remove('ouvert');
+      });
+      if (ouvrir) {
+        b.setAttribute('aria-expanded', 'true');
+        const d = document.getElementById(b.getAttribute('aria-controls'));
+        if (d) d.classList.add('ouvert');
+      }
+    }));
+  });
+
+  /* ---------- 8. Captures agrandissables ---------- */
+  const images = document.querySelectorAll('.figure img');
+  if (images.length && typeof HTMLDialogElement === 'function') {
+    const boite = document.createElement('dialog');
+    boite.className = 'lightbox';
+    boite.setAttribute('aria-label', 'Capture agrandie');
+    boite.innerHTML = '<button type="button" class="lightbox-close" aria-label="Fermer">×</button><figure class="lightbox-inner"><figcaption></figcaption></figure>';
+    document.body.append(boite);
+    // L'image n'est créée qu'à la première ouverture (pas d'image vide dans la page).
+    const img = document.createElement('img');
+    const legende = boite.querySelector('figcaption');
+    const fermer = () => boite.close();
+    boite.querySelector('.lightbox-close').addEventListener('click', fermer);
+    // Un clic à côté de la capture (sur le fond) ferme la fenêtre.
+    boite.addEventListener('click', (e) => { if (e.target === boite) fermer(); });
+    images.forEach((im) => {
+      im.tabIndex = 0;
+      im.setAttribute('role', 'button');
+      im.setAttribute('aria-label', 'Agrandir : ' + im.alt);
+      const ouvrir = () => {
+        const fig = im.closest('.figure');
+        if (!img.isConnected) boite.querySelector('figure').prepend(img);
+        img.src = im.currentSrc || im.src;
+        img.alt = im.alt;
+        const cap = fig && fig.querySelector('figcaption');
+        legende.innerHTML = cap ? cap.innerHTML : '';
+        boite.classList.toggle('lightbox--phone', !!(fig && fig.classList.contains('figure--phone')));
+        boite.showModal();
+      };
+      im.addEventListener('click', ouvrir);
+      im.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); ouvrir(); } });
+    });
+  }
+})();

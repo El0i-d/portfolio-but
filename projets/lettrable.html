@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/style.css?v=4" />
+<link rel="stylesheet" href="../assets/style.css?v=5" />
 </head>
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
@@ -102,10 +102,15 @@
     <section class="case-section">
       <h2><span class="mono">04</span>Architecture</h2>
       <ol class="archi" aria-label="Schéma d'architecture">
-        <li><strong>Front Svelte</strong><span>Vite</span></li>
-        <li><strong>API Express</strong><span>même origine</span></li>
-        <li><strong>Services</strong><span>Supabase · Mistral · Stripe</span></li>
+        <li><button type="button" class="archi-btn" aria-controls="archi-4-1" aria-expanded="false"><strong>Front Svelte</strong><span>Vite</span></button></li>
+        <li><button type="button" class="archi-btn" aria-controls="archi-4-2" aria-expanded="false"><strong>API Express</strong><span>même origine</span></button></li>
+        <li><button type="button" class="archi-btn" aria-controls="archi-4-3" aria-expanded="false"><strong>Services</strong><span>Supabase · Mistral · Stripe</span></button></li>
       </ol>
+      <dl class="archi-details">
+        <div id="archi-4-1"><dt>Front Svelte</dt><dd>Application Svelte 5 construite avec Vite : import du CV, rédaction des lettres, suivi des candidatures.</dd></div>
+        <div id="archi-4-2"><dt>API Express</dt><dd>Lit l'offre et le site de l'entreprise, prépare les consignes pour l'IA et décompte les crédits.</dd></div>
+        <div id="archi-4-3"><dt>Services</dt><dd>Supabase (base PostgreSQL et comptes), Mistral (rédaction des lettres), Stripe (abonnement).</dd></div>
+      </dl>
       <p class="archi-note">Supabase gère la base de données et l'authentification, Mistral génère les lettres, Stripe gère l'abonnement. L'application tourne dans un conteneur Docker sur un VPS.</p>
     </section>
 
@@ -133,6 +138,6 @@
 <footer class="site-footer">
   <div class="wrap">Eloi Dupasquier · Portfolio BUT Informatique · 2026</div>
 </footer>
-<script src="../assets/anim.js?v=4" defer></script>
+<script src="../assets/anim.js?v=5" defer></script>
 </body>
 </html>
