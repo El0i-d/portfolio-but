@@ -3,10 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>The Cooks — Eloi Dupasquier</title>
-<meta name="description" content="Étude de cas : The Cooks, plateforme web d'un festival culinaire, SAE S3-S4 du BUT Informatique." />
-<meta name="robots" content="noindex, nofollow" />
+<title>The Cooks, plateforme web de festival — Eloi Dupasquier, portfolio</title>
+<meta name="description" content="Étude de cas de la SAE S3-S4 The Cooks : plateforme web d'un festival culinaire en Vue 3 et Express, réalisée à 6. Eloi Dupasquier a développé l'espace prestataire." />
+<meta name="author" content="Eloi Dupasquier" />
 <meta name="theme-color" content="#0f1a2b" />
+<link rel="canonical" href="https://portfolio.edupasquier.me/projets/the-cooks.html" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:title" content="The Cooks, plateforme web de festival — Eloi Dupasquier" />
+<meta property="og:description" content="Étude de cas de la SAE S3-S4 The Cooks : plateforme web d'un festival culinaire en Vue 3 et Express, réalisée à 6. Eloi Dupasquier a développé l'espace prestataire." />
 <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,73 +28,119 @@
       <span class="monogram-text">eloi_dupasquier</span>
     </a>
     <nav class="nav" aria-label="Navigation principale">
-      <a href="../index.html#stage">Stage</a>
-      <a href="../index.html#sae">SAE</a>
-      <a href="../index.html#perso">Perso</a>
+      <a href="../index.html#a-propos">À propos</a>
+      <a href="../index.html#projets">Projets</a>
+      <a href="../index.html#competences">Compétences</a>
       <a href="../index.html#contact">Contact</a>
+      <a class="nav-cv" href="../cv/eloi-dupasquier-cv.pdf" download>CV (PDF)</a>
     </nav>
   </div>
 </header>
 
 <main id="main" class="wrap">
   <section class="case-hero">
-    <a class="back" href="../index.html#sae">← Retour au portfolio</a>
-    <p class="label">SAE S3-S4 · étude de cas</p>
+    <a class="back" href="../index.html#projets">← Retour aux projets</a>
+    <p class="label">SAE S3-S4 · projet phare</p>
     <h1>The Cooks, plateforme web d'un festival culinaire</h1>
-    <p class="lead">Application complète pour organiser une manifestation : billetterie, carte interactive du site, paiement cashless, réservation de camping et de parking, espace prestataires et messagerie avec l'organisation. Projet mené à 6 sur deux semestres. J'ai pris en charge l'espace prestataire.</p>
+    <p class="lead">Une plateforme complète pour un festival culinaire fictif, utilisée par le public, les prestataires, les organisateurs et les administrateurs, chacun avec ses propres droits.</p>
     <dl class="facts">
-      <div><dt>Durée</dt><dd>2 semestres</dd></div>
       <div><dt>Période</dt><dd>Sept. 2025 – avril 2026</dd></div>
-      <div><dt>Équipe</dt><dd>6 personnes</dd></div>
-      <div><dt>Mon rôle</dt><dd>Espace prestataire</dd></div>
+      <div><dt>Cadre</dt><dd>SAE S3-S4</dd></div>
+      <div><dt>Équipe</dt><dd>6 étudiants</dd></div>
+      <div><dt>Mon rôle</dt><dd>Espace prestataire (front + API)</dd></div>
     </dl>
     <ul class="tags" aria-label="Technologies">
-      <li>Vue 3</li><li>Pinia</li><li>Vue Router</li><li>Express</li><li>MariaDB</li><li>JWT</li><li>Vitest</li>
+      <li>Vue 3</li><li>Pinia</li><li>Vue Router</li><li>Express</li><li>MariaDB</li><li>JWT</li><li>Vitest</li><li>GitHub Actions</li>
     </ul>
+    <div class="links">
+    </div>
+    <p class="note">Dépôt privé de l'équipe : code sur demande.</p>
   </section>
 
   <div class="case-body">
     <section class="case-section">
       <h2><span class="mono">01</span>Contexte</h2>
-      <p>SAE sur les semestres 3 et 4, en équipe de 6, avec des rôles utilisateurs distincts (public, inscrit, prestataire, organisateur, administrateur) qui n'ont pas accès aux mêmes pages.</p>
-    </section>
-
-    <section class="case-section">
-      <h2><span class="mono">02</span>Architecture</h2>
-      <ol class="archi" aria-label="Schéma d'architecture">
-        <li><strong>SPA Vue 3</strong><span>GitHub Pages</span></li>
-        <li><strong>API Express</strong><span>Railway</span></li>
-        <li><strong>MariaDB</strong><span>données du festival</span></li>
-      </ol>
-      <p class="archi-note">Authentification JWT + Google OAuth, déploiement continu par GitHub Actions.</p>
-    </section>
-
-    <section class="case-section">
-      <h2><span class="mono">03</span>Ma partie : l'espace prestataire</h2>
-      <p>37 commits, principalement sur <code>PagePrestataire.vue</code>, <code>servicespresta.vue</code>, <code>configpresta.vue</code>, <code>profilpresta.vue</code> et le store <code>prestataire.js</code> :</p>
       <ul>
-        <li>le tableau de bord du prestataire connecté et sa navigation ;</li>
-        <li>le formulaire d'ajout et de gestion de ses services ;</li>
-        <li>la page publique de chaque prestataire et la liste des prestataires ;</li>
-        <li>le contrôle d'accès par rôle : seul le prestataire accède à sa page, et l'organisateur peut ouvrir l'espace d'un prestataire pour modifier ses informations ;</li>
-        <li>la traduction français / anglais (i18n) de ces pages.</li>
+        <li><strong>Cadre</strong> : SAE des semestres 3 et 4, de septembre 2025 à avril 2026.</li>
+        <li><strong>Équipe</strong> : 6 étudiants, dépôt Git commun d'environ 270 commits.</li>
+        <li><strong>Mon rôle</strong> : responsable de l'<strong>espace prestataire</strong>, côté interface et côté API (37 commits).</li>
       </ul>
     </section>
 
     <section class="case-section">
-      <h2><span class="mono">04</span>Travail d'équipe</h2>
-      <p>Git avec branches et fusions sur un dépôt commun d'environ 270 commits, répartition par fonctionnalité, tests unitaires Vitest sur les routes et les rôles.</p>
+      <h2><span class="mono">02</span>Objectif</h2>
+      <p>Fournir à un festival culinaire fictif, « The Cooks », une plateforme web complète, utilisée par le public, les prestataires (traiteurs, techniciens…), les organisateurs et les administrateurs, chacun avec ses propres droits.</p>
     </section>
 
     <section class="case-section">
-      <h2><span class="mono">05</span>Bilan</h2>
-      <p>J'ai appris à m'insérer dans une base de code partagée et en évolution, à concevoir une fonctionnalité de bout en bout (interface, état, appel API) et à raisonner en permissions par rôle.</p>
+      <h2><span class="mono">03</span>Fonctionnalités du projet</h2>
+      <p>Billetterie et billets, carte interactive du site, paiement cashless, réservation de camping et de parking, réservation de scènes, liste et pages publiques des prestataires, messagerie avec l'organisation, statistiques, site bilingue français / anglais.</p>
+      <div class="shots shots--desk">
+        <figure>
+          <img src="../assets/img/cooks-accueil.webp" alt="Page d'accueil du site The Cooks." width="1200" height="720" loading="lazy" />
+          <figcaption>Accueil du site.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="case-section">
+      <h2><span class="mono">04</span>Ma partie : l'espace prestataire</h2>
+      <ul>
+        <li>Tableau de bord du prestataire connecté : profil, services, réservation de scène, configuration.</li>
+        <li>Gestion de ses services (création, modification, disponibilité).</li>
+        <li>Page publique de chaque prestataire et liste filtrable (nom, e-mail, spécialité).</li>
+        <li>Accès de l'organisateur à l'espace d'un prestataire pour corriger ses informations.</li>
+        <li>Traduction de ces pages en anglais.</li>
+      </ul>
+      <div class="shots shots--desk">
+        <figure>
+          <img src="../assets/img/cooks-dashboard.webp" alt="Tableau de bord du prestataire : boutons Mon profil, Mes services, Réserver une scène, Configuration." width="1200" height="720" loading="lazy" />
+          <figcaption>Tableau de bord du prestataire.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/img/cooks-services.webp" alt="Gestion des services du prestataire : cartes de services avec prix." width="1200" height="720" loading="lazy" />
+          <figcaption>Gestion des services.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/img/cooks-profil.webp" alt="Profil du prestataire : spécialité, e-mail et emplacement sur le festival." width="1200" height="720" loading="lazy" />
+          <figcaption>Profil et emplacement.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/img/cooks-prestataires.webp" alt="Liste publique des prestataires avec filtres par prénom, nom, e-mail et spécialité." width="1200" height="720" loading="lazy" />
+          <figcaption>Liste filtrable des prestataires.</figcaption>
+        </figure>
+      </div>
+      <p><span class="note">Captures réalisées sur une instance locale, avec des données fictives.</span></p>
+    </section>
+
+    <section class="case-section">
+      <h2><span class="mono">05</span>Architecture</h2>
+      <ol class="archi" aria-label="Schéma d'architecture">
+        <li><strong>SPA Vue 3</strong><span>Pinia · Vue Router</span></li>
+        <li><strong>API Express</strong><span>JWT · Google OAuth</span></li>
+        <li><strong>MariaDB</strong><span>Sequelize</span></li>
+      </ol>
+      <p class="archi-note">Déploiement continu par GitHub Actions.</p>
+    </section>
+
+    <section class="case-section">
+      <h2><span class="mono">06</span>Défis et solutions</h2>
+      <ol class="challenges">
+        <li><strong>Réserver des pages à certains rôles.</strong><p>Un visiteur pouvait ouvrir l'URL de l'espace prestataire. Chaque route déclare les rôles autorisés, le routeur les vérifie avant d'afficher la page, et l'API refuse aussi la requête : la protection ne repose pas que sur l'interface. J'ai ajouté des <strong>tests unitaires</strong> sur ces règles.</p></li>
+        <li><strong>Laisser l'organisateur modifier un prestataire sans lui donner tous les droits.</strong><p>Routes API dédiées qui vérifient le rôle de l'appelant, et réutilisation des écrans du prestataire en mode « édition par l'organisateur ».</p></li>
+        <li><strong>Des pages qui n'affichaient pas les données à jour après une modification.</strong><p>Rechargement ciblé des données depuis le store Pinia, au lieu de recharger toute la page.</p></li>
+      </ol>
+    </section>
+
+    <section class="case-section">
+      <h2><span class="mono">07</span>Évolutions possibles</h2>
+      <p>Paiement réel pour la billetterie, application mobile pour le cashless.</p>
     </section>
   </div>
 
   <nav class="case-nav" aria-label="Projets">
     <a href="frequence-amitie-vesoul.html">← Fréquence Amitié Vesoul</a>
-    <a href="vocodeur.html">Vocodeur →</a>
+    <a href="gestion.html">Gestion →</a>
   </nav>
 </main>
 

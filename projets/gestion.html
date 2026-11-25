@@ -3,10 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Gestion — Eloi Dupasquier</title>
-<meta name="description" content="Étude de cas : Gestion, application de gestion pour indépendants." />
-<meta name="robots" content="noindex, nofollow" />
+<title>Gestion, application pour indépendants — Eloi Dupasquier, portfolio</title>
+<meta name="description" content="Étude de cas de Gestion, application de gestion pour indépendants (devis, factures, encaissements) en Nuxt 4, SQLite et Docker, installable sur iPhone." />
+<meta name="author" content="Eloi Dupasquier" />
 <meta name="theme-color" content="#0f1a2b" />
+<link rel="canonical" href="https://portfolio.edupasquier.me/projets/gestion.html" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:title" content="Gestion, application pour indépendants — Eloi Dupasquier" />
+<meta property="og:description" content="Étude de cas de Gestion, application de gestion pour indépendants (devis, factures, encaissements) en Nuxt 4, SQLite et Docker, installable sur iPhone." />
 <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,56 +28,108 @@
       <span class="monogram-text">eloi_dupasquier</span>
     </a>
     <nav class="nav" aria-label="Navigation principale">
-      <a href="../index.html#stage">Stage</a>
-      <a href="../index.html#sae">SAE</a>
-      <a href="../index.html#perso">Perso</a>
+      <a href="../index.html#a-propos">À propos</a>
+      <a href="../index.html#projets">Projets</a>
+      <a href="../index.html#competences">Compétences</a>
       <a href="../index.html#contact">Contact</a>
+      <a class="nav-cv" href="../cv/eloi-dupasquier-cv.pdf" download>CV (PDF)</a>
     </nav>
   </div>
 </header>
 
 <main id="main" class="wrap">
   <section class="case-hero">
-    <a class="back" href="../index.html#perso">← Retour au portfolio</a>
-    <p class="label">Projet personnel · étude de cas</p>
+    <a class="back" href="../index.html#projets">← Retour aux projets</a>
+    <p class="label">Projet personnel · projet phare</p>
     <h1>Gestion : une application de gestion pour indépendants</h1>
-    <p class="lead">Prospects, clients, devis, factures et encaissements. Application web installable sur iPhone, multi-entreprise, connexion par Face ID, hébergée sur un VPS en Docker.</p>
+    <p class="lead">Prospects, clients, devis, factures et encaissements, depuis un ordinateur et un iPhone, en respectant les règles légales de facturation.</p>
     <dl class="facts">
-      <div><dt>Type</dt><dd>Application web installable</dd></div>
-      <div><dt>Année</dt><dd>2026</dd></div>
+      <div><dt>Depuis</dt><dd>Septembre 2026</dd></div>
+      <div><dt>Cadre</dt><dd>Projet personnel</dd></div>
       <div><dt>Équipe</dt><dd>Seul</dd></div>
-      <div><dt>Hébergement</dt><dd>VPS · Docker</dd></div>
+      <div><dt>Statut</dt><dd>En production</dd></div>
     </dl>
     <ul class="tags" aria-label="Technologies">
-      <li>Nuxt 4</li><li>Vue 3</li><li>TypeScript</li><li>SQLite</li><li>Drizzle</li><li>Docker</li>
+      <li>Nuxt 4</li><li>Vue 3</li><li>TypeScript</li><li>SQLite</li><li>Drizzle</li><li>Zod</li><li>Gotenberg</li><li>Docker</li>
     </ul>
+    <div class="links">
+      <a class="button" href="https://demo.edupasquier.me" rel="noopener">Essayer la démo ↗</a>
+    </div>
+    <p class="note">Démo publique : données fictives remises à zéro chaque nuit.</p>
   </section>
 
   <div class="case-body">
     <section class="case-section">
-      <h2><span class="mono">01</span>Architecture</h2>
-      <ol class="archi" aria-label="Schéma d'architecture">
-        <li><strong>Nuxt 4</strong><span>Vue 3 · TypeScript</span></li>
-        <li><strong>API Nuxt</strong><span>Zod · sessions</span></li>
-        <li><strong>SQLite</strong><span>une base par entreprise</span></li>
-      </ol>
-      <p class="archi-note">Conteneurs Docker derrière un reverse proxy Nginx avec HTTPS, sur un VPS Debian.</p>
+      <h2><span class="mono">01</span>Contexte</h2>
+      <ul>
+        <li><strong>Cadre</strong> : projet personnel, depuis septembre 2026, développé seul.</li>
+        <li><strong>Statut</strong> : en production, utilisé en conditions réelles.</li>
+      </ul>
     </section>
 
     <section class="case-section">
-      <h2><span class="mono">02</span>Ce que j'ai construit</h2>
+      <h2><span class="mono">02</span>Objectif</h2>
+      <p>Donner aux indépendants un outil simple pour gérer leurs prospects, clients, devis, factures et encaissements, depuis un ordinateur <strong>et</strong> un iPhone, en respectant les règles légales de facturation.</p>
+    </section>
+
+    <section class="case-section">
+      <h2><span class="mono">03</span>Fonctionnalités principales</h2>
       <ul>
-        <li>Le suivi commercial complet : prospects, clients, devis, factures, encaissements et chiffre d'affaires.</li>
-        <li>Une architecture multi-entreprise : chaque entreprise a sa propre base de données, et les nouvelles entreprises s'inscrivent sur invitation.</li>
-        <li>Une application installable sur iPhone (PWA), avec connexion par Face ID.</li>
-        <li>Le déploiement et l'administration du serveur : Docker Compose, reverse proxy, certificats SSL.</li>
+        <li>Contacts et suivi commercial (prospect → contacté → devis → gagné), relances.</li>
+        <li>Devis transformés en facture en un clic, PDF générés automatiquement.</li>
+        <li>Factures numérotées sans trou, impossibles à modifier une fois émises (correction par avoir), relances de paiement sur 3 niveaux.</li>
+        <li>Tableau de bord : chiffre d'affaires encaissé, montant à déclarer à l'URSSAF, seuils à surveiller.</li>
+        <li>Installable sur iPhone comme une application, connexion par <strong>Face ID</strong>, notifications le matin s'il y a quelque chose à faire.</li>
+        <li>Plusieurs entreprises sur une même installation, chacune avec sa propre base de données, sur invitation.</li>
+        <li>Export complet des données (PDF + tableaux) et copie sur Google Drive.</li>
       </ul>
+      <div class="shots shots--phone">
+        <figure>
+          <img src="../assets/img/gestion-accueil.webp" alt="Accueil sur iPhone : chiffre d'affaires encaissé, montant à déclarer à l'URSSAF." width="720" height="1226" loading="lazy" />
+          <figcaption>Accueil : CA encaissé et URSSAF.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/img/gestion-factures.webp" alt="Liste des factures avec statuts brouillon, à encaisser, en retard." width="720" height="1226" loading="lazy" />
+          <figcaption>Factures et statuts.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/img/gestion-urssaf.webp" alt="Historique des déclarations URSSAF." width="720" height="1226" loading="lazy" />
+          <figcaption>Déclarations URSSAF.</figcaption>
+        </figure>
+      </div>
+      <p><span class="note">Captures de la démo, données fictives.</span></p>
+    </section>
+
+    <section class="case-section">
+      <h2><span class="mono">04</span>Architecture</h2>
+      <ol class="archi" aria-label="Schéma d'architecture">
+        <li><strong>Nuxt 4</strong><span>Vue 3 · TypeScript · PWA</span></li>
+        <li><strong>API Nuxt (Nitro)</strong><span>Zod · sessions · Web Push</span></li>
+        <li><strong>SQLite</strong><span>une base par entreprise</span></li>
+      </ol>
+      <p class="archi-note">Conteneurs Docker (application + Gotenberg pour les PDF) derrière un reverse proxy Nginx avec HTTPS, sur un VPS Debian.</p>
+    </section>
+
+    <section class="case-section">
+      <h2><span class="mono">05</span>Défis et solutions</h2>
+      <ol class="challenges">
+        <li><strong>Garantir une numérotation des factures continue et sans trou, comme l'exige la loi.</strong><p>Le numéro est attribué à l'émission, dans une transaction SQL, et un <strong>trigger SQLite</strong> empêche de modifier ou de supprimer une facture émise, même par erreur dans le code.</p></li>
+        <li><strong>Isoler les données de chaque entreprise.</strong><p>Une base SQLite par entreprise : impossible de mélanger deux clients, et un export ou une suppression ne concerne qu'un seul fichier.</p></li>
+        <li><strong>Face ID derrière un reverse proxy.</strong><p>La bibliothèque déduisait une mauvaise adresse d'origine. J'ai fixé l'origine par configuration et imposé la vérification biométrique.</p></li>
+        <li><strong>Ne jamais perdre une facture, qui doit être conservée 10 ans.</strong><p>Sauvegarde chiffrée chaque nuit, contrôle d'intégrité, test de restauration, et alerte si une sauvegarde échoue.</p></li>
+        <li><strong>Des montants exacts.</strong><p>Tous les montants sont stockés en centimes (entiers), jamais en nombres à virgule.</p></li>
+      </ol>
+    </section>
+
+    <section class="case-section">
+      <h2><span class="mono">06</span>Évolutions possibles</h2>
+      <p>Facture électronique (Factur-X) avant l'obligation de septembre 2027, acceptation des devis en ligne par le client.</p>
     </section>
   </div>
 
   <nav class="case-nav" aria-label="Projets">
-    <a href="pronos-mondial-26.html">← Pronos Mondial 26</a>
-    <a href="../index.html">Accueil →</a>
+    <a href="the-cooks.html">← The Cooks</a>
+    <a href="lettrable.html">Lettrable →</a>
   </nav>
 </main>
 

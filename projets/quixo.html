@@ -3,10 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Quixo — Eloi Dupasquier</title>
-<meta name="description" content="Étude de cas : le jeu de plateau Quixo en Java, architecture MVC, SAE S2 du BUT Informatique." />
-<meta name="robots" content="noindex, nofollow" />
+<title>Quixo en Java (MVC) — Eloi Dupasquier, portfolio</title>
+<meta name="description" content="Jeu de plateau Quixo en Java, en architecture MVC avec la bibliothèque Boardifier (SAE S2, BUT Informatique)." />
+<meta name="author" content="Eloi Dupasquier" />
 <meta name="theme-color" content="#0f1a2b" />
+<link rel="canonical" href="https://portfolio.edupasquier.me/projets/quixo.html" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:title" content="Quixo en Java (MVC) — Eloi Dupasquier" />
+<meta property="og:description" content="Jeu de plateau Quixo en Java, en architecture MVC avec la bibliothèque Boardifier (SAE S2, BUT Informatique)." />
 <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,18 +28,19 @@
       <span class="monogram-text">eloi_dupasquier</span>
     </a>
     <nav class="nav" aria-label="Navigation principale">
-      <a href="../index.html#stage">Stage</a>
-      <a href="../index.html#sae">SAE</a>
-      <a href="../index.html#perso">Perso</a>
+      <a href="../index.html#a-propos">À propos</a>
+      <a href="../index.html#projets">Projets</a>
+      <a href="../index.html#competences">Compétences</a>
       <a href="../index.html#contact">Contact</a>
+      <a class="nav-cv" href="../cv/eloi-dupasquier-cv.pdf" download>CV (PDF)</a>
     </nav>
   </div>
 </header>
 
 <main id="main" class="wrap">
   <section class="case-hero">
-    <a class="back" href="../index.html#sae">← Retour au portfolio</a>
-    <p class="label">SAE S2 · étude de cas</p>
+    <a class="back" href="../index.html#projets">← Retour aux projets</a>
+    <p class="label">SAE S2 · autre projet</p>
     <h1>Jeu de plateau Quixo en Java, architecture MVC</h1>
     <p class="lead">Jeu complet en console, construit sur la bibliothèque imposée Boardifier.</p>
     <dl class="facts">
@@ -46,15 +52,16 @@
     <ul class="tags" aria-label="Technologies">
       <li>Java</li><li>POO</li><li>MVC</li>
     </ul>
+
   </section>
 
   <div class="case-body">
     <section class="case-section">
-      <h2><span class="mono">01</span>Ce que j'ai réalisé</h2>
-      <p>J'ai redéfini les classes de rendu par héritage et polymorphisme pour personnaliser l'affichage du plateau, et écrit une saisie robuste (commandes du type <code>A2D</code>, validées avant chaque coup).</p>
-      <div class="shots">
+      <h2><span class="mono">01</span>Le projet</h2>
+      <p>Jeu de plateau en Java, en console, en architecture <strong>MVC</strong>, construit sur la bibliothèque imposée Boardifier. Les joueurs saisissent des commandes comme <code>A2D</code>, qui sont validées avant chaque coup. J'ai redéfini les classes de rendu de Boardifier par <strong>héritage</strong> et <strong>polymorphisme</strong>, pour personnaliser l'affichage sans modifier la bibliothèque.</p>
+      <div class="shots shots--desk">
         <figure>
-          <img src="../assets/img/quixo.png" alt="Plateau de Quixo en console : grille 5 × 5 avec des pions X et O, et la saisie A2D du joueur 1." width="1100" height="598" loading="lazy" />
+          <img src="../assets/img/quixo.webp" alt="Plateau de Quixo en console : grille 5 × 5 avec des pions X et O, et la saisie A2D du joueur 1." width="1100" height="598" loading="lazy" />
           <figcaption>Le plateau en console et la saisie d'un coup.</figcaption>
         </figure>
       </div>
@@ -63,7 +70,7 @@
 
   <nav class="case-nav" aria-label="Projets">
     <a href="vocodeur.html">← Vocodeur</a>
-    <a href="lettrable.html">Lettrable →</a>
+    <a href="../index.html">Accueil →</a>
   </nav>
 </main>
 

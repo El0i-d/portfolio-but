@@ -3,10 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Fréquence Amitié Vesoul — Eloi Dupasquier</title>
-<meta name="description" content="Étude de cas : l'application Android de la radio Fréquence Amitié Vesoul, créée pendant mon stage de BUT2." />
-<meta name="robots" content="noindex, nofollow" />
+<title>Application mobile Fréquence Amitié Vesoul — Eloi Dupasquier, portfolio</title>
+<meta name="description" content="Étude de cas du stage d'Eloi Dupasquier : application Android (Kotlin, Jetpack Compose) de la radio Fréquence Amitié Vesoul et API PHP déployée sur OVH." />
+<meta name="author" content="Eloi Dupasquier" />
 <meta name="theme-color" content="#0f1a2b" />
+<link rel="canonical" href="https://portfolio.edupasquier.me/projets/frequence-amitie-vesoul.html" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:title" content="Application mobile Fréquence Amitié Vesoul — Eloi Dupasquier" />
+<meta property="og:description" content="Étude de cas du stage d'Eloi Dupasquier : application Android (Kotlin, Jetpack Compose) de la radio Fréquence Amitié Vesoul et API PHP déployée sur OVH." />
 <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,17 +28,18 @@
       <span class="monogram-text">eloi_dupasquier</span>
     </a>
     <nav class="nav" aria-label="Navigation principale">
-      <a href="../index.html#stage">Stage</a>
-      <a href="../index.html#sae">SAE</a>
-      <a href="../index.html#perso">Perso</a>
+      <a href="../index.html#a-propos">À propos</a>
+      <a href="../index.html#projets">Projets</a>
+      <a href="../index.html#competences">Compétences</a>
       <a href="../index.html#contact">Contact</a>
+      <a class="nav-cv" href="../cv/eloi-dupasquier-cv.pdf" download>CV (PDF)</a>
     </nav>
   </div>
 </header>
 
 <main id="main" class="wrap">
   <section class="case-hero">
-    <a class="back" href="../index.html#stage">← Retour au portfolio</a>
+    <a class="back" href="../index.html#projets">← Retour aux projets</a>
     <p class="label">Stage BUT2 · étude de cas</p>
     <h1>Application mobile Fréquence Amitié Vesoul</h1>
     <p class="lead">Création de zéro de l'application Android de la radio : direct, podcasts, recherche, compte et notifications, reliée à une API PHP que j'ai déployée sur OVH.</p>
@@ -41,26 +47,60 @@
       <div><dt>Durée</dt><dd>8 semaines</dd></div>
       <div><dt>Période</dt><dd>Avril – juin 2026</dd></div>
       <div><dt>Rôle</dt><dd>Développeur de l'application mobile</dd></div>
-      <div><dt>Plateforme</dt><dd>Android + API PHP</dd></div>
+      <div><dt>Équipe</dt><dd>Binôme (app + site web)</dd></div>
     </dl>
     <ul class="tags" aria-label="Technologies">
       <li>Kotlin</li><li>Jetpack Compose</li><li>Media3</li><li>Retrofit</li><li>PHP</li><li>MySQL</li><li>Firebase</li>
     </ul>
+    <div class="links">
+    </div>
+    <p class="note">Application interne à la radio : code non public.</p>
   </section>
 
   <div class="case-body">
     <section class="case-section">
       <h2><span class="mono">01</span>Contexte</h2>
-      <p>Fréquence Amitié Vesoul est une radio associative. Elle voulait un point d'accès mobile simple vers son direct et ses émissions. J'ai travaillé en binôme avec un autre stagiaire, chargé du nouveau site web : nos deux supports partagent le même backend.</p>
+      <ul>
+        <li><strong>Cadre</strong> : stage de fin de BUT2, 8 semaines (avril – juin 2026).</li>
+        <li><strong>Structure</strong> : Fréquence Amitié Vesoul, radio associative.</li>
+        <li><strong>Équipe</strong> : je travaillais en binôme avec un autre stagiaire, chargé du nouveau site web, avec des échanges réguliers avec l'équipe et le tuteur. Le site et l'application partagent le même backend.</li>
+        <li><strong>Mon rôle</strong> : concevoir et développer <strong>de zéro</strong> l'application Android, puis mettre en production l'API qui l'alimente.</li>
+      </ul>
     </section>
 
     <section class="case-section">
-      <h2><span class="mono">02</span>Le besoin</h2>
-      <p>Écouter le direct en un geste, retrouver les podcasts et les replays, chercher un contenu, gérer son compte et recevoir les actualités de la radio.</p>
+      <h2><span class="mono">02</span>Le problème de départ</h2>
+      <p>La radio n'avait pas d'application mobile. Elle voulait un point d'accès clair, rapide et stable vers son direct et ses émissions, capable d'afficher des contenus qui changent chaque jour et de prévenir les auditeurs de l'actualité de la radio.</p>
     </section>
 
     <section class="case-section">
-      <h2><span class="mono">03</span>Architecture</h2>
+      <h2><span class="mono">03</span>Fonctionnalités principales</h2>
+      <ul>
+        <li>Navigation à 5 onglets (Accueil, Podcasts, Direct, Recherche, Compte), écrans de détail et liens profonds.</li>
+        <li>Écoute du direct en arrière-plan, avec un lecteur toujours visible, la pochette du titre en cours, les paroles et un égaliseur.</li>
+        <li>Podcasts : catalogue, téléchargement, historique, commentaires et likes.</li>
+        <li>Compte : connexion par e-mail ou Google, session conservée de façon sécurisée.</li>
+        <li>Notifications qui ouvrent l'application sur la bonne page.</li>
+        <li>API PHP + MySQL : articles, bannières, podcasts, grille des programmes, suivi d'écoute.</li>
+      </ul>
+      <div class="shots shots--phone">
+        <figure>
+          <img src="../assets/img/fav-accueil.webp" alt="Écran Accueil : lecteur du direct, recommandations et barre de navigation à 5 onglets." width="502" height="1004" loading="lazy" />
+          <figcaption>Accueil : direct, recommandations, lecteur persistant.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/img/fav-recherche.webp" alt="Écran Recherche : champ de recherche, filtres par type, tri et derniers contenus." width="498" height="1004" loading="lazy" />
+          <figcaption>Recherche : filtres par type et tri.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/img/fav-compte.webp" alt="Écran Compte : formulaire de connexion par e-mail et bouton Continuer avec Google." width="488" height="786" loading="lazy" />
+          <figcaption>Compte : connexion par e-mail ou Google.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="case-section">
+      <h2><span class="mono">04</span>Architecture</h2>
       <ol class="archi" aria-label="Schéma d'architecture">
         <li><strong>App Android</strong><span>Kotlin · Jetpack Compose</span></li>
         <li><strong>API PHP</strong><span>OVH · api-app.frequenceamitievesoul.fr</span></li>
@@ -70,46 +110,44 @@
     </section>
 
     <section class="case-section">
-      <h2><span class="mono">04</span>Ce que j'ai construit</h2>
-      <ul>
-        <li>Navigation à 5 onglets (Accueil, Podcasts, Direct, Recherche, Compte), avec des écrans de détail (programme, émission, épisode, article) et des liens profonds.</li>
-        <li>Lecture audio en arrière-plan (service Media3/ExoPlayer) avec un lecteur persistant, la pochette du titre en cours, les paroles et un égaliseur.</li>
-        <li>Podcasts : catalogue, téléchargement, historique, commentaires et likes.</li>
-        <li>Authentification hybride (compte local + serveur, connexion Google), avec le jeton stocké chiffré.</li>
-        <li>Notifications push Firebase, qui ouvrent l'application ou une page précise.</li>
-        <li>API REST PHP + MySQL (articles, bannières, podcasts, grille des programmes, suivi d'écoute), avec un endpoint <code>/health</code> pour la mise en production.</li>
-      </ul>
-
-      <div class="shots shots--phone">
+      <h2><span class="mono">05</span>Défis et solutions</h2>
+      <ol class="challenges">
+        <li><strong>Garder une navigation stable avec beaucoup d'écrans.</strong><p>Quand on ouvre un épisode depuis la recherche, l'onglet actif doit rester le bon. J'ai centralisé toutes les routes dans une seule énumération (<code>AppDestination</code>) et calculé l'onglet parent de chaque écran de détail.</p></li>
+        <li><strong>Se connecter même quand le serveur ne répond pas.</strong><p>J'ai mis en place une authentification <strong>hybride</strong> : un dépôt local et un dépôt distant, réunis derrière une seule interface, avec le jeton stocké chiffré sur le téléphone.</p></li>
+        <li><strong>Continuer la lecture audio quand l'application passe en arrière-plan.</strong><p>J'ai fait tourner la lecture dans un service Android (Media3 / ExoPlayer), séparé de l'interface, avec un lecteur persistant affiché par-dessus les écrans.</p></li>
+        <li><strong>Relier l'application à un vrai serveur.</strong><p>J'ai créé une API REST en PHP, déployée sur un hébergement OVH mutualisé, avec un endpoint <code>/health</code> pour vérifier le service avant chaque mise en production.</p></li>
+      </ol>
+      <div class="shots shots--desk">
         <figure>
-          <img src="../assets/img/fav-accueil.png" alt="Écran Accueil de l'application : lecteur du direct, recommandations et barre de navigation à 5 onglets." width="502" height="1004" loading="lazy" />
-          <figcaption>Accueil : direct, recommandations, lecteur persistant.</figcaption>
-        </figure>
-        <figure>
-          <img src="../assets/img/fav-recherche.png" alt="Écran Recherche : champ de recherche, filtres par type, tri et derniers contenus." width="498" height="1004" loading="lazy" />
-          <figcaption>Recherche : filtres par type et tri.</figcaption>
-        </figure>
-        <figure>
-          <img src="../assets/img/fav-compte.png" alt="Écran Compte : formulaire de connexion par email et bouton Continuer avec Google." width="488" height="786" loading="lazy" />
-          <figcaption>Compte : connexion par email ou Google.</figcaption>
-        </figure>
-      </div>
-      <div class="shots">
-        <figure>
-          <img src="../assets/img/fav-health.png" alt="Terminal : l'appel à l'endpoint /health de l'API renvoie le statut ok." width="2242" height="414" loading="lazy" />
+          <img src="../assets/img/fav-health.webp" alt="Terminal : l'appel à l'endpoint /health de l'API renvoie le statut ok." width="1400" height="259" loading="lazy" />
           <figcaption>L'endpoint /health de l'API en production répond « ok ».</figcaption>
         </figure>
       </div>
     </section>
 
     <section class="case-section">
-      <h2><span class="mono">05</span>Démarche</h2>
-      <p>Cadrage la semaine 1 (recueil des besoins auprès de l'équipe), maquettes, puis développement par blocs fonctionnels et validation sur mobile à chaque étape. J'ai aussi rédigé un guide de transition pour une future version iOS (SwiftUI).</p>
+      <h2><span class="mono">06</span>Démarche</h2>
+      <p>Cadrage la première semaine (recueil des besoins, choix des écrans prioritaires), maquettes, puis développement par blocs fonctionnels : écran principal, lecture audio, recherche, notifications, compte et intégration du backend. Chaque bloc était testé sur mobile avant de passer au suivant, ce qui limitait les régressions. J'ai aussi rédigé un guide de transition pour une future version iOS (SwiftUI).</p>
     </section>
 
     <section class="case-section">
-      <h2><span class="mono">06</span>Bilan</h2>
-      <p>Ma plus grosse progression porte sur l'architecture d'une vraie application (environ 85 fichiers Kotlin organisés par domaine) et sur la mise en production d'un backend. Ce qui m'a le plus appris : relier le mobile à un système complet (contenus, API, hébergement) au lieu de le penser isolé.</p>
+      <h2><span class="mono">07</span>Ce que j'en retiens</h2>
+      <div class="table-wrap">
+      <table class="compare">
+        <thead><tr><th scope="col">Savoir-faire</th><th scope="col">Avant le stage</th><th scope="col">Après le stage</th></tr></thead>
+        <tbody>
+          <tr><td>Architecture d'une application mobile</td><td>navigation simple, peu d'états partagés</td><td>socle stable pour une cinquantaine d'écrans et de composants</td></tr>
+          <tr><td>Intégration d'API et backend</td><td>consommer une API existante</td><td>concevoir, déployer et surveiller ma propre API</td></tr>
+          <tr><td>Organisation et autonomie</td><td>tâches guidées</td><td>périmètre complet géré seul, découpé en phases</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>Ce que je retiens surtout : un livrable, ce n'est pas seulement du code, c'est un ensemble <strong>compréhensible, testable et maintenable</strong> par quelqu'un d'autre.</p>
+    </section>
+
+    <section class="case-section">
+      <h2><span class="mono">08</span>Évolutions possibles</h2>
+      <p>Publication sur le Play Store, version iOS (le guide de transition est prêt), tests automatisés de l'interface.</p>
     </section>
   </div>
 
