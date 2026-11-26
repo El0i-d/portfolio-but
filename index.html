@@ -19,7 +19,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <!-- « ?v= » : à augmenter à chaque modification du CSS, pour que les
      navigateurs ne gardent pas l'ancienne version en cache. -->
-<link rel="stylesheet" href="assets/style.css?v=6" />
+<link rel="stylesheet" href="assets/style.css?v=7" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -38,18 +38,19 @@
 
 <header class="site-header">
   <div class="wrap header-inner">
-    <a href="#main" class="monogram" aria-label="Eloi Dupasquier — haut de page">
+    <a href="#main" class="monogram" aria-label="Remonter en haut de la page">
       <span class="monogram-mark" aria-hidden="true">ED</span>
       <span class="monogram-text">eloi_dupasquier</span>
     </a>
-    <nav class="nav" aria-label="Navigation principale">
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-principale"><svg class="nav-toggle-icone" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"/></svg><span class="nav-toggle-texte">Ouvrir le menu</span></button>
+    <nav class="nav" id="nav-principale" aria-label="Navigation principale">
       <a href="#a-propos">À propos</a>
       <a href="#projets">Projets</a>
       <a href="#competences">Compétences</a>
       <a href="#parcours">Parcours</a>
       <a href="#veille">Veille</a>
       <a href="#contact">Contact</a>
-      <a class="nav-cv" href="cv/eloi-dupasquier-cv.pdf" download>CV (PDF)</a>
+      <a class="nav-cv" href="cv/eloi-dupasquier-cv.pdf" download>Télécharger le CV</a>
     </nav>
   </div>
 </header>
@@ -344,7 +345,7 @@
         <!-- Formulaire envoyé par Web3Forms (service sans serveur).
              La clé d'accès est publique par nature : elle n'autorise
              que l'envoi d'un message vers l'adresse choisie. -->
-        <form class="form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <form class="form" id="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
           <input type="hidden" name="access_key" value="12e0445a-9424-485d-a984-1f6b75a2bd48" />
           <input type="hidden" name="subject" value="Nouveau message depuis le portfolio" />
           <input type="hidden" name="from_name" value="Portfolio Eloi Dupasquier" />
@@ -354,25 +355,31 @@
           <div class="form-row">
             <div class="field">
               <label for="nom">Nom</label>
-              <input id="nom" name="name" type="text" autocomplete="name" required />
+              <input id="nom" name="name" type="text" autocomplete="name" required aria-describedby="err-nom" />
+              <p class="field-error" id="err-nom"></p>
             </div>
             <div class="field">
               <label for="email">E-mail</label>
-              <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required />
+              <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="err-email" />
+              <p class="field-error" id="err-email"></p>
             </div>
           </div>
           <div class="field">
             <label for="objet">Objet</label>
-            <input id="objet" name="objet" type="text" required />
+            <input id="objet" name="objet" type="text" required aria-describedby="err-objet" />
+            <p class="field-error" id="err-objet"></p>
           </div>
           <div class="field">
             <label for="message">Message</label>
-            <textarea id="message" name="message" required></textarea>
+            <textarea id="message" name="message" required aria-describedby="err-message"></textarea>
+            <p class="field-error" id="err-message"></p>
           </div>
+          <p class="form-draft" id="form-draft" hidden>Votre brouillon a été restauré. <button type="button" class="lien-bouton" id="effacer-brouillon">Effacer le brouillon</button></p>
           <label class="consent">
-            <input type="checkbox" name="consentement" value="oui" required />
+            <input type="checkbox" name="consentement" value="oui" required aria-describedby="err-consentement" />
             <span>J'accepte que mes informations soient utilisées uniquement pour me recontacter. Elles ne sont ni conservées sur ce site ni transmises à des tiers.</span>
           </label>
+          <p class="field-error" id="err-consentement"></p>
           <button class="button button--plein" type="submit">Envoyer le message</button>
           <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
         </form>
@@ -392,7 +399,7 @@
 <footer class="site-footer">
   <div class="wrap">Eloi Dupasquier · Portfolio BUT Informatique · 2026</div>
 </footer>
-<script src="assets/contact.js?v=6" defer></script>
-<script src="assets/anim.js?v=6" defer></script>
+<script src="assets/contact.js?v=7" defer></script>
+<script src="assets/anim.js?v=7" defer></script>
 </body>
 </html>

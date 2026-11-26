@@ -50,6 +50,9 @@ document.documentElement.classList.add('js');
       setTimeout(() => {
         titre.classList.remove('cache');
         titre.classList.add('apparait');
+        // Le curseur s'efface une fois la réponse affichée (pas de clignotement sans fin).
+        const curseur = document.querySelector('.caret');
+        if (curseur) setTimeout(() => curseur.classList.add('fini'), 900);
         if (sous) setTimeout(() => { sous.classList.remove('cache'); sous.classList.add('apparait'); }, 250);
       }, 280);
     }
@@ -372,7 +375,7 @@ document.querySelectorAll('.archi').forEach((schema) => {
   const boite = document.createElement('dialog');
   boite.className = 'lightbox';
   boite.setAttribute('aria-label', 'Capture agrandie');
-  boite.innerHTML = '<button type="button" class="lightbox-close" aria-label="Fermer">×</button><figure class="lightbox-inner"><figcaption></figcaption></figure>';
+  boite.innerHTML = '<button type="button" class="lightbox-close" aria-label="Fermer" data-tip="Fermer (Échap)">×</button><figure class="lightbox-inner"><figcaption></figcaption></figure>';
   document.body.append(boite);
   // L'image n'est créée qu'à la première ouverture (pas d'image vide dans la page).
   const img = document.createElement('img');
@@ -398,4 +401,40 @@ document.querySelectorAll('.archi').forEach((schema) => {
     im.addEventListener('click', ouvrir);
     im.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); ouvrir(); } });
   });
+})();
+
+/* ---------- 10. Menu replié sur téléphone ---------- */
+(function () {
+  const bouton = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('nav-principale');
+  if (!bouton || !menu) return;
+  const texte = bouton.querySelector('.nav-toggle-texte');
+  const basculer = (ouvrir) => {
+    menu.classList.toggle('ouvert', ouvrir);
+    bouton.setAttribute('aria-expanded', String(ouvrir));
+    if (texte) texte.textContent = ouvrir ? 'Fermer le menu' : 'Ouvrir le menu';
+  };
+  bouton.addEventListener('click', () => basculer(bouton.getAttribute('aria-expanded') !== 'true'));
+  // Un lien choisi ferme le menu ; Échap le ferme et rend le focus au bouton.
+  menu.addEventListener('click', (e) => { if (e.target.closest('a')) basculer(false); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && bouton.getAttribute('aria-expanded') === 'true') { basculer(false); bouton.focus(); }
+  });
+  // Un clic ailleurs ferme le menu.
+  document.addEventListener('click', (e) => {
+    if (bouton.getAttribute('aria-expanded') === 'true' && !e.target.closest('.nav-toggle, #nav-principale')) basculer(false);
+  });
+})();
+
+/* ---------- 11. Point de données : un passage quand le schéma arrive à l'écran ---------- */
+(function () {
+  const schemas = document.querySelectorAll('.archi');
+  if (!schemas.length || REDUIT || !('IntersectionObserver' in window)) return;
+  const obs = new IntersectionObserver((entrees) => {
+    entrees.forEach((e) => {
+      // On retire puis remet la classe pour rejouer l'animation à chaque arrivée.
+      if (e.isIntersecting) { e.target.classList.remove('vu'); void e.target.offsetWidth; e.target.classList.add('vu'); }
+    });
+  }, { threshold: 0.6 });
+  schemas.forEach((s) => obs.observe(s));
 })();
