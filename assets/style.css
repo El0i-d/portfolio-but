@@ -658,3 +658,8 @@ main, .site-footer { position: relative; z-index: 1; }
   .stack-on .stack-card { border-radius: 20px 20px 0 0; }
   .stack-on .case-hero.stack-card, .stack-on .case-section.stack-card { border-radius: 18px; }
 }
+
+/* Accueil en cartes : le contenu d'une carte « plein écran » est centré
+   verticalement, comme sur une diapositive. */
+.stack-on .hero.stack-card,
+.stack-on .section.stack-card { display: flex; flex-direction: column; justify-content: center; }

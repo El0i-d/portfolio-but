@@ -81,8 +81,23 @@ document.documentElement.classList.add('js');
   const dernier = cartes.map(() => ({ s: -1, o: -1 }));
 
   // Mesure, seulement au chargement et quand une taille change.
+  // Accueil : chaque carte occupe au moins l'écran (comme une diapositive).
+  // Fiches projets : cartes à leur hauteur naturelle.
+  const pleineHauteur = cartes.map((c) => !c.classList.contains('case-hero') && !c.classList.contains('case-section'));
+
   const mesurer = () => {
     vh = window.innerHeight;
+    const hEntete = entete ? entete.offsetHeight : 0;
+    const pas = window.innerWidth >= 768 ? 14 : 8;
+    // Pause : une fois entièrement affichée, la carte reste immobile pendant
+    // une partie du défilement avant que la suivante n'arrive (le temps de
+    // lire). La carte de la frise a une pause plus longue : la frise se
+    // remplit pendant ce temps.
+    cartes.forEach((c, i) => {
+      c.style.minHeight = pleineHauteur[i] ? (vh - (hEntete + 12 + i * pas)) + 'px' : '';
+      const fraction = i === cartes.length - 1 ? 0 : c.querySelector('.timeline') ? 0.9 : pleineHauteur[i] ? 0.35 : 0.25;
+      c.style.marginBottom = fraction ? Math.round(fraction * vh) + 'px' : '';
+    });
     racine.classList.add('stack-mesure');
     const sy = window.scrollY;
     D = cartes.map((c) => c.getBoundingClientRect().top + sy);
@@ -96,6 +111,8 @@ document.documentElement.classList.add('js');
     T = H.map((hc, i) => Math.min(h + 12 + i * ecart, vh - hc));
     cartes.forEach((c, i) => { c.style.top = T[i] + 'px'; });
     defilement.demander();
+    // Prévient la frise, qui cale son remplissage sur la pause de sa carte.
+    document.dispatchEvent(new Event('cartes-mesurees'));
   };
 
   // Position à l'écran du haut d'une carte, calculée sans rien mesurer.
@@ -119,7 +136,16 @@ document.documentElement.classList.add('js');
     }
   );
 
-  window.addEventListener('resize', mesurer);
+  // Sur iPhone, la barre d'adresse qui se replie change un peu la hauteur de
+  // l'écran pendant le défilement : on ne recalcule que si la largeur change
+  // ou si la hauteur change nettement, pour éviter les sursauts.
+  let largeurPrec = window.innerWidth, hauteurPrec = window.innerHeight;
+  window.addEventListener('resize', () => {
+    if (window.innerWidth !== largeurPrec || Math.abs(window.innerHeight - hauteurPrec) > 150) {
+      largeurPrec = window.innerWidth; hauteurPrec = window.innerHeight;
+      mesurer();
+    }
+  });
   // Les images chargées en différé changent la hauteur des cartes.
   if ('ResizeObserver' in window) {
     let attente = 0;
@@ -271,18 +297,32 @@ document.documentElement.classList.add('js');
   // Position de la frise dans la page (comme si sa carte n'était pas collée)
   // et de chaque étape : relues seulement si une taille change. Ainsi le trait
   // continue d'avancer avec le défilement, même quand la carte est collée.
+  // Le trait se remplit entre deux positions de défilement : quand le haut
+  // de la frise arrive aux trois quarts de l'écran, et juste avant que la
+  // carte suivante n'apparaisse. Ainsi la carte suivante n'arrive qu'une
+  // fois la frise pleine. Positions relues seulement si une taille change.
   const racine = document.documentElement;
-  let decalages = [], hauteur = 1, hautPage = 0, haut = 0, visible = false;
+  let decalages = [], hauteur = 1, debut = 0, fin = 1, y = 0, visible = false;
   const mesurer = () => {
+    const vh = window.innerHeight;
     racine.classList.add('stack-mesure');
-    hautPage = frise.getBoundingClientRect().top + window.scrollY;
+    const sy = window.scrollY;
+    const hautPage = frise.getBoundingClientRect().top + sy;
     decalages = etapes.map((li) => li.offsetTop);
     hauteur = frise.offsetHeight || 1;
+    const carte = frise.closest('.stack-card');
+    let suivante = carte && carte.nextElementSibling;
+    while (suivante && !suivante.classList.contains('stack-card')) suivante = suivante.nextElementSibling;
+    debut = hautPage - vh * 0.75;
+    fin = suivante && racine.classList.contains('stack-on')
+      ? suivante.getBoundingClientRect().top + sy - vh * 1.1
+      : hautPage + hauteur - vh * 0.6;
     racine.classList.remove('stack-mesure');
+    if (fin < debut + 80) fin = debut + 80;
     defilement.demander();
   };
   if ('ResizeObserver' in window) new ResizeObserver(mesurer).observe(frise);
-  window.addEventListener('resize', mesurer);
+  document.addEventListener('cartes-mesurees', mesurer);
   window.addEventListener('load', mesurer);
   mesurer();
   // On ne suit la frise que lorsqu'elle est proche de l'écran.
@@ -293,15 +333,14 @@ document.documentElement.classList.add('js');
   let derniere = -1;
   const atteintes = etapes.map(() => false);
   defilement.ajouter(
-    () => { if (visible) haut = hautPage - window.scrollY; },
+    () => { if (visible) y = window.scrollY; },
     () => {
       if (!visible) return;
-      const ligne = window.innerHeight * 0.6;
-      // Le trait avance avec le milieu de l'écran.
-      const avance = +Math.max(0, Math.min(1, (ligne - haut) / hauteur)).toFixed(3);
+      const avance = +Math.max(0, Math.min(1, (y - debut) / (fin - debut))).toFixed(3);
       if (avance !== derniere) { frise.style.setProperty('--trace', avance); derniere = avance; }
+      // Une étape s'allume quand le trait l'atteint.
       etapes.forEach((li, i) => {
-        const ok = haut + decalages[i] < ligne;
+        const ok = avance > 0 && avance >= decalages[i] / hauteur;
         if (ok !== atteintes[i]) { li.classList.toggle('atteint', ok); atteintes[i] = ok; }
       });
     }
