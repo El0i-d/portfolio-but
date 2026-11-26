@@ -41,6 +41,25 @@ Chrome → Imprimer → « Enregistrer au format PDF », format A4, marges
 « Aucune », « Graphiques d'arrière-plan » coché. Le fichier doit tenir sur
 une page.
 
+## Polices
+
+Inter et JetBrains Mono (licence SIL OFL) sont hébergées dans
+`assets/polices/` : aucune requête vers Google Fonts. Les fichiers sont
+allégés (51 Ko pour les deux) : graisses 400 à 600 seulement, caractères du
+français et typographie courante (– — ’ … « » € → ≥…). Un caractère absent
+s'affiche dans la police du système.
+
+Pour ajouter un caractère (ex. `✓`, U+2713) : récupérer les polices
+complètes sur Google Fonts, puis, avec `pip install fonttools brotli` :
+
+```bash
+fonttools varLib.instancer Inter.woff2 wght=400:600 -o inter.ttf
+pyftsubset inter.ttf --unicodes="U+0020-007E,U+00A0-00FF,U+0152-0153,U+2013-2014,U+2018-201E,U+2022,U+2026,U+202F,U+20AC,U+2122,U+2190-2193,U+2197,U+2265,U+2713" --layout-features="kern,liga,calt,ccmp,locl,mark,mkmk" --no-hinting --desubroutinize --flavor=woff2 --output-file=assets/polices/inter.woff2
+```
+
+(même chose pour JetBrains Mono avec `wght=400:500`), puis ajouter le
+caractère aux `unicode-range` en haut de `assets/style.css`.
+
 ## Lancer en local
 
 ```bash
