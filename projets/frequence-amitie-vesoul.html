@@ -13,10 +13,7 @@
 <meta property="og:title" content="Application mobile Fréquence Amitié Vesoul — Eloi Dupasquier" />
 <meta property="og:description" content="Étude de cas du stage d'Eloi Dupasquier : application Android (Kotlin, Jetpack Compose) de la radio Fréquence Amitié Vesoul et API PHP déployée sur OVH." />
 <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/style.css?v=7" />
+<link rel="stylesheet" href="../assets/style.css?v=10" />
 </head>
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
@@ -86,15 +83,15 @@
       </ul>
       <div class="figures">
         <figure class="figure figure--phone">
-          <img src="../assets/img/fav-accueil.webp" alt="Écran Accueil : lecteur du direct, recommandations et barre de navigation à 5 onglets." width="502" height="1004" loading="lazy" />
+          <img src="../assets/img/fav-accueil.webp" alt="Écran Accueil : lecteur du direct, recommandations et barre de navigation à 5 onglets." width="502" height="1004" loading="lazy" decoding="async" />
           <figcaption><span class="fig-num">Figure 1</span><strong>Écran d'accueil et lecteur persistant</strong><p>L'accueil regroupe le direct (bandeau « En direct » avec le titre en cours), les recommandations d'émissions et, en bas, le lecteur qui reste affiché sur tous les écrans. Dans la barre à 5 onglets, un trait au-dessus de l'icône marque l'onglet actif : c'est l'onglet parent recalculé pour chaque écran de détail (défi 1).</p></figcaption>
         </figure>
         <figure class="figure figure--phone">
-          <img src="../assets/img/fav-recherche.webp" alt="Écran Recherche : champ de recherche, filtres par type, tri et derniers contenus." width="498" height="1004" loading="lazy" />
+          <img src="../assets/img/fav-recherche.webp" alt="Écran Recherche : champ de recherche, filtres par type, tri et derniers contenus." width="498" height="1004" loading="lazy" decoding="async" />
           <figcaption><span class="fig-num">Figure 2</span><strong>Recherche transverse</strong><p>Un seul champ cherche à la fois dans les podcasts, les épisodes et les articles. Les filtres (Tout, Podcasts, Épisodes, Articles) et le tri (pertinence, récents, A-Z) s'appliquent aux mêmes résultats ; tant que rien n'est saisi, les derniers contenus s'affichent.</p></figcaption>
         </figure>
         <figure class="figure figure--phone">
-          <img src="../assets/img/fav-compte.webp" alt="Écran Compte : formulaire de connexion par e-mail et bouton Continuer avec Google." width="488" height="786" loading="lazy" />
+          <img src="../assets/img/fav-compte.webp" alt="Écran Compte : formulaire de connexion par e-mail et bouton Continuer avec Google." width="488" height="786" loading="lazy" decoding="async" />
           <figcaption><span class="fig-num">Figure 3</span><strong>Connexion au compte</strong><p>Le formulaire vérifie l'e-mail et le mot de passe avant l'envoi et propose la connexion Google. Derrière cet écran, l'authentification hybride (défi 2) bascule sur le dépôt local si le serveur ne répond pas ; le jeton de session est stocké chiffré sur le téléphone.</p></figcaption>
         </figure>
       </div>
@@ -125,7 +122,7 @@
       </ol>
       <div class="figures">
         <figure class="figure">
-          <img src="../assets/img/fav-health.webp" alt="Terminal : l'appel à l'endpoint /health de l'API renvoie le statut ok." width="1400" height="259" loading="lazy" />
+          <img src="../assets/img/fav-health.webp" alt="Terminal : l'appel à l'endpoint /health de l'API renvoie le statut ok." width="1400" height="259" loading="lazy" decoding="async" />
           <figcaption><span class="fig-num">Figure 4</span><strong>Vérification de l'API en production</strong><p>Appel de l'endpoint <code>/health</code> de l'API hébergée sur OVH depuis un terminal : la réponse <code>{"status": "ok"}</code> confirme que le serveur répond avant de publier une version de l'application (défi 4).</p></figcaption>
         </figure>
       </div>
@@ -166,6 +163,6 @@
 <footer class="site-footer">
   <div class="wrap">Eloi Dupasquier · Portfolio BUT Informatique · 2026</div>
 </footer>
-<script src="../assets/anim.js?v=7" defer></script>
+<script src="../assets/anim.js?v=10" defer></script>
 </body>
 </html>

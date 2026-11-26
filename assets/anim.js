@@ -81,7 +81,7 @@ document.documentElement.classList.add('js');
   let T = [];   // position de collage (top) de chaque carte
   let vh = window.innerHeight;
   let y = 0;
-  const dernier = cartes.map(() => ({ s: -1, o: -1 }));
+  const dernier = cartes.map(() => ({ s: -1, o: -1, w: false }));
 
   // Mesure, seulement au chargement et quand une taille change.
   // Accueil : chaque carte occupe au moins l'écran (comme une diapositive).
@@ -134,6 +134,13 @@ document.documentElement.classList.add('js');
         const o = enfouie ? 0.94 : +(0.5 * p).toFixed(3);
         // On n'écrit que ce qui a changé.
         if (s !== dernier[i].s) { cartes[i].style.transform = s < 1 ? `scale(${s})` : ''; dernier[i].s = s; }
+        // Pendant qu'elle rétrécit, la carte devient un calque à part : le
+        // navigateur la réduit telle quelle au lieu de la repeindre à chaque
+        // image (peinture divisée par 6 à 8, mesuré). Seulement pendant la
+        // transition : sur toutes les cartes à la fois, la mémoire graphique
+        // déborderait et le défilement ralentirait.
+        const w = !REDUIT && p > 0 && p < 1;
+        if (w !== dernier[i].w) { cartes[i].style.willChange = w ? 'transform' : ''; dernier[i].w = w; }
         if (o !== dernier[i].o) { voiles[i].style.opacity = o; dernier[i].o = o; }
       }
     }
