@@ -16,30 +16,31 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/style.css?v=6" />
+<link rel="stylesheet" href="../assets/style.css?v=7" />
 </head>
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
 
 <header class="site-header">
   <div class="wrap header-inner">
-    <a href="../index.html" class="monogram" aria-label="Retour à l'accueil du portfolio">
+    <a href="../index.html" class="monogram" aria-label="Revenir à l'accueil du portfolio">
       <span class="monogram-mark" aria-hidden="true">ED</span>
       <span class="monogram-text">eloi_dupasquier</span>
     </a>
-    <nav class="nav" aria-label="Navigation principale">
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-principale"><svg class="nav-toggle-icone" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"/></svg><span class="nav-toggle-texte">Ouvrir le menu</span></button>
+    <nav class="nav" id="nav-principale" aria-label="Navigation principale">
       <a href="../index.html#a-propos">À propos</a>
       <a href="../index.html#projets">Projets</a>
       <a href="../index.html#competences">Compétences</a>
       <a href="../index.html#contact">Contact</a>
-      <a class="nav-cv" href="../cv/eloi-dupasquier-cv.pdf" download>CV (PDF)</a>
+      <a class="nav-cv" href="../cv/eloi-dupasquier-cv.pdf" download>Télécharger le CV</a>
     </nav>
   </div>
 </header>
 
 <main id="main" class="wrap">
   <section class="case-hero stack-card">
-    <a class="back" href="../index.html#projets">← Retour aux projets</a>
+    <a class="back" href="../index.html#projets">← Revenir aux projets</a>
     <p class="label">SAE S1 · autre projet</p>
     <h1>Pauvocoder : modifier la hauteur d'une voix sans changer sa durée</h1>
     <p class="lead">Programme Java qui lit un fichier .wav, change sa fréquence par rééchantillonnage, puis lui redonne sa durée d'origine par dilatation temporelle.</p>
@@ -53,7 +54,7 @@
       <li>Java</li><li>Traitement du signal</li><li>Algorithmique</li>
     </ul>
     <div class="links">
-      <a class="button" href="https://github.com/mdumain/Vocodeur" rel="noopener">Dépôt GitHub ↗</a>
+      <a class="button" href="https://github.com/mdumain/Vocodeur" rel="noopener">Voir le dépôt GitHub ↗</a>
     </div>
   </section>
 
@@ -94,6 +95,6 @@ public static int calculOffset(double[] inputWav, int decStart, int incStop) {
 <footer class="site-footer">
   <div class="wrap">Eloi Dupasquier · Portfolio BUT Informatique · 2026</div>
 </footer>
-<script src="../assets/anim.js?v=6" defer></script>
+<script src="../assets/anim.js?v=7" defer></script>
 </body>
 </html>
