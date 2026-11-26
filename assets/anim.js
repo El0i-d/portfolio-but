@@ -29,9 +29,6 @@ const defilement = (() => {
 const REDUIT = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const POINTEUR_FIN = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 document.documentElement.classList.add('js');
-// ESSAI TEMPORAIRE (à retirer après décision) : en-tête opaque, sans flou,
-// en ajoutant « ?essai=entete » à l'adresse, pour comparer sur iPhone.
-if (/[?&]essai=entete\b/.test(location.search)) document.documentElement.classList.add('essai-entete');
 
 /* ---------- 1. Terminal animé en tête ---------- */
 (function () {
