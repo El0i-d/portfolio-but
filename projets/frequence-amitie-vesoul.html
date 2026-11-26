@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/style.css?v=5" />
+<link rel="stylesheet" href="../assets/style.css?v=6" />
 </head>
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
@@ -38,7 +38,7 @@
 </header>
 
 <main id="main" class="wrap">
-  <section class="case-hero">
+  <section class="case-hero stack-card">
     <a class="back" href="../index.html#projets">← Retour aux projets</a>
     <p class="label">Stage BUT2 · étude de cas</p>
     <h1>Application mobile Fréquence Amitié Vesoul</h1>
@@ -58,7 +58,7 @@
   </section>
 
   <div class="case-body">
-    <section class="case-section">
+    <section class="case-section stack-card">
       <h2><span class="mono">01</span>Contexte</h2>
       <ul>
         <li><strong>Cadre</strong> : stage de fin de BUT2, 8 semaines (avril – juin 2026).</li>
@@ -68,12 +68,12 @@
       </ul>
     </section>
 
-    <section class="case-section">
+    <section class="case-section stack-card">
       <h2><span class="mono">02</span>Le problème de départ</h2>
       <p>La radio n'avait pas d'application mobile. Elle voulait un point d'accès clair, rapide et stable vers son direct et ses émissions, capable d'afficher des contenus qui changent chaque jour et de prévenir les auditeurs de l'actualité de la radio.</p>
     </section>
 
-    <section class="case-section">
+    <section class="case-section stack-card">
       <h2><span class="mono">03</span>Fonctionnalités principales</h2>
       <ul>
         <li>Navigation à 5 onglets (Accueil, Podcasts, Direct, Recherche, Compte), écrans de détail et liens profonds.</li>
@@ -99,7 +99,7 @@
       </div>
     </section>
 
-    <section class="case-section">
+    <section class="case-section stack-card">
       <h2><span class="mono">04</span>Architecture</h2>
       <ol class="archi" aria-label="Schéma d'architecture">
         <li><button type="button" class="archi-btn" aria-controls="archi-1-1" aria-expanded="false"><strong>App Android</strong><span>Kotlin · Jetpack Compose</span></button></li>
@@ -114,7 +114,7 @@
       <p class="archi-note">S'y ajoutent Firebase Cloud Messaging pour les notifications et le flux audio du direct.</p>
     </section>
 
-    <section class="case-section">
+    <section class="case-section stack-card">
       <h2><span class="mono">05</span>Défis et solutions</h2>
       <ol class="challenges">
         <li><strong>Garder une navigation stable avec beaucoup d'écrans.</strong><p>Quand on ouvre un épisode depuis la recherche, l'onglet actif doit rester le bon. J'ai centralisé toutes les routes dans une seule énumération (<code>AppDestination</code>) et calculé l'onglet parent de chaque écran de détail.</p></li>
@@ -130,12 +130,12 @@
       </div>
     </section>
 
-    <section class="case-section">
+    <section class="case-section stack-card">
       <h2><span class="mono">06</span>Démarche</h2>
       <p>Cadrage la première semaine (recueil des besoins, choix des écrans prioritaires), maquettes, puis développement par blocs fonctionnels : écran principal, lecture audio, recherche, notifications, compte et intégration du backend. Chaque bloc était testé sur mobile avant de passer au suivant, ce qui limitait les régressions. J'ai aussi rédigé un guide de transition pour une future version iOS (SwiftUI).</p>
     </section>
 
-    <section class="case-section">
+    <section class="case-section stack-card">
       <h2><span class="mono">07</span>Ce que j'en retiens</h2>
       <div class="table-wrap">
       <table class="compare">
@@ -150,7 +150,7 @@
       <p>Ce que je retiens surtout : un livrable, ce n'est pas seulement du code, c'est un ensemble <strong>compréhensible, testable et maintenable</strong> par quelqu'un d'autre.</p>
     </section>
 
-    <section class="case-section">
+    <section class="case-section stack-card">
       <h2><span class="mono">08</span>Évolutions possibles</h2>
       <p>Publication sur le Play Store, version iOS (le guide de transition est prêt), tests automatisés de l'interface.</p>
     </section>
@@ -165,6 +165,6 @@
 <footer class="site-footer">
   <div class="wrap">Eloi Dupasquier · Portfolio BUT Informatique · 2026</div>
 </footer>
-<script src="../assets/anim.js?v=5" defer></script>
+<script src="../assets/anim.js?v=6" defer></script>
 </body>
 </html>

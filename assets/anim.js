@@ -35,25 +35,50 @@
 
   /* ---------- 2. Grille qui réagit à la souris ---------- */
   if (pointeurFin && !reduit) {
-    const lueur = document.createElement('div');
-    lueur.className = 'grid-glow';
-    lueur.setAttribute('aria-hidden', 'true');
-    document.body.prepend(lueur);
+    const cartes = document.querySelector('.stack-card');
     let x = 0, y = 0, prevu = false;
-    window.addEventListener('pointermove', (e) => {
-      x = e.clientX; y = e.clientY;
-      if (!prevu) {
+    if (cartes) {
+      // Pages en cartes : la lueur est dessinée dans la carte survolée.
+      let active = null;
+      window.addEventListener('pointermove', (e) => {
+        x = e.clientX; y = e.clientY;
+        if (prevu) return;
         prevu = true;
-        // Une seule mise à jour par image affichée, pour rester fluide.
         requestAnimationFrame(() => {
-          lueur.style.setProperty('--x', x + 'px');
-          lueur.style.setProperty('--y', y + 'px');
-          lueur.classList.add('actif');
+          const sous = document.elementFromPoint(x, y);
+          const carte = sous && sous.closest('.stack-card');
+          if (active && active !== carte) active.classList.remove('lueur');
+          if (carte) {
+            const r = carte.getBoundingClientRect();
+            carte.style.setProperty('--gx', (x - r.left) + 'px');
+            carte.style.setProperty('--gy', (y - r.top) + 'px');
+            carte.classList.add('lueur');
+          }
+          active = carte;
           prevu = false;
         });
-      }
-    }, { passive: true });
-    document.addEventListener('pointerleave', () => lueur.classList.remove('actif'));
+      }, { passive: true });
+      document.addEventListener('pointerleave', () => { if (active) active.classList.remove('lueur'); });
+    } else {
+      const lueur = document.createElement('div');
+      lueur.className = 'grid-glow';
+      lueur.setAttribute('aria-hidden', 'true');
+      document.body.prepend(lueur);
+      window.addEventListener('pointermove', (e) => {
+        x = e.clientX; y = e.clientY;
+        if (!prevu) {
+          prevu = true;
+          // Une seule mise à jour par image affichée, pour rester fluide.
+          requestAnimationFrame(() => {
+            lueur.style.setProperty('--x', x + 'px');
+            lueur.style.setProperty('--y', y + 'px');
+            lueur.classList.add('actif');
+            prevu = false;
+          });
+        }
+      }, { passive: true });
+      document.addEventListener('pointerleave', () => lueur.classList.remove('actif'));
+    }
   }
 
   /* ---------- 3. Progression de lecture + section active ---------- */
@@ -194,4 +219,57 @@
       im.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); ouvrir(); } });
     });
   }
+})();
+
+// ---------- Défilement en cartes qui s'empilent ----------
+(function () {
+  const cartes = [...document.querySelectorAll('.stack-card')];
+  if (cartes.length < 2) return;
+  const reduit = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const entete = document.querySelector('.site-header');
+  document.documentElement.classList.add('stack-on');
+  let hauts = [];
+
+  // Position de collage de chaque carte : sous l'en-tête, décalée de
+  // quelques pixels par carte (on voit la pile). Une carte plus haute que
+  // l'écran ne se colle qu'une fois son bas atteint : rien n'est caché.
+  const placer = () => {
+    const h = entete ? entete.offsetHeight : 0;
+    const ecart = window.innerWidth >= 768 ? 14 : 8;
+    hauts = cartes.map((c, i) => {
+      const t = Math.min(h + 12 + i * ecart, window.innerHeight - c.offsetHeight);
+      c.style.top = t + 'px';
+      return t;
+    });
+    empiler();
+  };
+
+  // La carte recouverte par la suivante recule et s'assombrit un peu.
+  const empiler = () => {
+    if (reduit) return;
+    cartes.forEach((c, i) => {
+      const suivante = cartes[i + 1];
+      if (!suivante) return;
+      const base = Math.max(hauts[i] || 0, 0);
+      const haut = suivante.getBoundingClientRect().top;
+      const p = Math.min(Math.max(1 - (haut - base) / (window.innerHeight - base), 0), 1);
+      c.style.transform = p > 0 ? `scale(${(1 - 0.045 * p).toFixed(4)})` : '';
+      c.style.filter = p > 0 ? `brightness(${(1 - 0.5 * p).toFixed(3)})` : '';
+      // Une carte enfouie sous deux autres n'affiche plus son contenu :
+      // on ne devine pas de texte entre les cartes de la pile.
+      const apres = cartes[i + 2];
+      c.classList.toggle('enfouie', !!apres && apres.getBoundingClientRect().top < window.innerHeight * 0.55);
+    });
+    prevu = false;
+  };
+
+  let prevu = false;
+  window.addEventListener('scroll', () => { if (!prevu) { prevu = true; requestAnimationFrame(empiler); } }, { passive: true });
+  window.addEventListener('resize', placer);
+  // Les images chargées en différé changent la hauteur des cartes.
+  if ('ResizeObserver' in window) {
+    const ro = new ResizeObserver(() => placer());
+    cartes.forEach((c) => ro.observe(c));
+  }
+  placer();
 })();

@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/style.css?v=5" />
+<link rel="stylesheet" href="../assets/style.css?v=6" />
 </head>
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
@@ -38,7 +38,7 @@
 </header>
 
 <main id="main" class="wrap">
-  <section class="case-hero">
+  <section class="case-hero stack-card">
     <a class="back" href="../index.html#projets">← Retour aux projets</a>
     <p class="label">SAE S3-S4 · projet phare</p>
     <h1>The Cooks, plateforme web d'un festival culinaire</h1>
@@ -58,7 +58,7 @@
   </section>
 
   <div class="case-body">
-    <section class="case-section">
+    <section class="case-section stack-card">
       <h2><span class="mono">01</span>Contexte</h2>
       <ul>
         <li><strong>Cadre</strong> : SAE des semestres 3 et 4, de septembre 2025 à mars 2026.</li>
@@ -67,12 +67,12 @@
       </ul>
     </section>
 
-    <section class="case-section">
+    <section class="case-section stack-card">
       <h2><span class="mono">02</span>Objectif</h2>
       <p>Fournir à un festival culinaire fictif, « The Cooks », une plateforme web complète, utilisée par le public, les prestataires (traiteurs, techniciens…), les organisateurs et les administrateurs, chacun avec ses propres droits.</p>
     </section>
 
-    <section class="case-section">
+    <section class="case-section stack-card">
       <h2><span class="mono">03</span>Fonctionnalités du projet</h2>
       <p>Billetterie et billets, carte interactive du site, paiement cashless, réservation de camping et de parking, réservation de scènes, liste et pages publiques des prestataires, messagerie avec l'organisation, statistiques, site bilingue français / anglais.</p>
       <div class="figures">
@@ -83,7 +83,7 @@
       </div>
     </section>
 
-    <section class="case-section">
+    <section class="case-section stack-card">
       <h2><span class="mono">04</span>Ma partie : l'espace prestataire</h2>
       <ul>
         <li>Tableau de bord du prestataire connecté : profil, services, réservation de scène, configuration.</li>
@@ -113,7 +113,7 @@
       <p><span class="note">Captures réalisées sur une instance locale, avec des données fictives.</span></p>
     </section>
 
-    <section class="case-section">
+    <section class="case-section stack-card">
       <h2><span class="mono">05</span>Architecture</h2>
       <ol class="archi" aria-label="Schéma d'architecture">
         <li><button type="button" class="archi-btn" aria-controls="archi-2-1" aria-expanded="false"><strong>SPA Vue 3</strong><span>Pinia · Vue Router</span></button></li>
@@ -128,7 +128,7 @@
       <p class="archi-note">Déploiement continu par GitHub Actions.</p>
     </section>
 
-    <section class="case-section">
+    <section class="case-section stack-card">
       <h2><span class="mono">06</span>Défis et solutions</h2>
       <ol class="challenges">
         <li><strong>Réserver des pages à certains rôles.</strong><p>Un visiteur pouvait ouvrir l'URL de l'espace prestataire. Chaque route déclare les rôles autorisés, le routeur les vérifie avant d'afficher la page, et l'API refuse aussi la requête : la protection ne repose pas que sur l'interface. J'ai ajouté des <strong>tests unitaires</strong> sur ces règles.</p></li>
@@ -137,7 +137,7 @@
       </ol>
     </section>
 
-    <section class="case-section">
+    <section class="case-section stack-card">
       <h2><span class="mono">07</span>Évolutions possibles</h2>
       <p>Paiement réel pour la billetterie, application mobile pour le cashless.</p>
     </section>
@@ -152,6 +152,6 @@
 <footer class="site-footer">
   <div class="wrap">Eloi Dupasquier · Portfolio BUT Informatique · 2026</div>
 </footer>
-<script src="../assets/anim.js?v=5" defer></script>
+<script src="../assets/anim.js?v=6" defer></script>
 </body>
 </html>

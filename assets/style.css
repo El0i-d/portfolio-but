@@ -581,3 +581,69 @@ main, .site-footer { position: relative; z-index: 1; }
   .js .timeline::after { transform: none; }
   .js .timeline li:not(.atteint) h3, .js .timeline li:not(.atteint) p { opacity: 1; }
 }
+
+/* =========================================================
+   Défilement en cartes qui s'empilent (assets/anim.js ajoute
+   la classe .stack-on). Sans JavaScript : défilement normal.
+   ========================================================= */
+
+.stack-on main { padding-top: 14px; }
+.stack-on .stack-card {
+  position: sticky;
+  /* « top » est calculé par anim.js : une carte plus haute que l'écran
+     ne se colle qu'une fois entièrement lue. */
+  top: 4.5rem;
+  background-color: #111d31;
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 56px 56px;
+  background-attachment: fixed;
+  border-top: 1px solid rgba(147, 166, 194, 0.22);
+  border-radius: 28px 28px 0 0;
+  box-shadow: 0 -28px 50px -28px rgba(0, 0, 0, 0.7);
+  transform-origin: 50% 0;
+}
+.stack-on .stack-card > * { position: relative; z-index: 1; }
+
+/* Accueil : chaque section devient une carte pleine largeur. */
+.stack-on .section,
+.stack-on .hero { padding-top: clamp(3.5rem, 8vw, 6rem); padding-bottom: clamp(3.5rem, 8vw, 6rem); }
+.stack-on .section:last-of-type { padding-bottom: clamp(4rem, 9vw, 7rem); }
+
+/* Fiches projets : cartes dans la colonne, coins arrondis partout. */
+.stack-on .case-hero.stack-card,
+.stack-on .case-section.stack-card {
+  max-width: none;
+  margin-top: 1.25rem;
+  padding: clamp(1.75rem, 4.5vw, 3.25rem);
+  border: 1px solid rgba(147, 166, 194, 0.18);
+  border-radius: 22px;
+}
+.stack-on .case-hero.stack-card { margin-top: clamp(1.5rem, 4vw, 2.5rem); }
+.stack-on .case-hero .back { margin-bottom: 1.5rem; }
+.stack-on .case-body { max-width: none; }
+.stack-on .case-section > :not(.figures):not(.archi):not(.table-wrap):not(figure) { max-width: var(--narrow); }
+.stack-on .figures { width: auto; }
+.stack-on .case-nav { margin-top: 3rem; }
+
+/* Lueur de la grille : dessinée dans la carte survolée. */
+.stack-card::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; border-radius: inherit;
+  background-image:
+    linear-gradient(rgba(90, 209, 232, 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(90, 209, 232, 0.35) 1px, transparent 1px);
+  background-size: 56px 56px;
+  background-attachment: fixed;
+  -webkit-mask-image: radial-gradient(220px circle at var(--gx, -999px) var(--gy, -999px), #000, transparent 70%);
+  mask-image: radial-gradient(220px circle at var(--gx, -999px) var(--gy, -999px), #000, transparent 70%);
+  opacity: 0; transition: opacity 0.4s ease;
+}
+.stack-card.lueur::before { opacity: 1; }
+
+@media (max-width: 48rem) {
+  .stack-on .stack-card { border-radius: 20px 20px 0 0; }
+  .stack-on .case-hero.stack-card, .stack-on .case-section.stack-card { border-radius: 18px; }
+}
+.stack-card > * { transition: opacity 0.3s ease; }
+.stack-card.enfouie > * { opacity: 0; }

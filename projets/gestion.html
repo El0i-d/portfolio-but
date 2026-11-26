@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/style.css?v=5" />
+<link rel="stylesheet" href="../assets/style.css?v=6" />
 </head>
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
@@ -38,7 +38,7 @@
 </header>
 
 <main id="main" class="wrap">
-  <section class="case-hero">
+  <section class="case-hero stack-card">
     <a class="back" href="../index.html#projets">← Retour aux projets</a>
     <p class="label">Projet personnel · projet phare</p>
     <h1>Gestion : une application de gestion pour indépendants</h1>
@@ -59,7 +59,7 @@
   </section>
 
   <div class="case-body">
-    <section class="case-section">
+    <section class="case-section stack-card">
       <h2><span class="mono">01</span>Contexte</h2>
       <ul>
         <li><strong>Cadre</strong> : projet personnel, depuis septembre 2026, développé seul.</li>
@@ -67,12 +67,12 @@
       </ul>
     </section>
 
-    <section class="case-section">
+    <section class="case-section stack-card">
       <h2><span class="mono">02</span>Objectif</h2>
       <p>Donner aux indépendants un outil simple pour gérer leurs prospects, clients, devis, factures et encaissements, depuis un ordinateur <strong>et</strong> un iPhone, en respectant les règles légales de facturation.</p>
     </section>
 
-    <section class="case-section">
+    <section class="case-section stack-card">
       <h2><span class="mono">03</span>Fonctionnalités principales</h2>
       <ul>
         <li>Contacts et suivi commercial (prospect → contacté → devis → gagné), relances.</li>
@@ -100,7 +100,7 @@
       <p><span class="note">Captures de la démo, données fictives.</span></p>
     </section>
 
-    <section class="case-section">
+    <section class="case-section stack-card">
       <h2><span class="mono">04</span>Architecture</h2>
       <ol class="archi" aria-label="Schéma d'architecture">
         <li><button type="button" class="archi-btn" aria-controls="archi-3-1" aria-expanded="false"><strong>Nuxt 4</strong><span>Vue 3 · TypeScript · PWA</span></button></li>
@@ -115,7 +115,7 @@
       <p class="archi-note">Conteneurs Docker (application + Gotenberg pour les PDF) derrière un reverse proxy Nginx avec HTTPS, sur un VPS Debian.</p>
     </section>
 
-    <section class="case-section">
+    <section class="case-section stack-card">
       <h2><span class="mono">05</span>Défis et solutions</h2>
       <ol class="challenges">
         <li><strong>Garantir une numérotation des factures continue et sans trou, comme l'exige la loi.</strong><p>Le numéro est attribué à l'émission, dans une transaction SQL, et un <strong>trigger SQLite</strong> empêche de modifier ou de supprimer une facture émise, même par erreur dans le code.</p></li>
@@ -126,7 +126,7 @@
       </ol>
     </section>
 
-    <section class="case-section">
+    <section class="case-section stack-card">
       <h2><span class="mono">06</span>Évolutions possibles</h2>
       <p>Facture électronique (Factur-X) avant l'obligation de septembre 2027, acceptation des devis en ligne par le client.</p>
     </section>
@@ -141,6 +141,6 @@
 <footer class="site-footer">
   <div class="wrap">Eloi Dupasquier · Portfolio BUT Informatique · 2026</div>
 </footer>
-<script src="../assets/anim.js?v=5" defer></script>
+<script src="../assets/anim.js?v=6" defer></script>
 </body>
 </html>

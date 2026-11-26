@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/style.css?v=5" />
+<link rel="stylesheet" href="../assets/style.css?v=6" />
 </head>
 <body>
 <a class="skip-link" href="#main">Aller au contenu</a>
@@ -38,7 +38,7 @@
 </header>
 
 <main id="main" class="wrap">
-  <section class="case-hero">
+  <section class="case-hero stack-card">
     <a class="back" href="../index.html#projets">← Retour aux projets</a>
     <p class="label">Projet personnel · projet phare</p>
     <h1>Lettrable : des lettres de motivation personnalisées par IA</h1>
@@ -58,7 +58,7 @@
   </section>
 
   <div class="case-body">
-    <section class="case-section">
+    <section class="case-section stack-card">
       <h2><span class="mono">01</span>Contexte</h2>
       <ul>
         <li><strong>Cadre</strong> : projet personnel, 2026, développé seul.</li>
@@ -66,12 +66,12 @@
       </ul>
     </section>
 
-    <section class="case-section">
+    <section class="case-section stack-card">
       <h2><span class="mono">02</span>Objectif</h2>
       <p>Aider les étudiants à écrire une lettre de motivation personnalisée pour chaque candidature (alternance, stage ou école), à partir de faits réels plutôt que de phrases toutes faites.</p>
     </section>
 
-    <section class="case-section">
+    <section class="case-section stack-card">
       <h2><span class="mono">03</span>Fonctionnalités principales</h2>
       <ul>
         <li>Import du CV (PDF ou Word), analysé et structuré automatiquement.</li>
@@ -99,7 +99,7 @@
       </div>
     </section>
 
-    <section class="case-section">
+    <section class="case-section stack-card">
       <h2><span class="mono">04</span>Architecture</h2>
       <ol class="archi" aria-label="Schéma d'architecture">
         <li><button type="button" class="archi-btn" aria-controls="archi-4-1" aria-expanded="false"><strong>Front Svelte</strong><span>Vite</span></button></li>
@@ -114,7 +114,7 @@
       <p class="archi-note">Supabase gère la base de données et l'authentification, Mistral génère les lettres, Stripe gère l'abonnement. L'application tourne dans un conteneur Docker sur un VPS.</p>
     </section>
 
-    <section class="case-section">
+    <section class="case-section stack-card">
       <h2><span class="mono">05</span>Défis et solutions</h2>
       <ol class="challenges">
         <li><strong>Empêcher l'IA d'inventer.</strong><p>Elle ne reçoit que des faits vérifiés (CV, offre, pages du site de l'entreprise) avec la consigne de n'utiliser que ce qui y figure. Les consignes restent sur le serveur : le navigateur n'envoie que des identifiants.</p></li>
@@ -123,7 +123,7 @@
       </ol>
     </section>
 
-    <section class="case-section">
+    <section class="case-section stack-card">
       <h2><span class="mono">06</span>Évolutions possibles</h2>
       <p>Ouverture du Pass Alternance, modèles de CV.</p>
     </section>
@@ -138,6 +138,6 @@
 <footer class="site-footer">
   <div class="wrap">Eloi Dupasquier · Portfolio BUT Informatique · 2026</div>
 </footer>
-<script src="../assets/anim.js?v=5" defer></script>
+<script src="../assets/anim.js?v=6" defer></script>
 </body>
 </html>
