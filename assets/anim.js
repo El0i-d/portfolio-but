@@ -81,7 +81,7 @@ document.documentElement.classList.add('js');
   let T = [];   // position de collage (top) de chaque carte
   let vh = window.innerHeight;
   let y = 0;
-  const dernier = cartes.map(() => ({ s: -1, o: -1, w: false }));
+  const dernier = cartes.map(() => ({ s: -1, o: -1, w: false, p: false }));
 
   // Mesure, seulement au chargement et quand une taille change.
   // Accueil : chaque carte occupe au moins l'écran (comme une diapositive).
@@ -97,7 +97,10 @@ document.documentElement.classList.add('js');
     // lire). La carte de la frise a une pause plus longue : la frise se
     // remplit pendant ce temps.
     cartes.forEach((c, i) => {
-      c.style.minHeight = pleineHauteur[i] ? (vh - (hEntete + 12 + i * pas)) + 'px' : '';
+      // Toutes les cartes occupent au moins l'écran : une carte courte
+      // recouvre entièrement la précédente (sinon on voyait dépasser les
+      // cartes du dessous). Le bas de chaque carte tombe sur le bas de l'écran.
+      c.style.minHeight = Math.max(vh - (hEntete + 12 + i * pas), 0) + 'px';
       const fraction = i === cartes.length - 1 ? 0 : c.querySelector('.timeline') ? 0.9 : pleineHauteur[i] ? 0.35 : 0.25;
       c.style.marginBottom = fraction ? Math.round(fraction * vh) + 'px' : '';
     });
@@ -142,6 +145,12 @@ document.documentElement.classList.add('js');
         const w = !REDUIT && p > 0 && p < 1;
         if (w !== dernier[i].w) { cartes[i].style.willChange = w ? 'transform' : ''; dernier[i].w = w; }
         if (o !== dernier[i].o) { voiles[i].style.opacity = o; dernier[i].o = o; }
+        // Sous trois cartes collées, elle est invisible (son bord est caché
+        // sous le voile) : on cesse de la dessiner. Sans cela, le navigateur
+        // superpose jusqu'à 8 cartes de la taille de l'écran à chaque image.
+        // L'opacité garde le texte accessible aux lecteurs d'écran.
+        const profonde = i + 3 < cartes.length && hautEcran(i + 3) <= T[i + 3] + 1;
+        if (profonde !== dernier[i].p) { cartes[i].classList.toggle('profonde', profonde); dernier[i].p = profonde; }
       }
     }
   );
