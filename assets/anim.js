@@ -291,7 +291,9 @@ document.documentElement.classList.add('js');
       p.classList.toggle('estompe', !ok);
       if (ok) n++;
     });
-    if (etat) etat.textContent = f === 'tout' ? '' : `${n} projet${n > 1 ? 's' : ''} avec ${bouton.textContent}`;
+    // Le nom des éléments filtrés vient du HTML (projets par défaut, articles sur la veille).
+    const nom = filtres.dataset.nom || 'projet', liaison = filtres.dataset.liaison || 'avec';
+    if (etat) etat.textContent = f === 'tout' ? '' : `${n} ${nom}${n > 1 ? 's' : ''} ${liaison} ${bouton.textContent}`;
   });
 })();
 

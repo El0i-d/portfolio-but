@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Passkeys : se connecter sans mot de passe — Veille, Eloi Dupasquier</title>
+<meta name="description" content="Comment fonctionnent les passkeys, pourquoi elles résistent à l'hameçonnage, et ce que j'ai appris en ajoutant Face ID à mon application Gestion." />
+<meta name="author" content="Eloi Dupasquier" />
+<meta name="theme-color" content="#0f1a2b" />
+<link rel="canonical" href="https://portfolio.edupasquier.me/veille/passkeys.html" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:title" content="Passkeys : se connecter sans mot de passe — Veille, Eloi Dupasquier" />
+<meta property="og:description" content="Comment fonctionnent les passkeys, pourquoi elles résistent à l'hameçonnage, et ce que j'ai appris en ajoutant Face ID à mon application Gestion." />
+<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+<link rel="alternate" type="application/rss+xml" title="Veille informatique — Eloi Dupasquier" href="https://portfolio.edupasquier.me/veille/feed.xml" />
+<link rel="stylesheet" href="../assets/style.css?v=12" />
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="../index.html" class="monogram" aria-label="Revenir à l'accueil du portfolio">
+      <span class="monogram-mark" aria-hidden="true">ED</span>
+      <span class="monogram-text">eloi_dupasquier</span>
+    </a>
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-principale"><svg class="nav-toggle-icone" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"/></svg><span class="nav-toggle-texte">Ouvrir le menu</span></button>
+    <nav class="nav" id="nav-principale" aria-label="Navigation principale">
+      <a href="../index.html#a-propos">À propos</a>
+      <a href="../index.html#projets">Projets</a>
+      <a href="../index.html#competences">Compétences</a>
+      <a href="../veille/" aria-current="page" class="actif">Veille</a>
+      <a href="../index.html#contact">Contact</a>
+      <a class="nav-cv" href="../cv/eloi-dupasquier-cv.pdf" download>Télécharger le CV</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <article class="billet">
+    <a class="back" href="./">← Revenir à la veille</a>
+    <p class="label">Veille · Sécurité</p>
+    <h1>Passkeys : se connecter sans mot de passe</h1>
+    <p class="billet-meta">Publié le <time datetime="2026-11-27">27 novembre 2026</time> · 2 min de lecture</p>
+    <p class="lead">Comment fonctionnent les passkeys, pourquoi elles résistent à l'hameçonnage, et ce que j'ai appris en ajoutant Face ID à mon application Gestion.</p>
+<p>Les mots de passe sont le maillon faible de la plupart des comptes : on les réutilise, on les oublie, et un faux site bien imité suffit à les voler. Les <strong>passkeys</strong> (clés d'accès) proposent de s'en passer. Je les ai intégrées à Gestion, mon application de devis et factures, pour que l'on puisse se connecter avec Face ID depuis l'iPhone.</p>
+
+<h2>Le principe : une paire de clés</h2>
+<p>Une passkey repose sur la cryptographie à clé publique, normalisée par le standard <strong>WebAuthn</strong> du W3C et par la FIDO Alliance.</p>
+<ol>
+  <li>À l'inscription, l'appareil crée une <strong>paire de clés</strong> propre au site. La clé privée reste sur l'appareil (ou dans le trousseau synchronisé : iCloud, Google, etc.). Le serveur ne reçoit que la <strong>clé publique</strong>.</li>
+  <li>À la connexion, le serveur envoie un <strong>défi</strong> : une valeur aléatoire à usage unique.</li>
+  <li>L'utilisateur se déverrouille (Face ID, empreinte, code de l'appareil) et l'appareil <strong>signe</strong> le défi avec la clé privée.</li>
+  <li>Le serveur vérifie la signature avec la clé publique enregistrée.</li>
+</ol>
+<p>Aucun secret ne transite et aucun secret n'est stocké côté serveur : si la base de données fuite, elle ne contient que des clés publiques, inutilisables pour se connecter.</p>
+
+<h2>Pourquoi l'hameçonnage ne marche plus</h2>
+<p>Chaque passkey est liée au <strong>domaine</strong> du site qui l'a créée. Le navigateur refuse de l'utiliser sur un autre domaine : un faux site qui imite parfaitement la page de connexion ne peut tout simplement pas la demander. Avec un mot de passe, c'est l'utilisateur qui doit repérer l'arnaque ; avec une passkey, c'est le navigateur qui s'en charge.</p>
+
+<h2>Ce que j'ai appris en l'intégrant</h2>
+<p>J'ai utilisé la bibliothèque <strong>SimpleWebAuthn</strong> (une partie serveur, une partie navigateur). Le principe est simple, mais quelques détails m'ont pris du temps :</p>
+<ul>
+  <li><strong>L'origine attendue.</strong> L'application tourne derrière un reverse proxy Nginx : elle reçoit les requêtes en HTTP local alors que le visiteur est en HTTPS sur <code>gestion.edupasquier.me</code>. Si l'on déduit l'origine de la requête, la vérification échoue. Il faut la fixer dans la configuration.</li>
+  <li><strong>Des défis à usage unique</strong>, qui expirent au bout de 5 minutes : sinon, une réponse interceptée pourrait être rejouée.</li>
+  <li><strong>Exiger la vérification de l'utilisateur</strong> (Face ID ou code), et pas seulement la présence de l'appareil.</li>
+  <li><strong>Garder le mot de passe en secours</strong> : si l'on perd son téléphone sans trousseau synchronisé, il faut encore pouvoir entrer.</li>
+</ul>
+
+<h2>Ce que j'en retiens</h2>
+<p>Pour l'utilisateur, c'est plus rapide et plus sûr qu'un mot de passe. Les limites sont ailleurs : la récupération de compte quand on perd tous ses appareils, le passage d'un écosystème à l'autre (Apple vers Android, par exemple) et l'explication du concept à des utilisateurs qui n'en ont jamais entendu parler. C'est pour cela que, dans Gestion, Face ID reste une option à côté du mot de passe, et non un remplacement.</p>
+    <h2>Sources</h2>
+    <ul class="billet-sources">
+      <li><a href="https://www.w3.org/TR/webauthn-2/" rel="noopener">Web Authentication (WebAuthn), spécification du W3C</a></li>
+      <li><a href="https://passkeys.dev/" rel="noopener">passkeys.dev, guide des développeurs (FIDO Alliance et W3C)</a></li>
+      <li><a href="https://simplewebauthn.dev/" rel="noopener">Documentation de SimpleWebAuthn</a></li>
+      <li><a href="../projets/gestion.html">Gestion, l'étude de cas</a></li>
+    </ul>
+  </article>
+
+  <section class="billet-lies" aria-labelledby="lies-titre">
+    <h2 class="label sub-head" id="lies-titre">À lire aussi</h2>
+    <ul class="list">
+        <li>
+          <a href="web-apps-iphone.html">
+            <span class="list-title">Web apps sur iPhone : une alternative à l'App Store ?</span>
+            <span class="list-desc">Écran d'accueil, plein écran, notifications depuis iOS 16.4 : ce qu'une web app sait faire sur iPhone, et les limites que j'ai rencontrées avec Gestion.</span>
+            <span class="list-meta"><time datetime="2026-11-27">27 novembre 2026</time> · Mobile et web · 2 min →</span>
+          </a>
+        </li>
+        <li>
+          <a href="coder-avec-une-ia.html">
+            <span class="list-title">Coder avec une IA : ce que ça change vraiment</span>
+            <span class="list-desc">J'utilise un assistant de code au quotidien. Où il me fait gagner du temps, où il peut tromper, et les règles que je me suis fixées.</span>
+            <span class="list-meta"><time datetime="2026-11-27">27 novembre 2026</time> · IA · 2 min →</span>
+          </a>
+        </li>
+    </ul>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">Eloi Dupasquier · Portfolio BUT Informatique · 2026 · <a href="feed.xml">Flux RSS de la veille</a></div>
+</footer>
+<script src="../assets/anim.js?v=12" defer></script>
+</body>
+</html>

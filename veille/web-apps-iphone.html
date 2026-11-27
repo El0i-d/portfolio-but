@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Web apps sur iPhone : une alternative à l'App Store ? — Veille, Eloi Dupasquier</title>
+<meta name="description" content="Écran d'accueil, plein écran, notifications depuis iOS 16.4 : ce qu'une web app sait faire sur iPhone, et les limites que j'ai rencontrées avec Gestion." />
+<meta name="author" content="Eloi Dupasquier" />
+<meta name="theme-color" content="#0f1a2b" />
+<link rel="canonical" href="https://portfolio.edupasquier.me/veille/web-apps-iphone.html" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:title" content="Web apps sur iPhone : une alternative à l'App Store ? — Veille, Eloi Dupasquier" />
+<meta property="og:description" content="Écran d'accueil, plein écran, notifications depuis iOS 16.4 : ce qu'une web app sait faire sur iPhone, et les limites que j'ai rencontrées avec Gestion." />
+<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+<link rel="alternate" type="application/rss+xml" title="Veille informatique — Eloi Dupasquier" href="https://portfolio.edupasquier.me/veille/feed.xml" />
+<link rel="stylesheet" href="../assets/style.css?v=12" />
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="../index.html" class="monogram" aria-label="Revenir à l'accueil du portfolio">
+      <span class="monogram-mark" aria-hidden="true">ED</span>
+      <span class="monogram-text">eloi_dupasquier</span>
+    </a>
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-principale"><svg class="nav-toggle-icone" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"/></svg><span class="nav-toggle-texte">Ouvrir le menu</span></button>
+    <nav class="nav" id="nav-principale" aria-label="Navigation principale">
+      <a href="../index.html#a-propos">À propos</a>
+      <a href="../index.html#projets">Projets</a>
+      <a href="../index.html#competences">Compétences</a>
+      <a href="../veille/" aria-current="page" class="actif">Veille</a>
+      <a href="../index.html#contact">Contact</a>
+      <a class="nav-cv" href="../cv/eloi-dupasquier-cv.pdf" download>Télécharger le CV</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <article class="billet">
+    <a class="back" href="./">← Revenir à la veille</a>
+    <p class="label">Veille · Mobile et web</p>
+    <h1>Web apps sur iPhone : une alternative à l'App Store ?</h1>
+    <p class="billet-meta">Publié le <time datetime="2026-11-27">27 novembre 2026</time> · 2 min de lecture</p>
+    <p class="lead">Écran d'accueil, plein écran, notifications depuis iOS 16.4 : ce qu'une web app sait faire sur iPhone, et les limites que j'ai rencontrées avec Gestion.</p>
+<p>Gestion devait être utilisable sur iPhone comme une vraie application. Publier sur l'App Store demande un compte développeur payant (99 € par an) et une validation d'Apple à chaque version. J'ai choisi une autre voie : une <strong>web app installable</strong> (PWA), c'est-à-dire un site qui, une fois ajouté à l'écran d'accueil, s'ouvre en plein écran comme une application.</p>
+
+<h2>Ce qui marche bien</h2>
+<ul>
+  <li><strong>L'installation</strong> : un fichier manifeste décrit le nom, les icônes et l'affichage plein écran. Depuis Safari, Partager puis « Sur l'écran d'accueil » suffit.</li>
+  <li><strong>Une seule base de code</strong> pour l'ordinateur et le téléphone, et des mises à jour immédiates, sans passer par une validation.</li>
+  <li><strong>Les notifications</strong> : depuis <strong>iOS 16.4</strong> (mars 2023), une web app ajoutée à l'écran d'accueil peut recevoir des notifications Web Push, même fermée. Gestion s'en sert chaque matin pour rappeler une facture à envoyer ou une déclaration URSSAF à faire.</li>
+</ul>
+
+<h2>Comment fonctionnent les notifications</h2>
+<p>Le navigateur s'abonne auprès du service de push de son fabricant (celui d'Apple sur iPhone) et transmet à mon serveur une adresse d'abonnement et des clés de chiffrement. Pour envoyer une notification, le serveur la <strong>chiffre</strong> pour cet appareil, la <strong>signe</strong> avec ses propres clés (VAPID) et la remet au service de push, qui la livre. Aucun compte chez un service tiers, et Apple ne peut pas lire le contenu.</p>
+<p>Deux règles d'iOS m'ont obligé à adapter l'interface : les notifications ne fonctionnent que dans l'application <strong>ajoutée à l'écran d'accueil</strong>, et l'autorisation ne peut être demandée qu'après un <strong>geste de l'utilisateur</strong> (un clic sur « Activer les notifications »), jamais au chargement de la page.</p>
+
+<h2>Les limites</h2>
+<ul>
+  <li><strong>Pas d'invite d'installation sur iPhone</strong> : contrairement à Android, Safari ne propose jamais d'installer le site. J'ai dû ajouter un petit guide pas à pas dans l'application.</li>
+  <li><strong>Pas de vitrine</strong> : sans App Store, personne ne trouve l'application par hasard.</li>
+  <li><strong>L'adresse est définitive</strong> : changer de nom de domaine oblige chaque utilisateur à réinstaller l'application et à réactiver Face ID.</li>
+  <li><strong>La dépendance à Apple</strong> : en février 2024, Apple a annoncé retirer les web apps de l'écran d'accueil dans l'Union européenne avec iOS 17.4, avant de revenir sur sa décision quelques semaines plus tard. Le web reste ouvert, mais son intégration à l'iPhone dépend des choix d'Apple.</li>
+</ul>
+
+<h2>Ce que j'en retiens</h2>
+<p>Pour un outil métier utilisé par des personnes qui savent qu'il existe, une web app suffit largement : installation simple, notifications, aucune validation à attendre. Pour une application grand public qui doit être découverte, l'App Store reste difficile à contourner.</p>
+    <h2>Sources</h2>
+    <ul class="billet-sources">
+      <li><a href="https://webkit.org/blog/13878/web-push-for-web-apps-on-ios-and-ipados/" rel="noopener">« Web Push for Web Apps on iOS and iPadOS », blog de WebKit</a></li>
+      <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Push_API" rel="noopener">API Push, documentation MDN</a></li>
+      <li><a href="https://developer.mozilla.org/fr/docs/Web/Manifest" rel="noopener">Manifeste d'application web, documentation MDN</a></li>
+      <li><a href="../projets/gestion.html">Gestion, l'étude de cas</a></li>
+    </ul>
+  </article>
+
+  <section class="billet-lies" aria-labelledby="lies-titre">
+    <h2 class="label sub-head" id="lies-titre">À lire aussi</h2>
+    <ul class="list">
+        <li>
+          <a href="passkeys.html">
+            <span class="list-title">Passkeys : se connecter sans mot de passe</span>
+            <span class="list-desc">Comment fonctionnent les passkeys, pourquoi elles résistent à l'hameçonnage, et ce que j'ai appris en ajoutant Face ID à mon application Gestion.</span>
+            <span class="list-meta"><time datetime="2026-11-27">27 novembre 2026</time> · Sécurité · 2 min →</span>
+          </a>
+        </li>
+        <li>
+          <a href="coder-avec-une-ia.html">
+            <span class="list-title">Coder avec une IA : ce que ça change vraiment</span>
+            <span class="list-desc">J'utilise un assistant de code au quotidien. Où il me fait gagner du temps, où il peut tromper, et les règles que je me suis fixées.</span>
+            <span class="list-meta"><time datetime="2026-11-27">27 novembre 2026</time> · IA · 2 min →</span>
+          </a>
+        </li>
+    </ul>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">Eloi Dupasquier · Portfolio BUT Informatique · 2026 · <a href="feed.xml">Flux RSS de la veille</a></div>
+</footer>
+<script src="../assets/anim.js?v=12" defer></script>
+</body>
+</html>
