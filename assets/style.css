@@ -749,3 +749,26 @@ main, .site-footer { position: relative; z-index: 1; }
   html:not(.js) .nav { flex-wrap: wrap; }
 }
 .nav a { min-width: 44px; justify-content: center; }
+
+/* ---------- Blog de veille (veille/) ----------
+   Index : en-tête, filtres par thème, liste d'articles, sources.
+   Article : une colonne de lecture (68 caractères), sources, articles liés. */
+.veille-hero, .billet { padding-top: clamp(2.5rem, 6vw, 4rem); }
+.veille-hero h1, .billet h1 { font-size: clamp(2rem, 6vw, 3rem); line-height: 1.15; margin: 0.5rem 0 1rem; }
+.veille-hero .lead, .billet .lead { font-size: clamp(1.1rem, 2.6vw, 1.35rem); color: var(--muted); line-height: 1.6; max-width: var(--narrow); }
+.veille-articles, .veille-sources, .billet-lies { margin-top: clamp(3rem, 7vw, 4.5rem); }
+.veille-articles .filters { margin-bottom: 1.5rem; }
+.veille-suite { margin: 1.5rem 0 0; }
+
+.billet { max-width: var(--narrow); }
+.billet-meta { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); margin: 0 0 1.5rem; }
+.billet h2 { font-size: clamp(1.25rem, 3vw, 1.5rem); margin: 2.5rem 0 1rem; }
+.billet p, .billet li { color: var(--text); }
+.billet ul, .billet ol { padding-left: 1.25rem; margin: 0 0 1rem; }
+.billet li { margin: 0 0 0.5rem; }
+.billet li::marker { color: var(--accent); }
+.billet-sources { list-style: none; padding: 0 !important; }
+.billet-sources li { margin: 0 0 0.75rem; }
+.billet-sources a { display: inline-flex; align-items: center; min-height: 44px; }
+.site-footer a { display: inline-flex; align-items: center; min-height: 44px; }
+.veille-hero .back, .billet .back { display: flex; width: fit-content; margin-bottom: 1.5rem; }

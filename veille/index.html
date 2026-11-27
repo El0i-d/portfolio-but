@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Veille informatique — Eloi Dupasquier, portfolio</title>
+<meta name="description" content="Le blog de veille d'Eloi Dupasquier, étudiant en BUT Informatique : articles sur la sécurité, le mobile et l'IA, et les sources qu'il suit." />
+<meta name="author" content="Eloi Dupasquier" />
+<meta name="theme-color" content="#0f1a2b" />
+<link rel="canonical" href="https://portfolio.edupasquier.me/veille/" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:title" content="Veille informatique — Eloi Dupasquier, portfolio" />
+<meta property="og:description" content="Le blog de veille d'Eloi Dupasquier, étudiant en BUT Informatique : articles sur la sécurité, le mobile et l'IA, et les sources qu'il suit." />
+<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+<link rel="alternate" type="application/rss+xml" title="Veille informatique — Eloi Dupasquier" href="https://portfolio.edupasquier.me/veille/feed.xml" />
+<link rel="stylesheet" href="../assets/style.css?v=12" />
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="../index.html" class="monogram" aria-label="Revenir à l'accueil du portfolio">
+      <span class="monogram-mark" aria-hidden="true">ED</span>
+      <span class="monogram-text">eloi_dupasquier</span>
+    </a>
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-principale"><svg class="nav-toggle-icone" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"/></svg><span class="nav-toggle-texte">Ouvrir le menu</span></button>
+    <nav class="nav" id="nav-principale" aria-label="Navigation principale">
+      <a href="../index.html#a-propos">À propos</a>
+      <a href="../index.html#projets">Projets</a>
+      <a href="../index.html#competences">Compétences</a>
+      <a href="../veille/" aria-current="page" class="actif">Veille</a>
+      <a href="../index.html#contact">Contact</a>
+      <a class="nav-cv" href="../cv/eloi-dupasquier-cv.pdf" download>Télécharger le CV</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <section class="veille-hero">
+    <a class="back" href="../index.html#veille">← Revenir à l'accueil</a>
+    <p class="label">Veille informatique</p>
+    <h1>Ce que je suis, ce que j'en retiens</h1>
+    <p class="lead">Des articles courts sur des sujets que j'ai rencontrés dans mes projets, écrits avec mes mots et mes sources. Suivez-les avec le <a href="feed.xml">flux RSS</a>.</p>
+  </section>
+
+  <section class="veille-articles" aria-labelledby="articles-titre">
+    <h2 class="label sub-head" id="articles-titre">Articles</h2>
+    <!-- Filtres : masqués sans JavaScript (anim.js les affiche). -->
+    <div class="filters" role="group" aria-label="Filtrer les articles par thème" data-nom="article" data-liaison="sur le thème" hidden>
+      <button type="button" data-filtre="tout" aria-pressed="true">Tout</button>
+        <button type="button" data-filtre="securite" aria-pressed="false">Sécurité</button>
+        <button type="button" data-filtre="mobile" aria-pressed="false">Mobile et web</button>
+        <button type="button" data-filtre="ia" aria-pressed="false">IA</button>
+      <span class="filters-status" role="status" aria-live="polite"></span>
+    </div>
+    <ul class="list">
+        <li data-tech="securite">
+          <a href="passkeys.html">
+            <span class="list-title">Passkeys : se connecter sans mot de passe</span>
+            <span class="list-desc">Comment fonctionnent les passkeys, pourquoi elles résistent à l'hameçonnage, et ce que j'ai appris en ajoutant Face ID à mon application Gestion.</span>
+            <span class="list-meta"><time datetime="2026-11-27">27 novembre 2026</time> · Sécurité · 2 min →</span>
+          </a>
+        </li>
+        <li data-tech="mobile">
+          <a href="web-apps-iphone.html">
+            <span class="list-title">Web apps sur iPhone : une alternative à l'App Store ?</span>
+            <span class="list-desc">Écran d'accueil, plein écran, notifications depuis iOS 16.4 : ce qu'une web app sait faire sur iPhone, et les limites que j'ai rencontrées avec Gestion.</span>
+            <span class="list-meta"><time datetime="2026-11-27">27 novembre 2026</time> · Mobile et web · 2 min →</span>
+          </a>
+        </li>
+        <li data-tech="ia">
+          <a href="coder-avec-une-ia.html">
+            <span class="list-title">Coder avec une IA : ce que ça change vraiment</span>
+            <span class="list-desc">J'utilise un assistant de code au quotidien. Où il me fait gagner du temps, où il peut tromper, et les règles que je me suis fixées.</span>
+            <span class="list-meta"><time datetime="2026-11-27">27 novembre 2026</time> · IA · 2 min →</span>
+          </a>
+        </li>
+    </ul>
+  </section>
+
+  <section class="veille-sources" aria-labelledby="sources-titre">
+    <h2 class="label sub-head" id="sources-titre">Mes sources</h2>
+    <div class="cols">
+      <div>
+        <h3>Vidéos</h3>
+        <ul>
+          <li><strong>Grafikart</strong> (FR) : développement web, Vue, PHP</li>
+          <li><strong>Fireship</strong> (EN) : l'actualité du développement en format court</li>
+          <li><strong>Underscore_</strong> (FR) : actualité tech et IA</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Sites et newsletters</h3>
+        <ul>
+          <li><strong>Le Journal du Hacker</strong> et <strong>Hacker News</strong> : articles du moment</li>
+          <li><strong>JavaScript Weekly</strong> : l'écosystème JavaScript</li>
+          <li><strong>Android Developers Blog</strong> et <strong>blog de Vue.js</strong> : nouveautés de Kotlin, Compose, Vue et Nuxt</li>
+          <li><strong>CERT-FR</strong> : alertes de sécurité de l'ANSSI</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Sujets suivis</h3>
+        <ul>
+          <li><strong>L'IA générative</strong> dans les outils de développement</li>
+          <li><strong>La facturation électronique obligatoire</strong> (réforme 2026-2027), suivie pour le projet Gestion</li>
+          <li><strong>Les nouveautés</strong> de Vue / Nuxt et de Kotlin</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">Eloi Dupasquier · Portfolio BUT Informatique · 2026 · <a href="feed.xml">Flux RSS de la veille</a></div>
+</footer>
+<script src="../assets/anim.js?v=12" defer></script>
+</body>
+</html>

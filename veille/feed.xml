@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Veille informatique — Eloi Dupasquier</title>
+  <link>https://portfolio.edupasquier.me/veille/</link>
+  <atom:link href="https://portfolio.edupasquier.me/veille/feed.xml" rel="self" type="application/rss+xml" />
+  <description>Articles de veille d'un étudiant en BUT Informatique : sécurité, mobile, IA.</description>
+  <language>fr-FR</language>
+  <item>
+    <title>Passkeys : se connecter sans mot de passe</title>
+    <link>https://portfolio.edupasquier.me/veille/passkeys.html</link>
+    <guid>https://portfolio.edupasquier.me/veille/passkeys.html</guid>
+    <pubDate>Fri, 27 Nov 2026 12:00:00 +0000</pubDate>
+    <category>Sécurité</category>
+    <description>Comment fonctionnent les passkeys, pourquoi elles résistent à l'hameçonnage, et ce que j'ai appris en ajoutant Face ID à mon application Gestion.</description>
+  </item>
+  <item>
+    <title>Web apps sur iPhone : une alternative à l'App Store ?</title>
+    <link>https://portfolio.edupasquier.me/veille/web-apps-iphone.html</link>
+    <guid>https://portfolio.edupasquier.me/veille/web-apps-iphone.html</guid>
+    <pubDate>Fri, 27 Nov 2026 12:00:00 +0000</pubDate>
+    <category>Mobile et web</category>
+    <description>Écran d'accueil, plein écran, notifications depuis iOS 16.4 : ce qu'une web app sait faire sur iPhone, et les limites que j'ai rencontrées avec Gestion.</description>
+  </item>
+  <item>
+    <title>Coder avec une IA : ce que ça change vraiment</title>
+    <link>https://portfolio.edupasquier.me/veille/coder-avec-une-ia.html</link>
+    <guid>https://portfolio.edupasquier.me/veille/coder-avec-une-ia.html</guid>
+    <pubDate>Fri, 27 Nov 2026 12:00:00 +0000</pubDate>
+    <category>IA</category>
+    <description>J'utilise un assistant de code au quotidien. Où il me fait gagner du temps, où il peut tromper, et les règles que je me suis fixées.</description>
+  </item>
+</channel>
+</rss>

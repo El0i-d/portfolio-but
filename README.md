@@ -41,6 +41,30 @@ Chrome → Imprimer → « Enregistrer au format PDF », format A4, marges
 « Aucune », « Graphiques d'arrière-plan » coché. Le fichier doit tenir sur
 une page.
 
+## Blog de veille (`veille/`)
+
+Une page par article (`veille/<nom>.html`), la liste dans `veille/index.html`,
+les 3 derniers articles dans la section Veille de `index.html` et le flux
+RSS `veille/feed.xml`.
+
+Publier un article :
+
+1. Copier un article existant (ex. `veille/passkeys.html`) sous un nouveau
+   nom, puis changer le titre, la description (`<title>`, `description`,
+   `og:*`, `canonical`), le thème, la date, le temps de lecture (≈ 200 mots
+   par minute), le texte et les sources.
+2. `veille/index.html` : ajouter une entrée `<li data-tech="theme">` **en
+   haut** de la liste des articles (thèmes : `securite`, `mobile`, `ia` ;
+   pour un nouveau thème, ajouter aussi son bouton de filtre).
+3. `index.html`, section Veille : mettre l'article en haut des « Derniers
+   articles » et retirer le plus ancien (3 au maximum, sans `data-tech`).
+4. Dans les autres articles, mettre à jour « À lire aussi » si besoin.
+5. `veille/feed.xml` : ajouter un `<item>` en haut (date au format
+   `Fri, 27 Nov 2026 12:00:00 +0000`), puis `sitemap.xml`.
+
+Le cours le rappelle : peu importe la fréquence, l'important est que les
+textes soient originaux et écrits avec ses propres mots.
+
 ## Polices
 
 Inter et JetBrains Mono (licence SIL OFL) sont hébergées dans
