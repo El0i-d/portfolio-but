@@ -627,6 +627,9 @@ main, .site-footer { position: relative; z-index: 1; }
 
 /* Voile d'assombrissement : on change seulement son opacité (très peu
    coûteux), au lieu d'un filtre qui repeindrait toute la carte. */
+/* Carte enfouie sous trois autres : plus dessinée (anim.js), sauf si on y
+   arrive au clavier. */
+.stack-card.profonde:not(:focus-within) { opacity: 0; }
 .carte-voile {
   position: absolute !important; inset: 0; z-index: 3 !important; pointer-events: none;
   border-radius: inherit; background: #070d18; opacity: 0; will-change: opacity;
@@ -649,7 +652,8 @@ main, .site-footer { position: relative; z-index: 1; }
 .stack-on .case-hero.stack-card { margin-top: clamp(1.5rem, 4vw, 2.5rem); }
 .stack-on .case-hero .back { margin-bottom: 1.5rem; }
 .stack-on .case-body { max-width: none; }
-.stack-on .case-section > :not(.figures):not(.archi):not(.table-wrap):not(figure) { max-width: var(--narrow); }
+/* Le voile et la lueur couvrent toute la carte : pas de largeur de lecture pour eux. */
+.stack-on .case-section > :not(.figures):not(.archi):not(.table-wrap):not(figure):not(.carte-voile):not(.carte-lueur) { max-width: var(--narrow); }
 .stack-on .figures { width: auto; }
 .stack-on .case-nav { margin-top: 3rem; }
 
